@@ -8,6 +8,7 @@ import numpy as np
 from sklearn.cluster import DBSCAN
 from sklearn import metrics
 from sklearn.decomposition import PCA
+from sklearn import tree
 # Misc
 import time
 import copy
@@ -16,6 +17,7 @@ verbose = False
 
 def main(prefix, f_ext, img_list, r,g,b, out_prefix):
     t_DBSCAN, t_PCA, t_draw = 0, 0, 0
+    clf = DTColor()
     for idx in img_list:
         t_start = time.clock()
         fname = prefix + idx + f_ext
@@ -29,9 +31,9 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
         for i in range(h):
             for j in range(w):
                 too_red = img[i][j][2]>180
-                dark_red = (img[i][j][2]>140 and img[i][j][0]<50 and img[i][j][1]<80)
-                too_bright = int(img[i][j][0])+int(img[i][j][1])+int(img[i][j][2]) > 450
-                if too_red or dark_red or too_bright:
+                # dark_red = (img[i][j][2]>140 and img[i][j][0]<50 and img[i][j][1]<80)
+                # too_bright = int(img[i][j][0])+int(img[i][j][1])+int(img[i][j][2]) > 450
+                if too_red or clf.predict([img[i][j]])[0]==0:
                     mask[i][j][0], mask[i][j][1], mask[i][j][2] = 255, 255, 255
                 else:
                     data.append([i,j])
@@ -110,6 +112,27 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
     print('Avg time: DBSCAN {:f}s / PCA {:f}s / draw {:f}s'.format(t_DBSCAN/num_img, t_PCA/num_img, t_draw/num_img))
     return
 
+def DTColor():
+    fgood = open('color_good', 'r')
+    goodColors = []
+    for line in fgood.readlines():
+        colors = map(int, line.replace('\n', '').split(' '))
+        goodColors.append(colors)
+    fgood.close()
+
+    fbad = open('color_bad', 'r')
+    badColors = []
+    for line in fbad.readlines():
+        colors = map(int, line.replace('\n', '').split(' '))
+        badColors.append(colors)
+    fbad.close()
+
+    labels = [1]*len(goodColors) + [0]*len(badColors)
+
+    clf = tree.DecisionTreeClassifier()
+    clf.fit(goodColors+badColors, labels)
+    return clf
+
 
 def nugent(lacto, gardner, others):
     score = 0
@@ -129,7 +152,7 @@ def nugent(lacto, gardner, others):
         score = score + 3
     elif gardner > 1:
         score = score + 2
-    elif garnder == 1:
+    elif gardner == 1:
         score = score + 1
     # TODO: Others: curved rods vs coccus
    
@@ -145,6 +168,6 @@ for i in range(1, 32):
     img_list.append('{:02d}'.format(i))
 r, g, b = 180, 255, 255
 # out_prefix = 'mask-{:d}-{:d}-{:d}/'.format(r,g,b)
-out_prefix = 'dbscan/trial2/'
+out_prefix = 'dbscan/trial3/'
 
 main(prefix, f_ext, img_list, r,g,b, out_prefix)
