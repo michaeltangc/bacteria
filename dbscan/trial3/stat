@@ -1,94 +1,94 @@
 
 Mar3/5_90001.JPG
-dbscan/trial3/img01.jpg: BV(score=7): lacto: 0 / gardner: 6 / others: 2
+dbscan/trial3/img01.jpg: Interm(score=6): lacto: 1 / gardner: 7 / others: 2
 
 Mar3/5_90002.JPG
-dbscan/trial3/img02.jpg: Interm(score=5): lacto: 0 / gardner: 1 / others: 0
+dbscan/trial3/img02.jpg: Interm(score=4): lacto: 0 / gardner: 0 / others: 1
 
 Mar3/5_90003.JPG
-dbscan/trial3/img03.jpg: Interm(score=5): lacto: 0 / gardner: 1 / others: 0
+dbscan/trial3/img03.jpg: Interm(score=6): lacto: 0 / gardner: 3 / others: 1
 
 Mar3/5_90004.JPG
-dbscan/trial3/img04.jpg: Interm(score=6): lacto: 0 / gardner: 2 / others: 0
+dbscan/trial3/img04.jpg: Interm(score=4): lacto: 6 / gardner: 21 / others: 6
 
 Mar3/5_90005.JPG
-dbscan/trial3/img05.jpg: Interm(score=4): lacto: 0 / gardner: 0 / others: 0
+dbscan/trial3/img05.jpg: Interm(score=4): lacto: 6 / gardner: 6 / others: 2
 
 Mar3/5_90006.JPG
-dbscan/trial3/img06.jpg: Interm(score=5): lacto: 2 / gardner: 6 / others: 3
+dbscan/trial3/img06.jpg: Interm(score=5): lacto: 2 / gardner: 12 / others: 2
 
 Mar3/5_90007.JPG
-dbscan/trial3/img07.jpg: BV(score=7): lacto: 0 / gardner: 5 / others: 17
+dbscan/trial3/img07.jpg: Interm(score=4): lacto: 4 / gardner: 2 / others: 3
 
 Mar3/5_90008.JPG
-dbscan/trial3/img08.jpg: BV(score=7): lacto: 0 / gardner: 7 / others: 2
+dbscan/trial3/img08.jpg: BV(score=7): lacto: 0 / gardner: 8 / others: 2
 
 Mar3/5_90009.JPG
-dbscan/trial3/img09.jpg: BV(score=7): lacto: 0 / gardner: 6 / others: 0
+dbscan/trial3/img09.jpg: Interm(score=6): lacto: 1 / gardner: 19 / others: 6
 
 Mar3/5_90010.JPG
-dbscan/trial3/img10.jpg: BV(score=7): lacto: 1 / gardner: 31 / others: 16
+dbscan/trial3/img10.jpg: BV(score=7): lacto: 1 / gardner: 56 / others: 14
 
 Mar3/5_90011.JPG
-dbscan/trial3/img11.jpg: BV(score=7): lacto: 0 / gardner: 19 / others: 25
+dbscan/trial3/img11.jpg: Interm(score=6): lacto: 2 / gardner: 67 / others: 14
 
 Mar3/5_90012.JPG
-dbscan/trial3/img12.jpg: BV(score=8): lacto: 0 / gardner: 79 / others: 127
+dbscan/trial3/img12.jpg: Interm(score=6): lacto: 2 / gardner: 37 / others: 7
 
 Mar3/5_90013.JPG
-dbscan/trial3/img13.jpg: Interm(score=6): lacto: 1 / gardner: 11 / others: 9
+dbscan/trial3/img13.jpg: BV(score=7): lacto: 0 / gardner: 6 / others: 5
 
 Mar3/5_90014.JPG
 dbscan/trial3/img14.jpg: Interm(score=6): lacto: 0 / gardner: 3 / others: 1
 
 Mar3/5_90015.JPG
-dbscan/trial3/img15.jpg: BV(score=8): lacto: 0 / gardner: 31 / others: 23
+dbscan/trial3/img15.jpg: BV(score=8): lacto: 0 / gardner: 36 / others: 13
 
 Mar3/5_90016.JPG
-dbscan/trial3/img16.jpg: Interm(score=6): lacto: 1 / gardner: 26 / others: 6
+dbscan/trial3/img16.jpg: Interm(score=4): lacto: 13 / gardner: 13 / others: 1
 
 Mar3/5_90017.JPG
-dbscan/trial3/img17.jpg: Interm(score=5): lacto: 4 / gardner: 18 / others: 8
+dbscan/trial3/img17.jpg: Interm(score=4): lacto: 12 / gardner: 17 / others: 1
 
 Mar3/5_90018.JPG
-dbscan/trial3/img18.jpg: Interm(score=6): lacto: 3 / gardner: 65 / others: 45
+dbscan/trial3/img18.jpg: Interm(score=4): lacto: 7 / gardner: 22 / others: 4
 
 Mar3/5_90019.JPG
-dbscan/trial3/img19.jpg: Interm(score=5): lacto: 5 / gardner: 88 / others: 72
+dbscan/trial3/img19.jpg: BV(score=8): lacto: 0 / gardner: 43 / others: 21
 
 Mar3/5_90020.JPG
-dbscan/trial3/img20.jpg: Interm(score=6): lacto: 3 / gardner: 187 / others: 250
+dbscan/trial3/img20.jpg: BV(score=7): lacto: 0 / gardner: 12 / others: 5
 
 Mar3/5_90021.JPG
-dbscan/trial3/img21.jpg: Interm(score=5): lacto: 25 / gardner: 291 / others: 305
+dbscan/trial3/img21.jpg: Interm(score=5): lacto: 21 / gardner: 149 / others: 46
 
 Mar3/5_90022.JPG
-dbscan/trial3/img22.jpg: Interm(score=5): lacto: 17 / gardner: 290 / others: 126
+dbscan/trial3/img22.jpg: Interm(score=4): lacto: 40 / gardner: 360 / others: 139
 
 Mar3/5_90023.JPG
-dbscan/trial3/img23.jpg: Interm(score=6): lacto: 4 / gardner: 65 / others: 38
+dbscan/trial3/img23.jpg: Interm(score=4): lacto: 31 / gardner: 83 / others: 14
 
 Mar3/5_90024.JPG
-dbscan/trial3/img24.jpg: BV(score=7): lacto: 0 / gardner: 9 / others: 7
+dbscan/trial3/img24.jpg: BV(score=7): lacto: 0 / gardner: 16 / others: 9
 
 Mar3/5_90025.JPG
-dbscan/trial3/img25.jpg: Interm(score=4): lacto: 0 / gardner: 0 / others: 0
+dbscan/trial3/img25.jpg: Interm(score=6): lacto: 0 / gardner: 2 / others: 1
 
 Mar3/5_90026.JPG
-dbscan/trial3/img26.jpg: BV(score=8): lacto: 0 / gardner: 113 / others: 74
+dbscan/trial3/img26.jpg: Interm(score=6): lacto: 3 / gardner: 829 / others: 345
 
 Mar3/5_90027.JPG
-dbscan/trial3/img27.jpg: Interm(score=6): lacto: 0 / gardner: 3 / others: 4
+dbscan/trial3/img27.jpg: BV(score=8): lacto: 0 / gardner: 70 / others: 33
 
 Mar3/5_90028.JPG
-dbscan/trial3/img28.jpg: BV(score=8): lacto: 0 / gardner: 74 / others: 27
+dbscan/trial3/img28.jpg: BV(score=8): lacto: 0 / gardner: 495 / others: 84
 
 Mar3/5_90029.JPG
-dbscan/trial3/img29.jpg: BV(score=8): lacto: 0 / gardner: 88 / others: 32
+dbscan/trial3/img29.jpg: BV(score=8): lacto: 0 / gardner: 43 / others: 30
 
 Mar3/5_90030.JPG
-dbscan/trial3/img30.jpg: BV(score=8): lacto: 0 / gardner: 37 / others: 22
+dbscan/trial3/img30.jpg: BV(score=8): lacto: 0 / gardner: 76 / others: 23
 
 Mar3/5_90031.JPG
-dbscan/trial3/img31.jpg: BV(score=7): lacto: 0 / gardner: 5 / others: 4
-Avg time: DBSCAN 1.031793s / PCA 0.150121s / draw 78.209956s
+dbscan/trial3/img31.jpg: BV(score=8): lacto: 0 / gardner: 102 / others: 67
+Avg time: DBSCAN 0.687098s / PCA 0.209957s / draw 88.019856s
