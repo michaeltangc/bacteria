@@ -1,0 +1,98 @@
+Criteria:
+too_red = img[i][j][2]>180
+dark_red = (img[i][j][2]>140 and img[i][j][0]<50 and img[i][j][1]<80)
+too_bright = int(img[i][j][0])+int(img[i][j][1])+int(img[i][j][2]) > 450
+
+Mar3/5_90001.JPG
+dbscan/trial2/img01.jpg: Interm(score=6): lacto: 1 / gardner: 17 / others: 4
+
+Mar3/5_90002.JPG
+dbscan/trial2/img02.jpg: Interm(score=6): lacto: 0 / gardner: 4 / others: 2
+
+Mar3/5_90003.JPG
+dbscan/trial2/img03.jpg: BV(score=7): lacto: 0 / gardner: 9 / others: 1
+
+Mar3/5_90004.JPG
+dbscan/trial2/img04.jpg: Interm(score=5): lacto: 9 / gardner: 40 / others: 2
+
+Mar3/5_90005.JPG
+dbscan/trial2/img05.jpg: Interm(score=4): lacto: 8 / gardner: 8 / others: 0
+
+Mar3/5_90006.JPG
+dbscan/trial2/img06.jpg: Interm(score=6): lacto: 1 / gardner: 12 / others: 4
+
+Mar3/5_90007.JPG
+dbscan/trial2/img07.jpg: Interm(score=5): lacto: 4 / gardner: 14 / others: 20
+
+Mar3/5_90008.JPG
+dbscan/trial2/img08.jpg: Interm(score=6): lacto: 1 / gardner: 10 / others: 3
+
+Mar3/5_90009.JPG
+dbscan/trial2/img09.jpg: Interm(score=6): lacto: 1 / gardner: 27 / others: 4
+
+Mar3/5_90010.JPG
+dbscan/trial2/img10.jpg: BV(score=7): lacto: 1 / gardner: 50 / others: 12
+
+Mar3/5_90011.JPG
+dbscan/trial2/img11.jpg: Interm(score=6): lacto: 3 / gardner: 81 / others: 43
+
+Mar3/5_90012.JPG
+dbscan/trial2/img12.jpg: Interm(score=6): lacto: 3 / gardner: 112 / others: 119
+
+Mar3/5_90013.JPG
+dbscan/trial2/img13.jpg: Interm(score=6): lacto: 1 / gardner: 18 / others: 14
+
+Mar3/5_90014.JPG
+dbscan/trial2/img14.jpg: Interm(score=5): lacto: 2 / gardner: 20 / others: 3
+
+Mar3/5_90015.JPG
+dbscan/trial2/img15.jpg: BV(score=7): lacto: 1 / gardner: 39 / others: 23
+
+Mar3/5_90016.JPG
+dbscan/trial2/img16.jpg: Interm(score=5): lacto: 9 / gardner: 32 / others: 9
+
+Mar3/5_90017.JPG
+dbscan/trial2/img17.jpg: Interm(score=4): lacto: 11 / gardner: 30 / others: 18
+
+Mar3/5_90018.JPG
+dbscan/trial2/img18.jpg: Interm(score=5): lacto: 9 / gardner: 80 / others: 48
+
+Mar3/5_90019.JPG
+dbscan/trial2/img19.jpg: Interm(score=6): lacto: 2 / gardner: 108 / others: 95
+
+Mar3/5_90020.JPG
+dbscan/trial2/img20.jpg: Interm(score=6): lacto: 4 / gardner: 173 / others: 191
+
+Mar3/5_90021.JPG
+dbscan/trial2/img21.jpg: Interm(score=5): lacto: 17 / gardner: 266 / others: 263
+
+Mar3/5_90022.JPG
+dbscan/trial2/img22.jpg: Interm(score=5): lacto: 24 / gardner: 348 / others: 130
+
+Mar3/5_90023.JPG
+dbscan/trial2/img23.jpg: Interm(score=5): lacto: 26 / gardner: 167 / others: 60
+
+Mar3/5_90024.JPG
+dbscan/trial2/img24.jpg: Interm(score=6): lacto: 1 / gardner: 28 / others: 17
+
+Mar3/5_90025.JPG
+dbscan/trial2/img25.jpg: BV(score=7): lacto: 0 / gardner: 16 / others: 4
+
+Mar3/5_90026.JPG
+dbscan/trial2/img26.jpg: Interm(score=6): lacto: 2 / gardner: 404 / others: 175
+
+Mar3/5_90027.JPG
+dbscan/trial2/img27.jpg: BV(score=8): lacto: 0 / gardner: 163 / others: 37
+
+Mar3/5_90028.JPG
+dbscan/trial2/img28.jpg: BV(score=7): lacto: 1 / gardner: 250 / others: 57
+
+Mar3/5_90029.JPG
+dbscan/trial2/img29.jpg: Interm(score=6): lacto: 2 / gardner: 110 / others: 51
+
+Mar3/5_90030.JPG
+dbscan/trial2/img30.jpg: BV(score=8): lacto: 0 / gardner: 106 / others: 32
+
+Mar3/5_90031.JPG
+dbscan/trial2/img31.jpg: BV(score=7): lacto: 1 / gardner: 217 / others: 63
+Avg time: DBSCAN 6.488705s / PCA 0.270030s / draw 34.615141s

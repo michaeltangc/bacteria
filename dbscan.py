@@ -15,6 +15,7 @@ import copy
 verbose = False
 
 def main(prefix, f_ext, img_list, r,g,b, out_prefix):
+    t_DBSCAN, t_PCA, t_draw = 0, 0, 0
     for idx in img_list:
         t_start = time.clock()
         fname = prefix + idx + f_ext
@@ -24,20 +25,19 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
         
         # Form a set of data points
         data = []
-        mask = copy(img)
+        mask = copy.copy(img)
         for i in range(h):
             for j in range(w):
-                too_red = img[i][j][2]>r
-                dark_red = (img[i][j][2]>140 and img[i][j][0]<30 and img[i][j][1]<70)
-                too_bright = int(img[i][j][0])+int(img[i][j][1])+int(img[i][j][2]) > 480
+                too_red = img[i][j][2]>180
+                dark_red = (img[i][j][2]>140 and img[i][j][0]<50 and img[i][j][1]<80)
+                too_bright = int(img[i][j][0])+int(img[i][j][1])+int(img[i][j][2]) > 450
                 if too_red or dark_red or too_bright:
                     mask[i][j][0], mask[i][j][1], mask[i][j][2] = 255, 255, 255
                 else:
                     data.append([i,j])
-        outMask = out_prefix + 'mask'+idx+'.jpg'
-        cv2.imwrite(outMask, mask)
     
         # DBSCAN
+        tmp = time.clock()
         data_array = np.array(data)
         db = DBSCAN(eps=5, min_samples=50, metric='euclidean').fit(data_array)
         labels = db.labels_
@@ -46,8 +46,10 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
             print('# total pixels: ' + str(len(data)))
             print('# of clusters: ' + str(n_clusters))
             print('# of core samples: ' + str(len(set(db.core_sample_indices_))) )
+        t_DBSCAN = t_DBSCAN + time.clock() - tmp
 
         # PCA
+        tmp = time.clock()
         clusters = [data_array[labels==i] for i in xrange(n_clusters)]
         centers = []
         vars = []
@@ -64,16 +66,21 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
             ratios.append([ratio1, ratio2])
             if verbose:
                 print('#{:d} (size={:d}): center=({:f}, {:f}) / var=({:f}, {:f}) /  ratio=({:f}, {:f})'.format(i, size, avg_i, avg_j, var1, var2, ratio1, ratio2))
+        t_PCA = t_PCA + time.clock() - tmp
 
         # Mark on the original image + count results
+        t_draw = time.clock()
         # 1. mark clusters by green dots
         for [ci,cj] in centers:
             for i in range(max(0, int(ci-5)), min(h, int(ci+5))):
                 for j in range(max(0, int(cj-5)), min(w, int(cj+5))):
                     img[i][j][0], img[i][j][1], img[i][j][2] = 0,255,0
+                    mask[i][j][0], mask[i][j][1], mask[i][j][2] = 0,255,0
         # 2. add texts showing PCA variances + count results
         img_draw = Image.fromarray(img[:,:,[2,1,0]]) # Note: rearrange color channels: BGR -> RGB
-        draw = ImageDraw.Draw(img_draw, mode='RGB')
+        draw_img = ImageDraw.Draw(img_draw, mode='RGB')
+        mask_draw = Image.fromarray(mask[:,:,[2,1,0]])
+        draw_mask = ImageDraw.Draw(mask_draw, mode='RGB')
         lacto, gardner, others = 0, 0, 0
         typ = 'Others'
         for i in range(n_clusters):
@@ -85,15 +92,23 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
                 typ = 'Gardner'
             else:
                 others = others + 1 # e.g. coccus
-            draw.text((int(centers[i][1]), int(centers[i][0])), "{:s}: ({:f}, {:f}) / ({:f}, {:f})".format(typ, vars[i][0], vars[i][1], ratios[i][0], ratios[i][1]), fill=(0,0,0))
+            txt = "{:s}: {:f} / {:f}".format(typ, vars[i][0], ratios[i][0])
+            draw_img.text((int(centers[i][1]), int(centers[i][0])), txt, fill=(0,0,0))
+            draw_mask.text((int(centers[i][1]), int(centers[i][0])), txt, fill=(0,0,0))
         # 3. write to file
-        outResult = out_prefix + 'result'+idx+'.jpg'
-        img_draw.save(outResult)
-        
+        outImg = out_prefix + 'img'+idx+'.jpg'
+        img_draw.save(outImg)
+        outMask = out_prefix + 'mask'+idx+'.jpg'
+        mask_draw.save(outMask)
+        t_draw = t_draw + time.clock() - tmp
+
         # Show results on the terminal
         score, condition = nugent(lacto, gardner, others)
-        print(outfile + ': {:s}(score={:d}): lacto: {:d} / gardner: {:d} / others: {:d}'.format(condition, score, lacto, gardner, others))
+        print(outImg + ': {:s}(score={:d}): lacto: {:d} / gardner: {:d} / others: {:d}'.format(condition, score, lacto, gardner, others))
         if verbose: print(time.clock()-t_start)
+    num_img = len(img_list)
+    print('Avg time: DBSCAN {:f}s / PCA {:f}s / draw {:f}s'.format(t_DBSCAN/num_img, t_PCA/num_img, t_draw/num_img))
+    return
 
 
 def nugent(lacto, gardner, others):
@@ -130,6 +145,6 @@ for i in range(1, 32):
     img_list.append('{:02d}'.format(i))
 r, g, b = 180, 255, 255
 # out_prefix = 'mask-{:d}-{:d}-{:d}/'.format(r,g,b)
-out_prefix = 'dbscan/'
+out_prefix = 'dbscan/trial2/'
 
 main(prefix, f_ext, img_list, r,g,b, out_prefix)
