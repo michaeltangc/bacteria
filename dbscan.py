@@ -10,6 +10,7 @@ from sklearn import metrics
 from sklearn.decomposition import PCA
 # Misc
 import time
+import copy
 
 verbose = False
 
@@ -23,13 +24,18 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
         
         # Form a set of data points
         data = []
+        mask = copy(img)
         for i in range(h):
             for j in range(w):
                 too_red = img[i][j][2]>r
                 dark_red = (img[i][j][2]>140 and img[i][j][0]<30 and img[i][j][1]<70)
                 too_bright = int(img[i][j][0])+int(img[i][j][1])+int(img[i][j][2]) > 480
-                if not(too_red or dark_red or too_bright):
+                if too_red or dark_red or too_bright:
+                    mask[i][j][0], mask[i][j][1], mask[i][j][2] = 255, 255, 255
+                else:
                     data.append([i,j])
+        outMask = out_prefix + 'mask'+idx+'.jpg'
+        cv2.imwrite(outMask, mask)
     
         # DBSCAN
         data_array = np.array(data)
@@ -69,17 +75,20 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
         img_draw = Image.fromarray(img[:,:,[2,1,0]]) # Note: rearrange color channels: BGR -> RGB
         draw = ImageDraw.Draw(img_draw, mode='RGB')
         lacto, gardner, others = 0, 0, 0
+        typ = 'Others'
         for i in range(n_clusters):
-            draw.text((int(centers[i][1]), int(centers[i][0])), "({:d}, {:d}): ({:f}, {:f}) / ({:f}, {:f})".format(int(centers[i][0]), int(centers[i][1]), vars[i][0], vars[i][1], ratios[i][0], ratios[i][1]), fill=(0,0,0))
             if vars[i][0] > 200 and ratios[i][0] > 0.95:
                 lacto = lacto + 1
+                typ = 'Lacto'
             elif ratios[i][0] > 0.7: # rod shape
                 gardner = gardner + 1
+                typ = 'Gardner'
             else:
                 others = others + 1 # e.g. coccus
+            draw.text((int(centers[i][1]), int(centers[i][0])), "{:s}: ({:f}, {:f}) / ({:f}, {:f})".format(typ, vars[i][0], vars[i][1], ratios[i][0], ratios[i][1]), fill=(0,0,0))
         # 3. write to file
-        outfile = out_prefix + 'mask'+idx+'_text.jpg'
-        img_draw.save(outfile)
+        outResult = out_prefix + 'result'+idx+'.jpg'
+        img_draw.save(outResult)
         
         # Show results on the terminal
         score, condition = nugent(lacto, gardner, others)

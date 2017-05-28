@@ -4,7 +4,8 @@ import time
 
 prefix = 'Mar3/5_900'
 f_ext = '.JPG'
-img_list = ['01', '04', '05', '06', '17', '21', '22', '27']
+#img_list = ['01', '04', '05', '06', '17', '21', '22', '27']
+img_list = ['14', '15']
 r, g, b = 180, 255, 255
 # out_prefix = 'mask-{:d}-{:d}-{:d}/'.format(r,g,b)
 out_prefix = 'mask-r180-r140g70b30-sum480/'
