@@ -33,7 +33,7 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
                 too_red = img[i][j][2]>180
                 # dark_red = (img[i][j][2]>140 and img[i][j][0]<50 and img[i][j][1]<80)
                 # too_bright = int(img[i][j][0])+int(img[i][j][1])+int(img[i][j][2]) > 450
-                if too_red or clf.predict([img[i][j]])[0]==0:
+                if too_red or clf.predict([[img[i][j][2], img[i][j][1], img[i][j][0]]])[0]==0:
                     mask[i][j][0], mask[i][j][1], mask[i][j][2] = 255, 255, 255
                 else:
                     data.append([i,j])
@@ -41,7 +41,7 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
         # DBSCAN
         tmp = time.clock()
         data_array = np.array(data)
-        db = DBSCAN(eps=5, min_samples=50, metric='euclidean').fit(data_array)
+        db = DBSCAN(eps=7, min_samples=50, metric='euclidean').fit(data_array)
         labels = db.labels_
         n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
         if verbose:
@@ -129,7 +129,7 @@ def DTColor():
 
     labels = [1]*len(goodColors) + [0]*len(badColors)
 
-    clf = tree.DecisionTreeClassifier()
+    clf = tree.DecisionTreeClassifier(min_impurity_split=1e-6)
     clf.fit(goodColors+badColors, labels)
     return clf
 
@@ -168,6 +168,6 @@ for i in range(1, 32):
     img_list.append('{:02d}'.format(i))
 r, g, b = 180, 255, 255
 # out_prefix = 'mask-{:d}-{:d}-{:d}/'.format(r,g,b)
-out_prefix = 'dbscan/trial3/'
+out_prefix = 'dbscan/trial6/'
 
 main(prefix, f_ext, img_list, r,g,b, out_prefix)

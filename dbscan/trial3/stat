@@ -1,3 +1,7 @@
+Color:
+- too_red: r>180
+- DBSCAN: eps=5 / minPts=50
+- DT: min_impurity_split=default (i.e. 1e-7)
 
 Mar3/5_90001.JPG
 dbscan/trial3/img01.jpg: Interm(score=6): lacto: 1 / gardner: 7 / others: 2
