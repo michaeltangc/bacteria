@@ -1,0 +1,2 @@
+DBSCAN: eps=8 / minPts=70
+DT: min_impurity_split=default (i.e. 1e-7)
