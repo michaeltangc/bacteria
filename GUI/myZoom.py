@@ -1,35 +1,44 @@
-import cv2
-import numpy as np
+# import cv2
+# import numpy as np
 from tkinter import *
 from tkinter import font
+import tkinter.ttk as ttk
 from PIL import Image, ImageTk
-
-# master = Tk()
-# # w = Scale(master, from_=0, to=42)
-# # w.pack()
-# w = Scale(master, from_=30, to=200, orient=HORIZONTAL)
-# w.pack()
-
-# mainloop()
 
 class ImageDisp:
 	def __init__(self, master):
 		self.master = master
-		frame = Frame(master)
-		frame.pack()
+		# Header: entry boxes & bottuns
+		header = Frame(master)
+		header.grid(row=0, column=0)
 		self.origImg, self.annotImg = None, None
 		self.origImgFile, self.annotImgFile = None, None
+		# exit button at the left
+		self.exitBtn = Button(header, text='Exit', fg="red", height=1, width=7, command=master.quit)
+		self.exitBtn.grid(row=0, column=0)
 		# entry boxes for file names
-		self.origImg_entry = Entry(frame)
-		self.origImg_entry.pack(side=LEFT)
-		self.enter_files = Button(frame, text='Enter image file', fg='black', command=self._get_file)
-		self.enter_files.pack(side=LEFT)
+		self.origImg_entry = Entry(header)
+		self.origImg_entry.grid(row=0, column=1, pady=5)
+		self.enter_files = Button(header, text='Enter image file', height=1, width=18, fg='black', command=self._get_file)
+		self.enter_files.grid(row=0, column=2, pady=5)
 		# buttons
-		self.origSize = false
-		self.zoomText = StringVar()
-		self.zoomBtn = Button(frame, textvariable=self.zoomText, fg="black", command=self._zoomToggle)
-		self.exitBtn = Button(frame, text='Exit', fg="red", command=frame.quit)
-		self.exitBtn.pack(side=LEFT)
+		self.origSize, self.showAnnot = False, False
+		self.zoomText, self.annotText = StringVar(), StringVar()
+		self.zoomBtn = Button(header, textvariable=self.zoomText, fg="black", height=1, width=10, command=self._zoomToggle)
+		self.annotBtn = Button(header, textvariable=self.annotText, fg="black", height=1, width=12, command=self._annotToggle)
+		self.resultWin = None
+		self.resultBtn = Button(header, text='Result', fg="black", height=1, width=8, command=self._popResult)
+		# Body: canvas (image) & scrollbar
+		body = Frame(master)
+		body.grid(row=1, column=0)
+		imgCanvas = Frame(body)
+		statTxt = Frame(body)
+		imgCanvas.grid(row=0, column=0)
+		statTxt.grid(row=1, column=0)
+		self.canvas = Canvas(body, width=800, relief=SUNKEN)
+		self.canvasX, self.canvasY = 0, 0
+		self.scrollX = Scrollbar(body, highlightcolor='slate gray', bg='light gray', orient=HORIZONTAL)
+		self.scrollY = Scrollbar(body, highlightcolor='slate gray', bg='light gray')
 
 	def _get_file(self):
 		try:
@@ -44,7 +53,18 @@ class ImageDisp:
 		except ValueError:
 			self._warning('number')
 			return
+		# set buttons
+		self.origSize, self.showAnnot = False, False
 		self.zoomText.set("Zoom In")
+		self.zoomBtn.grid(row=0, column=3, padx=10, pady=5)
+		self.annotText.set("Show Label")
+		self.annotBtn.grid(row=0, column=4, padx=10, pady=5)
+		self.resultBtn.grid(row=0, column=5, padx=10, pady=5)
+		# load image & display
+		self.origImg = Image.open(self.origImgFile)
+		self.annotImg = Image.open(self.annotImgFile)
+		if self.resultWin:
+			self.resultWin.destroy()
 		self._display()
 
 	def _zoomToggle(self):
@@ -55,28 +75,80 @@ class ImageDisp:
 			self.zoomText.set("Zoom In")
 		self._display()
 
-	def _display(self):
-		origFrame = Frame(self.master)
-		origFrame.pack()
-		annotFrame = Frame(self.master)
-		annotFrame.pack()
-
-		# load image
-		self.origImg = Image.open(self.origImgFile) # PhotoImage(Image.open(self.origImgFile))
-		self.annotImg = Image.open(self.annotImgFile)
-		# display config
-		if self.origSize:
-			self.scale = 1
+	def _annotToggle(self):
+		self.showAnnot = not self.showAnnot
+		self.canvasX, self.canvasY = self.canvas.xview()[0], self.canvas.yview()[0]
+		if self.showAnnot:
+			self.annotText.set("Hide Label")
 		else:
-			self.scale = 1000/self.origImg.width
-		self.tag_font = font.Font(family='Helvetica', size=12)
+			self.annotText.set("Show Label")
+		self._display()
+
+	def _popResult(self):
+		self.resultWin = Toplevel()
+		# labels
+		lacto = Label(self.resultWin, text="Lactobacillus", bg="green", fg="white", height=2, width=15, font='Helvetica 12')
+		lactoCnt = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2, width=15, font='Helvetica 12')
+		lactoScore = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2, width=15, font='Helvetica 12')
+		gardner = Label(self.resultWin, text="Gardnerella", bg="red", fg="white", height=2,  font='Helvetica 12')
+		gardnerCnt = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2,  font='Helvetica 12')
+		gardnerScore = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2,  font='Helvetica 12')
+		others = Label(self.resultWin, text="Others", bg="blue", fg="white", height=2, font='Helvetica 12')
+		othersCnt = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2,  font='Helvetica 12')
+		othersScore = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2,  font='Helvetica 12')
+		# layout
+		lacto.grid(row=0, column=0, sticky=W+E)
+		lactoCnt.grid(row=0, column=1, sticky=W+E)
+		lactoScore.grid(row=0, column=2, sticky=W+E)
+		gardner.grid(row=1, column=0, sticky=W+E)
+		gardnerCnt.grid(row=1, column=1, sticky=W+E)
+		gardnerScore.grid(row=1, column=2, sticky=W+E)
+		others.grid(row=2, column=0, sticky=W+E)
+		othersCnt.grid(row=2, column=1, sticky=W+E)
+		othersScore.grid(row=2, column=2, sticky=W+E)
+
+		# result
+		total = Label(self.resultWin, text="Result", bg="white", fg="black", height=1, font='Helvetica 12 bold')
+		totalScore = Label(self.resultWin, text=" -- ", bg="white", fg="black", font='Helvetica 12 bold')
+		result = Label(self.resultWin, text=" -- ", bg="white", fg="black", font='Helvetica 12 bold')
+		total.grid(row=3, column=0, pady=10, sticky=W+E)
+		totalScore.grid(row=3, column=1, pady=10, sticky=W+E)
+		result.grid(row=3, column=2, pady=10, sticky=W+E)
+
+	def _display(self):
+		frame = Frame(master)
+		frame.grid(row=0, column=0)
+		# display config
+		self.dispImg = self.annotImg if self.showAnnot else self.origImg
+		if self.origSize:
+			self.width, self.height = self.dispImg.width, self.dispImg.height
+			self.tkImg = ImageTk.PhotoImage(self.dispImg)
+		else:
+			self.width, self.height = 800, int(800 * self.dispImg.height / self.dispImg.width)
+			self.tkImg = ImageTk.PhotoImage(self.dispImg.resize((self.width, self.height))) # Need a Ref to the TkInter obj: http://effbot.org/pyfaq/why-do-my-tkinter-images-not-appear.htm
+			# self.scrollX, self.scrollY = None, None
 		# canvas
-		self.width, self.height = 640, int(self.origImg.height * self.scale)
-		self.canvas = Canvas(width=self.width, height=self.height)
-		self.canvas.pack(side="top", fill="both", expand=True)
+		if self.canvas == None:
+			self.canvas = Canvas(frame, width=800, height=int(800*self.height/self.width))
+		self.canvas.config(height=int(800*self.height/self.width))
+		# layout
+		if self.origSize:
+			self.scrollX.config(command=self.canvas.xview)
+			self.scrollY.config(command=self.canvas.yview)
+			self.canvas.config(xscrollcommand=self.scrollX.set, yscrollcommand=self.scrollY.set,
+				scrollregion=(0, 0, self.width, self.height))
+			self.scrollY.grid(row=0, column=1, sticky=N+S)
+			self.scrollX.grid(row=1, column=0, columnspan=2, sticky=W+E)
+			self.canvas.grid(row=0, column=0)
+		else:
+			self.canvasX, self.canvasY = 0, 0
+			self.scrollY.grid_forget()
+			self.scrollX.grid_forget()
+			self.canvas.grid(row=0, column=0)
+		# self.tag_font = font.Font(family='Helvetica', size=12)
 		# draw bg img
-		img = self.origImg.resize((self.width, self.height))
-		self.tkImg = ImageTk.PhotoImage(img) # Need a Ref to the TkInter obj: http://effbot.org/pyfaq/why-do-my-tkinter-images-not-appear.htm
+		self.canvas.xview_moveto(self.canvasX)
+		self.canvas.yview_moveto(self.canvasY)
 		self.canvas.create_image(0, 0, anchor='nw', image=self.tkImg)
 
 
