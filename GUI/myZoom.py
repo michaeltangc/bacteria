@@ -22,11 +22,14 @@ class ImageDisp:
 		# entry boxes for file names
 		self.origImg_entry = Entry(frame)
 		self.origImg_entry.pack(side=LEFT)
-		self.enter_files = Button(frame, text='Enter image file', fg='blue', command=self._get_file)
+		self.enter_files = Button(frame, text='Enter image file', fg='black', command=self._get_file)
 		self.enter_files.pack(side=LEFT)
 		# buttons
-		self.exit = Button(frame, text='Exit', fg="red", command=frame.quit)
-		self.exit.pack(side=LEFT)
+		self.origSize = false
+		self.zoomText = StringVar()
+		self.zoomBtn = Button(frame, textvariable=self.zoomText, fg="black", command=self._zoomToggle)
+		self.exitBtn = Button(frame, text='Exit', fg="red", command=frame.quit)
+		self.exitBtn.pack(side=LEFT)
 
 	def _get_file(self):
 		try:
@@ -41,9 +44,18 @@ class ImageDisp:
 		except ValueError:
 			self._warning('number')
 			return
-		self.display()
+		self.zoomText.set("Zoom In")
+		self._display()
 
-	def display(self):
+	def _zoomToggle(self):
+		self.origSize = not self.origSize
+		if self.origSize:
+			self.zoomText.set("Zoom Out")
+		else:
+			self.zoomText.set("Zoom In")
+		self._display()
+
+	def _display(self):
 		origFrame = Frame(self.master)
 		origFrame.pack()
 		annotFrame = Frame(self.master)
@@ -53,7 +65,10 @@ class ImageDisp:
 		self.origImg = Image.open(self.origImgFile) # PhotoImage(Image.open(self.origImgFile))
 		self.annotImg = Image.open(self.annotImgFile)
 		# display config
-		self.scale = 640/self.origImg.width
+		if self.origSize:
+			self.scale = 1
+		else:
+			self.scale = 1000/self.origImg.width
 		self.tag_font = font.Font(family='Helvetica', size=12)
 		# canvas
 		self.width, self.height = 640, int(self.origImg.height * self.scale)
