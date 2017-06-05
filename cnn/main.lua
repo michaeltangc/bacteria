@@ -40,7 +40,7 @@ function train(cfg, opt, model_path, snapshot_prefix, ftrain, fnet)
             plot_stat(snapshot_prefix, training_stats)
         end
         if i%opt.snapshot == 0 then
-            save_obj(string.format('%s_%06d.t7', snapshot_prefix, i), {weights=weights, options=options, stats=stats})
+            save_obj(string.format('%s_%06d.t7', snapshot_prefix, i), {weights=weights, options=options, stats=training_stats})
         end
     end
 

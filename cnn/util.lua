@@ -9,15 +9,19 @@ function load_model(cfg, opt, model_path, network_filename)
     local training_stats
     local weights, gradient
     if network_filename and #network_filename ~= 0 then
+        print('Model restored from ' .. network_filename)
         local restored = load_obj(network_filename)
         trianing_stats = restored.stats
         weights, gradient = model:parameters()
-        weithts:copy(restored.weights)
+        weights = nn.Module.flatten(weights)
+        weights:copy(restored.weights)
     else
         weights, gradient = model:parameters()
+        weights = nn.Module.flatten(weights)
+        gradient = nn.Module.flatten(gradient)
     end
 
-    return model, nn.Module.flatten(weights), nn.Module.flatten(gradient), training_stats
+    return model, weights, gradient, training_stats
 end
 
 function load_obj(fname)
