@@ -37,6 +37,10 @@ function Batcher:_processBatch(idxs)
         if curr_img:size(2) ~= 224 then
             curr_img = image.scale(curr_img, 224)
         end
+        -- Subtract mean
+        for c = 1,3 do
+            curr_img[c] = curr_img[c]:add(-curr_img[c]:mean())
+        end
         data[{{i*4-3},{},{},{}}] = curr_img
         data[{{i*4-2},{},{},{}}] = image.hflip(curr_img)
         data[{{i*4-1},{},{},{}}] = image.vflip(curr_img)

@@ -14,13 +14,13 @@ local cfg = {
 }
 
 local opt = {
-    model = 'model_conv5pool4.lua',
+    model = 'model_conv5pool5.lua',
     ftrain = '../data/db_square224.t7',
-    restore = 'conv5pool4__040000.t7',
+    restore = '', -- 'conv5pool4__040000.t7',
     lr = 1e-3,
     eps = 1e-7, -- parameter for batch normalization
     snapshot = 5000,
-    snapshot_prefix = 'conv5pool4_',
+    snapshot_prefix = 'conv5pool5',
     plot = 200,
     gpuid = 0
 }

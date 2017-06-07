@@ -45,7 +45,7 @@ function train(cfg, opt, model_path, snapshot_prefix, ftrain, fnet)
     end
 
     -- Save final model
-    save_obj(snapsho_prefix .. '.t7', {weights=weights, options=opt, stats=training_stats})
+    save_obj(snapshot_prefix .. '.t7', {weights=weights, options=opt, stats=training_stats})
 end
 
 local cfg, opt = dofile('config.lua')

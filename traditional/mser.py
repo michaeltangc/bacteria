@@ -18,7 +18,7 @@ verbose = False
 def main(prefix, f_ext, img_list, r,g,b, out_prefix):
     t_DBSCAN, t_PCA, t_draw = 0, 0, 0
     clf = DTColor()
-    mser = cv2.MSER_create()
+    mser = cv2.MSER_create(_delta=10)
     for idx in img_list:
         t_start = time.clock()
         fname = prefix + idx + f_ext
@@ -45,7 +45,6 @@ def main(prefix, f_ext, img_list, r,g,b, out_prefix):
         gray_img = img.copy()
         gray = cv2.cvtColor(gray_img, cv2.COLOR_BGR2GRAY)
         regions = mser.detectRegions(gray, None)
-        db = DBSCAN(eps=7, min_samples=50, metric='euclidean').fit(data_array)
         labels = db.labels_
         n_clusters = len(set(labels)) - (1 if -1 in labels else 0)
         if verbose:
