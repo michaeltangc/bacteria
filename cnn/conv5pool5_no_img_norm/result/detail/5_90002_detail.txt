@@ -1,0 +1,14 @@
+/home/bingbin/bacteria/data/test/5_90002/5_90002000000.jpg: 3
+/home/bingbin/bacteria/data/test/5_90002/5_90002000001.jpg: 3
+/home/bingbin/bacteria/data/test/5_90002/5_90002000002.jpg: 1
+/home/bingbin/bacteria/data/test/5_90002/5_90002000003.jpg: 1
+/home/bingbin/bacteria/data/test/5_90002/5_90002000004.jpg: 1
+/home/bingbin/bacteria/data/test/5_90002/5_90002000005.jpg: 1
+/home/bingbin/bacteria/data/test/5_90002/5_90002000006.jpg: 1
+/home/bingbin/bacteria/data/test/5_90002/5_90002000007.jpg: 1
+/home/bingbin/bacteria/data/test/5_90002/5_90002000008.jpg: 1
+/home/bingbin/bacteria/data/test/5_90002/5_90002000009.jpg: 3
+/home/bingbin/bacteria/data/test/5_90002/5_90002000010.jpg: 3
+/home/bingbin/bacteria/data/test/5_90002/5_90002000011.jpg: 1
+/home/bingbin/bacteria/data/test/5_90002/5_90002000012.jpg: 1
+/home/bingbin/bacteria/data/test/5_90002/5_90002000013.jpg: 3
