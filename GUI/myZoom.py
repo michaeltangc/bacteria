@@ -1,6 +1,7 @@
 # import cv2
 # import numpy as np
 from tkinter import *
+from tkinter import filedialog
 from tkinter import font
 import tkinter.ttk as ttk
 from PIL import Image, ImageTk
@@ -11,16 +12,20 @@ class ImageDisp:
 		# Header: entry boxes & bottuns
 		header = Frame(master)
 		header.grid(row=0, column=0)
-		self.origImg, self.annotImg = None, None
-		self.origImgFile, self.annotImgFile = None, None
+		self.origImg, self.annotImg, self.result = None, None, None
+		self.origImgFile, self.annotImgFile, self.resultFile = None, None, None
 		# exit button at the left
 		self.exitBtn = Button(header, text='Exit', fg="red", height=1, width=7, command=master.quit)
 		self.exitBtn.grid(row=0, column=0)
 		# entry boxes for file names
-		self.origImg_entry = Entry(header)
-		self.origImg_entry.grid(row=0, column=1, pady=5)
-		self.enter_files = Button(header, text='Enter image file', height=1, width=18, fg='black', command=self._get_file)
-		self.enter_files.grid(row=0, column=2, pady=5)
+		self.fname_show = StringVar()
+		self.fname_entry = Entry(header, textvariable=self.fname_show)
+		self.fname_entry.grid(row=0, column=1, pady=5)
+		self.browse_entry = None
+		self.browseBtn = Button(header, text='Browse', height=1, width=18, fg='black', command=self._browse)
+		self.browseBtn.grid(row=0, column=2, pady=5)
+		self.enterBtn = Button(header, text='Enter image file', height=1, width=18, fg='black', command=self._get_file)
+		self.enterBtn.grid(row=0, column=3, pady=5)
 		# buttons
 		self.origSize, self.showAnnot = False, False
 		self.zoomText, self.annotText = StringVar(), StringVar()
@@ -40,29 +45,38 @@ class ImageDisp:
 		self.scrollX = Scrollbar(body, highlightcolor='slate gray', bg='light gray', orient=HORIZONTAL)
 		self.scrollY = Scrollbar(body, highlightcolor='slate gray', bg='light gray')
 
+	def _browse(self):
+		self.browse_entry = filedialog.askopenfilename()
+		self.fname_show.set(self.browse_entry)
+		return
+
 	def _get_file(self):
 		try:
-			if not self.origImg_entry.get():
-				self.origImgFile = 'img17.jpg'
-				self.annotImgFile = self.origImgFile.replace('.jpg', '_annot.jpg')
-				# print("ERROR: Invalid image file.")
-				# return
+			if not self.fname_entry.get() and self.browse_entry == None:
+				# self.origImgFile = 'img17.jpg'
+				# self.annotImgFile = self.origImgFile.replace('.jpg', '_annot.jpg')
+				print("ERROR: Invalid image file.")
+				return
 			else:
-				self.origImgFile = self.origImg_entry.get()
+				self.origImgFile = self.fname_entry.get()
 				self.annotImgFile = self.origImgFile.replace('.jpg', '_annot.jpg')
+				self.resultFile = self.origImgFile.replace('.jpg', '.txt')
 		except ValueError:
 			self._warning('number')
 			return
 		# set buttons
 		self.origSize, self.showAnnot = False, False
 		self.zoomText.set("Zoom In")
-		self.zoomBtn.grid(row=0, column=3, padx=10, pady=5)
+		self.zoomBtn.grid(row=0, column=4, padx=10, pady=5)
 		self.annotText.set("Show Label")
-		self.annotBtn.grid(row=0, column=4, padx=10, pady=5)
-		self.resultBtn.grid(row=0, column=5, padx=10, pady=5)
+		self.annotBtn.grid(row=0, column=5, padx=10, pady=5)
+		self.resultBtn.grid(row=0, column=6, padx=10, pady=5)
 		# load image & display
 		self.origImg = Image.open(self.origImgFile)
 		self.annotImg = Image.open(self.annotImgFile)
+		# result format: lacto cnt & score + gardner cnt & score + others cnt & score
+		# 				 + nugent_score + result (8 items)
+		self.result = open(self.resultFile).readline().split(' ')
 		if self.resultWin:
 			self.resultWin.destroy()
 		self._display()
@@ -86,34 +100,50 @@ class ImageDisp:
 
 	def _popResult(self):
 		self.resultWin = Toplevel()
+		self.resultWin.title('Result')
+		# Counts
+		part_cnt = Frame(self.resultWin)
+		part_cnt.grid(row=0, column=0, sticky=W+E)
 		# labels
-		lacto = Label(self.resultWin, text="Lactobacillus", bg="green", fg="white", height=2, width=15, font='Helvetica 12')
-		lactoCnt = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2, width=15, font='Helvetica 12')
-		lactoScore = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2, width=15, font='Helvetica 12')
-		gardner = Label(self.resultWin, text="Gardnerella", bg="red", fg="white", height=2,  font='Helvetica 12')
-		gardnerCnt = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2,  font='Helvetica 12')
-		gardnerScore = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2,  font='Helvetica 12')
-		others = Label(self.resultWin, text="Others", bg="blue", fg="white", height=2, font='Helvetica 12')
-		othersCnt = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2,  font='Helvetica 12')
-		othersScore = Label(self.resultWin, text=" -- ", bg="white", fg="black", height=2,  font='Helvetica 12')
+		header_type = Label(part_cnt, text="Type", bg="pale turquoise", fg="black", height=1, width=15, font='Helvetica 12')
+		header_cnt = Label(part_cnt, text="Count", bg="pale turquoise", fg="black", height=1, width=15, font='Helvetica 12')
+		header_score = Label(part_cnt, text="Score", bg="pale turquoise", fg="black", height=1, width=15, font='Helvetica 12')
+		lacto = Label(part_cnt, text="Lactobacillus", bg="green", fg="white", height=2, width=15, font='Helvetica 12')
+		lactoCnt = Label(part_cnt, text=self.result[0], bg="white", fg="black", height=2, width=15, font='Helvetica 12')
+		lactoScore = Label(part_cnt, text=self.result[1], bg="white", fg="black", height=2, width=15, font='Helvetica 12')
+		gardner = Label(part_cnt, text="Gardnerella", bg="red", fg="white", height=2,  font='Helvetica 12')
+		gardnerCnt = Label(part_cnt, text=self.result[2], bg="white", fg="black", height=2,  font='Helvetica 12')
+		gardnerScore = Label(part_cnt, text=self.result[3], bg="white", fg="black", height=2,  font='Helvetica 12')
+		others = Label(part_cnt, text="Others", bg="blue", fg="white", height=2, font='Helvetica 12')
+		othersCnt = Label(part_cnt, text=self.result[4], bg="white", fg="black", height=2,  font='Helvetica 12')
+		othersScore = Label(part_cnt, text=self.result[5], bg="white", fg="black", height=2,  font='Helvetica 12')
 		# layout
-		lacto.grid(row=0, column=0, sticky=W+E)
-		lactoCnt.grid(row=0, column=1, sticky=W+E)
-		lactoScore.grid(row=0, column=2, sticky=W+E)
-		gardner.grid(row=1, column=0, sticky=W+E)
-		gardnerCnt.grid(row=1, column=1, sticky=W+E)
-		gardnerScore.grid(row=1, column=2, sticky=W+E)
-		others.grid(row=2, column=0, sticky=W+E)
-		othersCnt.grid(row=2, column=1, sticky=W+E)
-		othersScore.grid(row=2, column=2, sticky=W+E)
+		header_type.grid(row=0, column=0, sticky=W+E)
+		header_cnt.grid(row=0, column=1, sticky=W+E)
+		header_score.grid(row=0, column=2, sticky=W+E)
+		lacto.grid(row=1, column=0, sticky=W+E)
+		lactoCnt.grid(row=1, column=1, sticky=W+E)
+		lactoScore.grid(row=1, column=2, sticky=W+E)
+		gardner.grid(row=2, column=0, sticky=W+E)
+		gardnerCnt.grid(row=2, column=1, sticky=W+E)
+		gardnerScore.grid(row=2, column=2, sticky=W+E)
+		others.grid(row=3, column=0, sticky=W+E)
+		othersCnt.grid(row=3, column=1, sticky=W+E)
+		othersScore.grid(row=3, column=2, sticky=W+E)
 
-		# result
-		total = Label(self.resultWin, text="Result", bg="white", fg="black", height=1, font='Helvetica 12 bold')
-		totalScore = Label(self.resultWin, text=" -- ", bg="white", fg="black", font='Helvetica 12 bold')
-		result = Label(self.resultWin, text=" -- ", bg="white", fg="black", font='Helvetica 12 bold')
-		total.grid(row=3, column=0, pady=10, sticky=W+E)
-		totalScore.grid(row=3, column=1, pady=10, sticky=W+E)
-		result.grid(row=3, column=2, pady=10, sticky=W+E)
+		# Results
+		part_result = Frame(self.resultWin)
+		part_result.grid(row=1, column=0, pady=(20,0), sticky=W+E)
+		# labels
+		header_score = Label(part_result, text="Score", bg="pale turquoise", fg="black", height=1, width=20, font='Helvetica 12')
+		score = Label(part_result, text=self.result[6], bg="white", fg="black", height=2, width=21, font='Helvetica 12 bold')
+		header_result = Label(part_result, text="Result", bg="pale turquoise", fg="black", height=1, width=21, font='Helvetica 12')
+		result = Label(part_result, text=self.result[7], bg="white", fg="black", height=2, width=21, font='Helvetica 12 bold')
+		# layouts
+		header_score.grid(row=0, column=0, sticky=W+E)
+		score.grid(row=1, column=0, sticky=W+E)
+		header_result.grid(row=0, column=1, sticky=W+E)
+		result.grid(row=1, column=1, sticky=W+E)
 
 	def _display(self):
 		frame = Frame(master)
