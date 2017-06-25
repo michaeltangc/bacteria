@@ -55,7 +55,7 @@ class ImageDisp:
 		self.backBtn = Button(self.controlBtns, text='<< Back', height=1, width=10, fg='black', command=self._backImg)
 		self.nextBtn = Button(self.controlBtns, text='Next >>', height=1, width=10, fg='black', command=self._nextImg)
 		self.saveBtn = Button(self.controlBtns, text='Save', height=1, width=15, fg='black', command=self._save)
-		self._get_imgList()
+		# self._get_imgList() # Uncomment for convenience when debugging
 
 	# Keyboard controls
 	# change images
@@ -118,9 +118,9 @@ class ImageDisp:
 	def _get_imgList(self):
 		try:
 			if not self.fname_entry.get() and self.browse_entry == None:
-				self.imgListFile = '5_90017_detail.txt'
-				# self._error_popup("ERROR: Please choose a image list.")
-				# return
+				# self.imgListFile = '5_90017_detail.txt' # Uncomment for convenience when debugging
+				self._error_popup("ERROR: Please choose a image list.")
+				return
 			else:
 				self.imgListFile = self.fname_entry.get()
 				if self.imgListFile[-3:] != 'txt':
