@@ -16,7 +16,7 @@ class ImageDisp:
 		self.save_flag = False
 		# Image list
 		self.imgListFile, self.imgList, self.imgCnt, self.curr_img = None, None, None, None
-		self.txt_label = [('Lactobacilli', '1'), ('Gardnerella', '2'), ('Bacteroides', '3'), ('Others', '4'), ('Not sure', '5')]
+		self.txt_label = [('Lactobacilli', '1'), ('Gardnerella', '2'), ('Bacteroides', '3'), ('Others', '4')]
 
 		# Header: entry boxes & bottuns
 		self.header = Frame(self.master, width=700)
@@ -63,11 +63,11 @@ class ImageDisp:
 	def _right_key(self, event): return self._nextImg()
 	# select labels
 	def _up_key(self, event):
-		self.label_val.set( str((int(self.label_val.get())-1)%5) )
+		self.label_val.set( str((int(self.label_val.get())-2)%4+1) )
 		self._select_label()
 		return
 	def _down_key(self, event):
-		self.label_val.set( str((int(self.label_val.get())+1)%5) )
+		self.label_val.set( str((int(self.label_val.get()))%4+1) )
 		self._select_label()
 		return
 	# save changes
@@ -100,6 +100,7 @@ class ImageDisp:
 		self.helpWin = Toplevel(width=200, height=100)
 		self.helpWin.title('Help')
 		text = 'This is for trained professionals to help prepare correct labels for training images:\n\n'
+		text = text + '· Browse to choose a txt file containing a list of images.\n\n'
 		text = text + '· Use the mouse or left/right arrow on the keyboard to change image;\n the image number is displayed below the image.\n\n'
 		text = text + '· Use the mouse or up/down arrow on the keyboard to select an appropriate label;\n the selected label is highlighted.\n\n'
 		text = text + '· Use the mouse or Ctrl+s to save your changes.\n\n'
