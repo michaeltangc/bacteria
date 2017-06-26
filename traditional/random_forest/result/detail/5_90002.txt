@@ -1,0 +1,15 @@
+/home/bingbin/bacteria/data/test/5_90002/mask_square000040.jpg 2
+/home/bingbin/bacteria/data/test/5_90002/mask_square000041.jpg 1
+/home/bingbin/bacteria/data/test/5_90002/mask_square000042.jpg 2
+/home/bingbin/bacteria/data/test/5_90002/mask_square000043.jpg 1
+/home/bingbin/bacteria/data/test/5_90002/mask_square000044.jpg 2
+/home/bingbin/bacteria/data/test/5_90002/mask_square000045.jpg 2
+/home/bingbin/bacteria/data/test/5_90002/mask_square000046.jpg 2
+/home/bingbin/bacteria/data/test/5_90002/mask_square000047.jpg 2
+/home/bingbin/bacteria/data/test/5_90002/mask_square000048.jpg 2
+/home/bingbin/bacteria/data/test/5_90002/mask_square000049.jpg 3
+/home/bingbin/bacteria/data/test/5_90002/mask_square000050.jpg 3
+/home/bingbin/bacteria/data/test/5_90002/mask_square000051.jpg 2
+/home/bingbin/bacteria/data/test/5_90002/mask_square000052.jpg 2
+/home/bingbin/bacteria/data/test/5_90002/mask_square000053.jpg 3
+/home/bingbin/bacteria/data/test/5_90002/mask_square000054.jpg 4

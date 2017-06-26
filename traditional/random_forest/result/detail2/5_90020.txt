@@ -1,0 +1,8 @@
+/home/bingbin/bacteria/data/test/5_90020/mask_square000608.jpg 1
+/home/bingbin/bacteria/data/test/5_90020/mask_square000609.jpg 1
+/home/bingbin/bacteria/data/test/5_90020/mask_square000610.jpg 1
+/home/bingbin/bacteria/data/test/5_90020/mask_square000611.jpg 1
+/home/bingbin/bacteria/data/test/5_90020/mask_square000612.jpg 4
+/home/bingbin/bacteria/data/test/5_90020/mask_square000613.jpg 1
+/home/bingbin/bacteria/data/test/5_90020/mask_square000614.jpg 1
+/home/bingbin/bacteria/data/test/5_90020/mask_square000615.jpg 1
