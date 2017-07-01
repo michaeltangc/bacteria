@@ -50,7 +50,7 @@ local function create_model(cfg, opt)
     net:add(nn.ReLU())
     net:add(nn.Reshape(4*cfg.batch_size, 2048))
     -- 1 FC layer for final classification
-    local fc = nn.Linear(2048, 4) -- 2048 = 32 * 8 * 8
+    local fc = nn.Linear(2048, 4) -- 4*cfg.batch_size) -- 2048 = 32 * 8 * 8
     fc.name = 'fc'
     net:add(fc)
     net:add(nn.LogSoftMax())

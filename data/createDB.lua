@@ -6,11 +6,12 @@ function createDB(imgLst, outname)
         exit(-1)
     end
 
-    imgDB = {}
+    imgDB = {imgPaths={}, labels={}}
     for line in io.lines(imgLst) do
-        table.insert(imgDB, {imgPath=line:split(' ')[1], label=line:split(' ')[2]})
+        table.insert(imgDB.imgPaths, line:split(' ')[1])
+        table.insert(imgDB.labels, line:split(' ')[2])
     end
-    print('Total: ' .. table.getn(imgDB) .. ' images in DB')
+    print('Total: ' .. table.getn(imgDB.imgPaths) .. ' images in DB')
 
     -- Save DB obj
     local f = torch.DiskFile(outname, 'w')
@@ -18,4 +19,4 @@ function createDB(imgLst, outname)
     f:close()
 end
 
-createDB('square224/imgLst_square224.txt', 'db_square224.t7')
+createDB('square224_white_bg/imgLst_square224_white_bg.txt', 'db_square224_white_bg.t7')

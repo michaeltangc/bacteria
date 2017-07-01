@@ -1,9 +1,0 @@
-/home/bingbin/bacteria/data/test/5_90007/5_90007000000.jpg: 1
-/home/bingbin/bacteria/data/test/5_90007/5_90007000001.jpg: 1
-/home/bingbin/bacteria/data/test/5_90007/5_90007000002.jpg: 1
-/home/bingbin/bacteria/data/test/5_90007/5_90007000003.jpg: 1
-/home/bingbin/bacteria/data/test/5_90007/5_90007000004.jpg: 1
-/home/bingbin/bacteria/data/test/5_90007/5_90007000005.jpg: 1
-/home/bingbin/bacteria/data/test/5_90007/5_90007000006.jpg: 1
-/home/bingbin/bacteria/data/test/5_90007/5_90007000007.jpg: 1
-/home/bingbin/bacteria/data/test/5_90007/5_90007000008.jpg: 1

@@ -3,9 +3,10 @@ require 'image'
 local Batcher = torch.class('Batcher')
 
 function Batcher:__init(imdb, batch_size)
-    self._imdb = imdb
+    self._imgPaths = imdb.imgPaths
+    self._labels = imdb.labels
     self._batch_size = batch_size
-    self._n_img = table.getn(self._imdb)
+    self._n_img = table.getn(self._imgPaths)
     self._curr_img = 1
     self._rand_perm = torch.randperm(self._n_img)
 end
@@ -33,7 +34,8 @@ function Batcher:_processBatch(idxs)
     local data = torch.FloatTensor(4*n_imgs, 3, 224, 224):zero()
     local labels = torch.Tensor(4*n_imgs):zero()
     for i=1,n_imgs do
-        local curr_img = image.load(self._imdb[idxs[i]].imgPath, 3, 'float')
+        local curr_img = image.load(self._imgPaths[idxs[i]], 3, 'float')
+        -- print('Batcher: imgPath: ' .. self._imgPaths[idxs[i]])
         if curr_img:size(2) ~= 224 then
             curr_img = image.scale(curr_img, 224)
         end
@@ -45,7 +47,7 @@ function Batcher:_processBatch(idxs)
         data[{{i*4-2},{},{},{}}] = image.hflip(curr_img)
         data[{{i*4-1},{},{},{}}] = image.vflip(curr_img)
         data[{ {i*4}, {},{},{}}] = image.hflip(image.vflip(curr_img))
-        labels[{{i*4-3, i*4}}] = self._imdb[idxs[i]].label
+        labels[{{i*4-3, i*4}}] = self._labels[idxs[i]]
     end
  
     return data, labels
