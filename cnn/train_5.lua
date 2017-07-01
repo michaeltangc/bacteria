@@ -41,7 +41,6 @@ function train(cfg, opt, model_path, snapshot_prefix, ftrain, fnet)
         -- print(f)
         -- print('output:')
         -- print(output)
-        print('\n')
         table.insert(training_stats.loss, loss)
         print(string.format('%d: loss: %f', i, loss[1]))
 
