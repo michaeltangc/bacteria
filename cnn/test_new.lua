@@ -32,35 +32,22 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
     print(predicts == nil)
 
     model:evaluate()
-    local batch_size = 4*cfg.batch_size
-    for i=1, n_img, batch_size do
-        local inputs = torch.FloatTensor(batch_size, 3, 224, 224):fill(1) -- Note: pixel range = [0,1]
-        local size = math.min(i+batch_size, n_img+1) - i
-        for id = 1, size do
-            local curr_img = procInput(dataTest.imgPaths[i+id-1])
-            if curr_img == nil then
-                print('Error loading img ' .. dataTest.imgPaths[i+id-1])
-            end
-            inputs[{{id}}] = curr_img
-        end
-        inputs = inputs:cuda()
-        local outputs = model:forward(inputs)
-        -- print(outputs:size())
-        local _, types = torch.max(outputs, 2)
+    for i=1, n_img do
+        local input = procInput(dataTest.imgPaths[i]):cuda()
+        local outputs = model:forward(input)
+        local _, class = torch.max(outputs, 2)
         if predicts then
             -- print('predicts type:')
             -- print(predicts[{{i,i+size-1}}])
             -- print('types type:')
             -- print(types)
-            predicts[{{i,i+size-1}}] = types[{{1,size}}]:double()
+            predicts[i] = class
         end        
-        types = types:reshape(types:size(1))
 
-
-        for id = 1, size do
-            if fout then fout:write(dataTest.imgPaths[i+id-1] .. string.format(': %d (label: %d) (output: %f / %f / %f / %f) \n', types[id], dataTest.labels[i+id-1], outputs[id][1], outputs[id][2], outputs[id][3], outputs[id][4])) end
-            cnt[types[id]] = cnt[types[id]] + 1
+        if fout then
+            fout:write(dataTest.imgPaths[i] .. string.format(': %d (label: %d) (output: %f / %f / %f / %f) \n', class, dataTest.labels[i], outputs[1], outputs[2], outputs[3], outputs[4]))
         end
+        cnt[class] = cnt[class] + 1
     end
     if fout then fout:close() end
     
@@ -122,7 +109,7 @@ function nugent(cnt)
     return score, result
 end
 
-local cfg, opt = dofile('config_5_2.lua')
+local cfg, opt = dofile('config_vgg.lua')
 -- cfg.batch_size = 16
 -- opt.model = 'model_conv5pool5.lua'
 -- opt.restored = 'conv5pool5_white_bg/conv5pool5_040000.t7'
