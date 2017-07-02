@@ -31,6 +31,7 @@ function train(cfg, opt, model_path, snapshot_prefix, ftrain, fnet)
  
     local sgd_state = {learningRate=opt.lr, weightDecay=0.0005, momentum=0.9}
     -- Training
+    local iter_time = os.clock()
     for i=1,60000 do
         if i % 20000 == 0 then
             opt.lr = opt.lr / 10
@@ -45,6 +46,8 @@ function train(cfg, opt, model_path, snapshot_prefix, ftrain, fnet)
         print(string.format('%d: loss: %f', i, loss[1]))
 
         if i%opt.plot == 0 then
+            print('Avg time: ' .. (os.clock()-iter_time)/opt.plot)
+            iter_time = os.clock()
             plot_stat(snapshot_prefix, training_stats)
         end
         if i%opt.snapshot == 0 then
@@ -56,7 +59,7 @@ function train(cfg, opt, model_path, snapshot_prefix, ftrain, fnet)
     save_obj(snapshot_prefix .. '.t7', {weights=weights, options=opt, stats=training_stats})
 end
 
-local cfg, opt = dofile('config_5.lua')
+local cfg, opt = dofile('config_vgg.lua')
 print('Config:')
 print(cfg)
 print('Options:')
