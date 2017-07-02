@@ -85,13 +85,6 @@ local function create_model(cfg, opt)
 
 
     -- Classifier
-    -- Reshape
-    -- net:add(nn.Reshape(4*cfg.batch_size, 4096))
-    -- 1 FC layer for final classification
-    -- local fc = nn.Linear(4096, 4) -- 4*cfg.batch_size) -- 2048 = 32 * 8 * 8
-    -- fc.name = 'fc'
-    -- net:add(fc)
-    -- net:add(nn.LogSoftMax())
 
     -- Reduce dimension
     local dim_red1 = nn.SpatialConvolution(512,256, 1,1, 1,1, 0,0)
@@ -103,7 +96,7 @@ local function create_model(cfg, opt)
     net:add(dim_red2)
     net:add(nn.ReLU())
     -- FC layers
-    net:add(nn.Reshape(4*cfg.batch_size, 4096))
+    net:add(nn.Reshape(4096, true)) -- last arg: batchMode
     local fc6 = nn.Linear(4096, 1024)
     fc6.name = 'fc6'
     net:add(fc6)
