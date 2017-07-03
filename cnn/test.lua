@@ -131,7 +131,7 @@ print('Config:')
 print(cfg)
 print('Options:')
 print(opt)
-local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.restore)
+local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.restore_test)
 
 local ftest = opt.ftrain
 cutorch.setDevice(opt.gpuid+1)

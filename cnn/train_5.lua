@@ -66,4 +66,4 @@ print('Options:')
 print(opt)
 
 cutorch.setDevice(opt.gpuid+1)
-train(cfg, opt, opt.model, opt.snapshot_prefix, opt.ftrain, opt.restore)
+train(cfg, opt, opt.model, opt.snapshot_prefix, opt.ftrain, opt.restore_train)

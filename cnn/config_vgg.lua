@@ -15,17 +15,18 @@ local cfg = {
 
 local opt = {
     -- Train
-    model = 'model_vgg_small.lua',
-    ftrain = '../data/db_square224_combined_virtual_GPU.t7',
-    restore = 'vgg_small_combined/vgg_010000.t7', -- also for testing
+    model = 'model_vgg.lua',
+    ftrain = '../data/db_square224_VM.t7',
+    restore_train = '',
+    restore_test = 'vgg_small_context/vgg_0%d0000.t7',
     lr = 1e-3,
     eps = 1e-7, -- parameter for batch normalization
-    snapshot = 10000,
-    snapshot_prefix = 'vgg_small_combined/vgg',
+    snapshot = 5000,
+    snapshot_prefix = 'vgg_small_context/vgg',
     plot = 200,
     gpuid = 0, -- Note: only 1 GPU available on this virtual machine
     -- Test
-    result_dir = 'vgg_small_combined/', -- Note: always add a trailing '/'
+    result_dir = 'vgg_small_context/', -- Note: always add a trailing '/'
 }
 
 return cfg, opt

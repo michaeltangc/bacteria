@@ -35,23 +35,68 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
     for i=1, n_img do
         local input = procInput(dataTest.imgPaths[i]):cuda()
         local outputs = model:forward(input)
+        -- print(outputs)
         local _, class = torch.max(outputs, 2)
+        class = class[1][1]
         if predicts then
             -- print('predicts type:')
             -- print(predicts[{{i,i+size-1}}])
             -- print('types type:')
-            -- print(types)
             predicts[i] = class
         end        
 
         if fout then
-            fout:write(dataTest.imgPaths[i] .. string.format(': %d (label: %d) (output: %f / %f / %f / %f) \n', class, dataTest.labels[i], outputs[1], outputs[2], outputs[3], outputs[4]))
+            fout:write(dataTest.imgPaths[i] .. string.format(': %d (label: %d) (output: %f / %f / %f / %f) \n', class, dataTest.labels[i], outputs[1][1], outputs[1][2], outputs[1][3], outputs[1][4]))
         end
         cnt[class] = cnt[class] + 1
     end
     if fout then fout:close() end
     
     local score, result = nugent(cnt)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     if result_out and result_out ~= '' then
         print('Openning result_out')
         fout = io.open(result_out, 'a')
@@ -118,11 +163,14 @@ print('Config:')
 print(cfg)
 print('Options:')
 print(opt)
-local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.restore)
 
 local ftest = opt.ftrain
 cutorch.setDevice(opt.gpuid+1)
-test(cfg, opt, model, ftest, opt.result_dir .. 'result_detail.txt', opt.result_dir .. 'result.txt')
+
+for i=1,6 do
+    local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, string.format(opt.restore_test, i))
+    test(cfg, opt, model, ftest, opt.result_dir .. string.format('result_detail_%d.txt', i), opt.result_dir .. string.format('result_%d.txt', i))
+end
 
 -- for i=1,31 do
 --     local ftest = string.format('/home/bingbin/bacteria/data/test/testDB/5_900%02d.t7', i)
