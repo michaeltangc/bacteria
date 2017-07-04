@@ -20,10 +20,6 @@ function train(cfg, opt, model_path, snapshot_prefix, ftrain, fnet)
         local input, target = batcher:getBatch()
         input = input:cuda()
         local output = model:forward(input)
-        -- print('input:')
-        -- print(input)
-        -- print('output:')
-        -- print(output)
         local f = criterion:forward(output, target)
         model:backward(input, criterion:backward(output, target))
         return f, gradient, output
@@ -51,7 +47,12 @@ function train(cfg, opt, model_path, snapshot_prefix, ftrain, fnet)
             plot_stat(snapshot_prefix, training_stats)
         end
         if i%opt.snapshot == 0 then
-            save_obj(string.format('%s_%06d.t7', snapshot_prefix, i), {weights=weights, options=options, stats=training_stats})
+            local bnVars = {}
+            local bnLayers = model:findModules('nn.SpatialBatchNormalization')
+            for i=1, #bnLayers do
+                bnVars[i] = {running_mean=bnLayers[i].running_mean, running_var=bnLayers[i].running_var}
+            end
+            save_obj(string.format('%s_%06d.t7', snapshot_prefix, i), {weights=weights, bnVars=bnVars, options=options, stats=training_stats})
         end
     end
 
@@ -59,7 +60,7 @@ function train(cfg, opt, model_path, snapshot_prefix, ftrain, fnet)
     save_obj(snapshot_prefix .. '.t7', {weights=weights, options=opt, stats=training_stats})
 end
 
-local cfg, opt = dofile('config_vgg.lua')
+local cfg, opt = dofile('config_7.lua')
 print('Config:')
 print(cfg)
 print('Options:')

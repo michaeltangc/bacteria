@@ -122,9 +122,17 @@ print(opt)
 local ftest = opt.ftrain
 cutorch.setDevice(opt.gpuid+1)
 
-for i=1,6 do
-    local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, string.format(opt.restore_test, i))
-    test(cfg, opt, model, ftest, opt.result_dir .. string.format('result_detail_%d.txt', i), opt.result_dir .. string.format('result_%d.txt', i))
+if opt.enumerate_models then
+    for f in paths.iterfiles(opt.result_dir) do
+        if f:find('t7') then
+            local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.result_dir .. f)
+            local suffix = f:sub(f:find('_')+1, f:find('%.')-1)
+            test(cfg, opt, model, ftest, opt.result_dir .. string.format('result_detail_%s.txt', suffix), opt.result_dir .. string.format('result_%s.txt', suffix))
+        end
+    end
+else
+    local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.restore_test)
+    test(cfg, opt, model, ftest, opt.result_dir .. 'result_detail.txt', opt.result_dir .. 'result.txt')
 end
 
 -- for i=1,31 do
