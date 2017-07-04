@@ -31,7 +31,7 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
     print('predicts == nil:')
     print(predicts == nil)
 
-    model:evaluate()
+    -- model:evaluate()
     local batch_size = 4*cfg.batch_size
     for i=1, n_img, batch_size do
         local inputs = torch.FloatTensor(batch_size, 3, 224, 224):fill(1) -- Note: pixel range = [0,1]
@@ -122,7 +122,7 @@ function nugent(cnt)
     return score, result
 end
 
-local cfg, opt = dofile('config_5_2.lua')
+local cfg, opt = dofile('config_5.lua')
 -- cfg.batch_size = 16
 -- opt.model = 'model_conv5pool5.lua'
 -- opt.restored = 'conv5pool5_white_bg/conv5pool5_040000.t7'
@@ -131,11 +131,14 @@ print('Config:')
 print(cfg)
 print('Options:')
 print(opt)
-local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.restore_test)
 
 local ftest = opt.ftrain
 cutorch.setDevice(opt.gpuid+1)
-test(cfg, opt, model, ftest, opt.result_dir .. 'result_detail.txt', opt.result_dir .. 'result.txt')
+
+for i=1,6 do
+    local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, string.format(opt.restore_test, i))
+    test(cfg, opt, model, ftest, opt.result_dir .. string.format('result_detail_%d.txt', i), opt.result_dir .. string.format('result_%d.txt', i))
+end
 
 -- for i=1,31 do
 --     local ftest = string.format('/home/bingbin/bacteria/data/test/testDB/5_900%02d.t7', i)

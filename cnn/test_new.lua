@@ -34,69 +34,21 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
     model:evaluate()
     for i=1, n_img do
         local input = procInput(dataTest.imgPaths[i]):cuda()
-        local outputs = model:forward(input)
-        -- print(outputs)
+        local outputs = model:forward(input:reshape(1,3,input:size(2), input:size(3)))
         local _, class = torch.max(outputs, 2)
         class = class[1][1]
         if predicts then
-            -- print('predicts type:')
-            -- print(predicts[{{i,i+size-1}}])
-            -- print('types type:')
             predicts[i] = class
         end        
 
         if fout then
-            fout:write(dataTest.imgPaths[i] .. string.format(': %d (label: %d) (output: %f / %f / %f / %f) \n', class, dataTest.labels[i], outputs[1][1], outputs[1][2], outputs[1][3], outputs[1][4]))
+            fout:write(dataTest.imgPaths[i] .. string.format(': %d (label: %d) (output: %f / %f / %f / %f) (input:mean(): %f) \n', class, dataTest.labels[i], outputs[1][1], outputs[1][2], outputs[1][3], outputs[1][4], input:mean()))
         end
         cnt[class] = cnt[class] + 1
     end
     if fout then fout:close() end
     
     local score, result = nugent(cnt)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     if result_out and result_out ~= '' then
         print('Openning result_out')
         fout = io.open(result_out, 'a')
@@ -107,10 +59,10 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
     end
     -- Format: lacto cnt + lacto score + gardner cnt + gardner score + others cnt + other score + total score + result
     if fout then
-        fout:write(string.format('%d %d %d %d %d %d %d %s\n', cnt[1], score[1], cnt[2], score[2], cnt[3], score[3], score[4], result))
+        fout:write(string.format('\n%d %d %d %d %d %d %d %s\n', cnt[1], score[1], cnt[2], score[2], cnt[3], score[3], score[4], result))
         if predicts then
             local accuracy = torch.sum(torch.eq(torch.Tensor(labels), predicts)) / n_img
-            fout:write(string.format('Accuracy: %f', accuracy))
+            fout:write(string.format('Accuracy: %f\n', accuracy))
         end
         fout:close()
     end
@@ -121,6 +73,9 @@ function procInput(fname)
     local img = image.load(fname)
     if img:size(2) ~= 224 then
         img = image.scale(img, 224)
+    end
+    for c = 1,3 do
+        img[c] = img[c] - img[c]:mean()
     end
     return img
 end
@@ -154,7 +109,7 @@ function nugent(cnt)
     return score, result
 end
 
-local cfg, opt = dofile('config_vgg.lua')
+local cfg, opt = dofile('config_7.lua')
 -- cfg.batch_size = 16
 -- opt.model = 'model_conv5pool5.lua'
 -- opt.restored = 'conv5pool5_white_bg/conv5pool5_040000.t7'
