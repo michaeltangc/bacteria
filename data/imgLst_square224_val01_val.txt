@@ -1,495 +1,495 @@
-./square224/Bacteroides/colony/square_bacte000009.jpg 1
-./square224/Bacteroides/colony/square_bacte000019.jpg 1
-./square224/Bacteroides/colony/square_bacte000029.jpg 1
-./square224/Bacteroides/colony/square_bacte000039.jpg 1
-./square224/Bacteroides/colony/square_bacte000049.jpg 1
-./square224/Bacteroides/colony/square_bacte000059.jpg 1
-./square224/Bacteroides/colony/square_bacte000069.jpg 1
-./square224/Bacteroides/colony/square_bacte000079.jpg 1
-./square224/Bacteroides/colony/square_bacte000089.jpg 1
-./square224/Bacteroides/colony/square_bacte000099.jpg 1
-./square224/Bacteroides/colony/square_bacte000109.jpg 1
-./square224/Bacteroides/colony/square_bacte000119.jpg 1
-./square224/Bacteroides/colony/square_bacte000129.jpg 1
-./square224/Bacteroides/colony/square_bacte000139.jpg 1
-./square224/Bacteroides/colony/square_bacte000149.jpg 1
-./square224/Bacteroides/colony/square_bacte000159.jpg 1
-./square224/Bacteroides/colony/square_bacte000169.jpg 1
-./square224/Bacteroides/colony/square_bacte000179.jpg 1
-./square224/Bacteroides/colony/square_bacte000189.jpg 1
-./square224/Bacteroides/colony/square_bacte000199.jpg 1
-./square224/Bacteroides/colony/square_bacte000209.jpg 1
-./square224/Bacteroides/colony/square_bacte000219.jpg 1
-./square224/Bacteroides/colony/square_bacte000229.jpg 1
-./square224/Bacteroides/colony/square_bacte000239.jpg 1
-./square224/Bacteroides/colony/square_bacte000249.jpg 1
-./square224/Bacteroides/colony/square_bacte000259.jpg 1
-./square224/Bacteroides/colony/square_bacte000269.jpg 1
-./square224/Bacteroides/colony/square_bacte000279.jpg 1
-./square224/Bacteroides/colony/square_bacte000289.jpg 1
-./square224/Bacteroides/colony/square_bacte000299.jpg 1
-./square224/Bacteroides/colony/square_bacte000309.jpg 1
-./square224/Bacteroides/colony/square_bacte000319.jpg 1
-./square224/Bacteroides/colony/square_bacte000329.jpg 1
-./square224/Bacteroides/colony/square_bacte000339.jpg 1
-./square224/Bacteroides/colony/square_bacte000349.jpg 1
-./square224/Bacteroides/colony/square_bacte000359.jpg 1
-./square224/Bacteroides/colony/square_bacte000369.jpg 1
-./square224/Bacteroides/colony/square_bacte000379.jpg 1
-./square224/Bacteroides/colony/square_bacte000389.jpg 1
-./square224/Bacteroides/colony/square_bacte000399.jpg 1
-./square224/Bacteroides/colony/square_bacte000409.jpg 1
-./square224/Bacteroides/colony/square_bacte000419.jpg 1
-./square224/Bacteroides/colony/square_bacte000429.jpg 1
-./square224/Bacteroides/colony/square_bacte000439.jpg 1
-./square224/Bacteroides/colony/square_bacte000449.jpg 1
-./square224/Bacteroides/colony/square_bacte000459.jpg 1
-./square224/Bacteroides/colony/square_bacte000469.jpg 1
-./square224/Bacteroides/colony/square_bacte000479.jpg 1
-./square224/Bacteroides/colony/square_bacte000489.jpg 1
-./square224/Bacteroides/colony/square_bacte000499.jpg 1
-./square224/Bacteroides/colony/square_bacte000509.jpg 1
-./square224/Bacteroides/colony/square_bacte000519.jpg 1
-./square224/Bacteroides/colony/square_bacte000529.jpg 1
-./square224/Bacteroides/colony/square_bacte000539.jpg 1
-./square224/Bacteroides/colony/square_bacte000549.jpg 1
-./square224/Bacteroides/colony/square_bacte000559.jpg 1
-./square224/Bacteroides/colony/square_bacte000569.jpg 1
-./square224/Bacteroides/colony/square_bacte000579.jpg 1
-./square224/Bacteroides/colony/square_bacte000589.jpg 1
-./square224/Bacteroides/colony/square_bacte000599.jpg 1
-./square224/Bacteroides/colony/square_bacte000609.jpg 1
-./square224/Bacteroides/colony/square_bacte000619.jpg 1
-./square224/Bacteroides/colony/square_bacte000629.jpg 1
-./square224/Bacteroides/colony/square_bacte000639.jpg 1
-./square224/Bacteroides/colony/square_bacte000649.jpg 1
-./square224/Bacteroides/colony/square_bacte000659.jpg 1
-./square224/Bacteroides/colony/square_bacte000669.jpg 1
-./square224/Bacteroides/colony/square_bacte000679.jpg 1
-./square224/Bacteroides/colony/square_bacte000689.jpg 1
-./square224/Bacteroides/colony/square_bacte000699.jpg 1
-./square224/Bacteroides/colony/square_bacte000709.jpg 1
-./square224/Bacteroides/colony/square_bacte000719.jpg 1
-./square224/Bacteroides/colony/square_bacte000729.jpg 1
-./square224/Bacteroides/colony/square_bacte000739.jpg 1
-./square224/Bacteroides/colony/square_bacte000749.jpg 1
-./square224/Bacteroides/colony/square_bacte000759.jpg 1
-./square224/Bacteroides/colony/square_bacte000769.jpg 1
-./square224/Bacteroides/colony/square_bacte000779.jpg 1
-./square224/Bacteroides/colony/square_bacte000789.jpg 1
-./square224/Bacteroides/colony/square_bacte000799.jpg 1
-./square224/Bacteroides/colony/square_bacte000809.jpg 1
-./square224/Bacteroides/colony/square_bacte000819.jpg 1
-./square224/Bacteroides/colony/square_bacte000829.jpg 1
-./square224/Bacteroides/colony/square_bacte000839.jpg 1
-./square224/Bacteroides/colony/square_bacte000849.jpg 1
-./square224/Bacteroides/colony/square_bacte000859.jpg 1
-./square224/Bacteroides/colony/square_bacte000869.jpg 1
-./square224/Bacteroides/colony/square_bacte000879.jpg 1
-./square224/Bacteroides/colony/square_bacte000889.jpg 1
-./square224/Bacteroides/colony/square_bacte000899.jpg 1
-./square224/Bacteroides/colony/square_bacte000909.jpg 1
-./square224/Bacteroides/colony/square_bacte000919.jpg 1
-./square224/Bacteroides/colony/square_bacte000929.jpg 1
-./square224/Bacteroides/colony/square_bacte000939.jpg 1
-./square224/Bacteroides/colony/square_bacte000949.jpg 1
-./square224/Bacteroides/colony/square_bacte000959.jpg 1
-./square224/Bacteroides/colony/square_bacte000969.jpg 1
-./square224/Bacteroides/colony/square_bacte000979.jpg 1
-./square224/Bacteroides/colony/square_bacte000989.jpg 1
-./square224/Bacteroides/colony/square_bacte000999.jpg 1
-./square224/Bacteroides/colony/square_bacte001009.jpg 1
-./square224/Bacteroides/colony/square_bacte001019.jpg 1
-./square224/Bacteroides/colony/square_bacte001029.jpg 1
-./square224/Bacteroides/colony/square_bacte001039.jpg 1
-./square224/Bacteroides/colony/square_bacte001049.jpg 1
-./square224/Bacteroides/colony/square_bacte001059.jpg 1
-./square224/Bacteroides/colony/square_bacte001069.jpg 1
-./square224/Bacteroides/colony/square_bacte001079.jpg 1
-./square224/Bacteroides/colony/square_bacte001089.jpg 1
-./square224/Bacteroides/colony/square_bacte001099.jpg 1
-./square224/Bacteroides/colony/square_bacte001109.jpg 1
-./square224/Bacteroides/colony/square_bacte001119.jpg 1
-./square224/Bacteroides/colony/square_bacte001129.jpg 1
-./square224/Bacteroides/colony/square_bacte001139.jpg 1
-./square224/Bacteroides/colony/square_bacte001149.jpg 1
-./square224/Bacteroides/colony/square_bacte001159.jpg 1
-./square224/Bacteroides/colony/square_bacte001169.jpg 1
-./square224/Bacteroides/colony/square_bacte001179.jpg 1
-./square224/Bacteroides/colony/square_bacte001189.jpg 1
-./square224/Bacteroides/colony/square_bacte001199.jpg 1
-./square224/Bacteroides/colony/square_bacte001209.jpg 1
-./square224/Bacteroides/colony/square_bacte001219.jpg 1
-./square224/Bacteroides/colony/square_bacte001229.jpg 1
-./square224/Bacteroides/colony/square_bacte001239.jpg 1
-./square224/Bacteroides/colony/square_bacte001249.jpg 1
-./square224/Bacteroides/colony/square_bacte001259.jpg 1
-./square224/Bacteroides/colony/square_bacte001269.jpg 1
-./square224/Bacteroides/colony/square_bacte001279.jpg 1
-./square224/Bacteroides/colony/square_bacte001289.jpg 1
-./square224/Bacteroides/colony/square_bacte001299.jpg 1
-./square224/Bacteroides/colony/square_bacte001309.jpg 1
-./square224/Bacteroides/colony/square_bacte001319.jpg 1
-./square224/Bacteroides/colony/square_bacte001329.jpg 1
-./square224/Bacteroides/colony/square_bacte001339.jpg 1
-./square224/Bacteroides/colony/square_bacte001349.jpg 1
-./square224/Bacteroides/colony/square_bacte001359.jpg 1
-./square224/Bacteroides/colony/square_bacte001369.jpg 1
-./square224/Bacteroides/colony/square_bacte001379.jpg 1
-./square224/Bacteroides/colony/square_bacte001389.jpg 1
-./square224/Bacteroides/colony/square_bacte001399.jpg 1
-./square224/Bacteroides/colony/square_bacte001409.jpg 1
-./square224/Bacteroides/colony/square_bacte001419.jpg 1
-./square224/Bacteroides/colony/square_bacte001429.jpg 1
-./square224/Bacteroides/colony/square_bacte001439.jpg 1
-./square224/Bacteroides/colony/square_bacte001449.jpg 1
-./square224/Bacteroides/colony/square_bacte001459.jpg 1
-./square224/Bacteroides/colony/square_bacte001469.jpg 1
-./square224/Bacteroides/colony/square_bacte001479.jpg 1
-./square224/Bacteroides/colony/square_bacte001489.jpg 1
-./square224/Bacteroides/colony/square_bacte001499.jpg 1
-./square224/Bacteroides/colony/square_bacte001509.jpg 1
-./square224/Bacteroides/colony/square_bacte001519.jpg 1
-./square224/Bacteroides/colony/square_bacte001529.jpg 1
-./square224/Bacteroides/colony/square_bacte001539.jpg 1
-./square224/Bacteroides/colony/square_bacte001549.jpg 1
-./square224/Bacteroides/colony/square_bacte001559.jpg 1
-./square224/Bacteroides/colony/square_bacte001569.jpg 1
-./square224/Bacteroides/colony/square_bacte001579.jpg 1
-./square224/Bacteroides/colony/square_bacte001589.jpg 1
-./square224/Bacteroides/colony/square_bacte001599.jpg 1
-./square224/Bacteroides/colony/square_bacte001609.jpg 1
-./square224/Bacteroides/colony/square_bacte001619.jpg 1
-./square224/Bacteroides/colony/square_bacte001629.jpg 1
-./square224/Bacteroides/colony/square_bacte001639.jpg 1
-./square224/Bacteroides/colony/square_bacte001649.jpg 1
-./square224/Bacteroides/colony/square_bacte001659.jpg 1
-./square224/Bacteroides/colony/square_bacte001669.jpg 1
-./square224/Bacteroides/colony/square_bacte001679.jpg 1
-./square224/Bacteroides/colony/square_bacte001689.jpg 1
-./square224/Bacteroides/colony/square_bacte001699.jpg 1
-./square224/Bacteroides/colony/square_bacte001709.jpg 1
-./square224/Bacteroides/colony/square_bacte001719.jpg 1
-./square224/Bacteroides/colony/square_bacte001729.jpg 1
-./square224/Bacteroides/colony/square_bacte001739.jpg 1
-./square224/Bacteroides/colony/square_bacte001749.jpg 1
-./square224/Bacteroides/colony/square_bacte001759.jpg 1
-./square224/Bacteroides/colony/square_bacte001769.jpg 1
-./square224/Bacteroides/colony/square_bacte001779.jpg 1
-./square224/Bacteroides/colony/square_bacte001789.jpg 1
-./square224/Bacteroides/colony/square_bacte001799.jpg 1
-./square224/Bacteroides/colony/square_bacte001809.jpg 1
-./square224/Bacteroides/colony/square_bacte001819.jpg 1
-./square224/Bacteroides/colony/square_bacte001829.jpg 1
-./square224/Bacteroides/colony/square_bacte001839.jpg 1
-./square224/Bacteroides/colony/square_bacte001849.jpg 1
-./square224/Bacteroides/colony/square_bacte001859.jpg 1
-./square224/Bacteroides/colony/square_bacte001869.jpg 1
-./square224/Bacteroides/colony/square_bacte001879.jpg 1
-./square224/Bacteroides/colony/square_bacte001889.jpg 1
-./square224/Bacteroides/colony/square_bacte001899.jpg 1
-./square224/Bacteroides/colony/square_bacte001909.jpg 1
-./square224/Bacteroides/colony/square_bacte001919.jpg 1
-./square224/Bacteroides/colony/square_bacte001929.jpg 1
-./square224/Bacteroides/colony/square_bacte001939.jpg 1
-./square224/Bacteroides/colony/square_bacte001949.jpg 1
-./square224/Bacteroides/colony/square_bacte001959.jpg 1
-./square224/Bacteroides/colony/square_bacte001969.jpg 1
-./square224/Gardnerella/colony/square_gardner000009.jpg 1
-./square224/Gardnerella/colony/square_gardner000019.jpg 1
-./square224/Gardnerella/colony/square_gardner000029.jpg 1
-./square224/Gardnerella/colony/square_gardner000039.jpg 1
-./square224/Gardnerella/colony/square_gardner000049.jpg 1
-./square224/Gardnerella/colony/square_gardner000059.jpg 1
-./square224/Gardnerella/colony/square_gardner000069.jpg 1
-./square224/Gardnerella/colony/square_gardner000079.jpg 1
-./square224/Gardnerella/colony/square_gardner000089.jpg 1
-./square224/Gardnerella/colony/square_gardner000099.jpg 1
-./square224/Gardnerella/colony/square_gardner000109.jpg 1
-./square224/Gardnerella/colony/square_gardner000119.jpg 1
-./square224/Gardnerella/colony/square_gardner000129.jpg 1
-./square224/Gardnerella/colony/square_gardner000139.jpg 1
-./square224/Gardnerella/colony/square_gardner000149.jpg 1
-./square224/Gardnerella/colony/square_gardner000159.jpg 1
-./square224/Gardnerella/colony/square_gardner000169.jpg 1
-./square224/Gardnerella/colony/square_gardner000179.jpg 1
-./square224/Gardnerella/colony/square_gardner000189.jpg 1
-./square224/Gardnerella/colony/square_gardner000199.jpg 1
-./square224/Gardnerella/colony/square_gardner000210.jpg 1
-./square224/Gardnerella/colony/square_gardner000220.jpg 1
-./square224/Gardnerella/colony/square_gardner000230.jpg 1
-./square224/Gardnerella/colony/square_gardner000240.jpg 1
-./square224/Gardnerella/colony/square_gardner000250.jpg 1
-./square224/Gardnerella/colony/square_gardner000260.jpg 1
-./square224/Gardnerella/colony/square_gardner000270.jpg 1
-./square224/Gardnerella/colony/square_gardner000280.jpg 1
-./square224/Gardnerella/colony/square_gardner000290.jpg 1
-./square224/Gardnerella/colony/square_gardner000300.jpg 1
-./square224/Gardnerella/colony/square_gardner000310.jpg 1
-./square224/Gardnerella/colony/square_gardner000320.jpg 1
-./square224/Gardnerella/colony/square_gardner000330.jpg 1
-./square224/Gardnerella/colony/square_gardner000342.jpg 1
-./square224/Gardnerella/colony/square_gardner000353.jpg 1
-./square224/Gardnerella/colony/square_gardner000363.jpg 1
-./square224/Gardnerella/colony/square_gardner000373.jpg 1
-./square224/Gardnerella/colony/square_gardner000383.jpg 1
-./square224/Gardnerella/colony/square_gardner000393.jpg 1
-./square224/Gardnerella/colony/square_gardner000403.jpg 1
-./square224/Gardnerella/colony/square_gardner000413.jpg 1
-./square224/Gardnerella/colony/square_gardner000423.jpg 1
-./square224/Gardnerella/colony/square_gardner000433.jpg 1
-./square224/Gardnerella/colony/square_gardner000443.jpg 1
-./square224/Gardnerella/colony/square_gardner000453.jpg 1
-./square224/Gardnerella/colony/square_gardner000463.jpg 1
-./square224/Gardnerella/colony/square_gardner000473.jpg 1
-./square224/Gardnerella/colony/square_gardner000483.jpg 1
-./square224/Gardnerella/colony/square_gardner000493.jpg 1
-./square224/Gardnerella/colony/square_gardner000503.jpg 1
-./square224/Gardnerella/colony/square_gardner000513.jpg 1
-./square224/Gardnerella/colony/square_gardner000523.jpg 1
-./square224/Gardnerella/colony/square_gardner000533.jpg 1
-./square224/Gardnerella/colony/square_gardner000544.jpg 1
-./square224/Gardnerella/colony/square_gardner000554.jpg 1
-./square224/Gardnerella/colony/square_gardner000564.jpg 1
-./square224/Gardnerella/colony/square_gardner000574.jpg 1
-./square224/Gardnerella/colony/square_gardner000584.jpg 1
-./square224/Gardnerella/colony/square_gardner000594.jpg 1
-./square224/Gardnerella/colony/square_gardner000604.jpg 1
-./square224/Gardnerella/colony/square_gardner000615.jpg 1
-./square224/Gardnerella/colony/square_gardner000625.jpg 1
-./square224/Gardnerella/colony/square_gardner000636.jpg 1
-./square224/Gardnerella/colony/square_gardner000647.jpg 1
-./square224/Gardnerella/colony/square_gardner000657.jpg 1
-./square224/Gardnerella/colony/square_gardner000667.jpg 1
-./square224/Gardnerella/colony/square_gardner000677.jpg 1
-./square224/Gardnerella/colony/square_gardner000689.jpg 1
-./square224/Gardnerella/colony/square_gardner000700.jpg 1
-./square224/Gardnerella/colony/square_gardner000710.jpg 1
-./square224/Gardnerella/colony/square_gardner000720.jpg 1
-./square224/Gardnerella/colony/square_gardner000731.jpg 1
-./square224/Gardnerella/colony/square_gardner000741.jpg 1
-./square224/Gardnerella/colony/square_gardner000753.jpg 1
-./square224/Gardnerella/colony/square_gardner000763.jpg 1
-./square224/Gardnerella/colony/square_gardner000773.jpg 1
-./square224/Gardnerella/colony/square_gardner000784.jpg 1
-./square224/Gardnerella/colony/square_gardner000794.jpg 1
-./square224/Gardnerella/colony/square_gardner000806.jpg 1
-./square224/Gardnerella/colony/square_gardner000817.jpg 1
-./square224/Gardnerella/colony/square_gardner000827.jpg 1
-./square224/Gardnerella/colony/square_gardner000838.jpg 1
-./square224/Gardnerella/colony/square_gardner000848.jpg 1
-./square224/Gardnerella/colony/square_gardner000859.jpg 1
-./square224/Gardnerella/colony/square_gardner000869.jpg 1
-./square224/Gardnerella/colony/square_gardner000879.jpg 1
-./square224/Gardnerella/colony/square_gardner000889.jpg 1
-./square224/Gardnerella/colony/square_gardner000899.jpg 1
-./square224/Gardnerella/colony/square_gardner000909.jpg 1
-./square224/Gardnerella/colony/square_gardner000919.jpg 1
-./square224/Gardnerella/colony/square_gardner000929.jpg 1
-./square224/Gardnerella/colony/square_gardner000939.jpg 1
-./square224/Gardnerella/colony/square_gardner000949.jpg 1
-./square224/Gardnerella/colony/square_gardner000959.jpg 1
-./square224/Gardnerella/colony/square_gardner000969.jpg 1
-./square224/Gardnerella/colony/square_gardner000979.jpg 1
-./square224/Gardnerella/colony/square_gardner000989.jpg 1
-./square224/Gardnerella/colony/square_gardner000999.jpg 1
-./square224/Gardnerella/colony/square_gardner001009.jpg 1
-./square224/Gardnerella/colony/square_gardner001019.jpg 1
-./square224/Gardnerella/colony/square_gardner001029.jpg 1
-./square224/Gardnerella/colony/square_gardner001039.jpg 1
-./square224/Gardnerella/colony/square_gardner001049.jpg 1
-./square224/Gardnerella/colony/square_gardner001059.jpg 1
-./square224/Gardnerella/colony/square_gardner001069.jpg 1
-./square224/Gardnerella/colony/square_gardner001079.jpg 1
-./square224/Gardnerella/colony/square_gardner001089.jpg 1
-./square224/Gardnerella/colony/square_gardner001099.jpg 1
-./square224/Gardnerella/colony/square_gardner001109.jpg 1
-./square224/Gardnerella/colony/square_gardner001119.jpg 1
-./square224/Gardnerella/colony/square_gardner001129.jpg 1
-./square224/Gardnerella/colony/square_gardner001139.jpg 1
-./square224/Gardnerella/colony/square_gardner001150.jpg 1
-./square224/Gardnerella/colony/square_gardner001160.jpg 1
-./square224/Gardnerella/colony/square_gardner001171.jpg 1
-./square224/Gardnerella/colony/square_gardner001182.jpg 1
-./square224/Gardnerella/colony/square_gardner001192.jpg 1
-./square224/Gardnerella/colony/square_gardner001202.jpg 1
-./square224/Gardnerella/colony/square_gardner001212.jpg 1
-./square224/Gardnerella/colony/square_gardner001223.jpg 1
-./square224/Gardnerella/colony/square_gardner001233.jpg 1
-./square224/Gardnerella/colony/square_gardner001243.jpg 1
-./square224/Gardnerella/colony/square_gardner001253.jpg 1
-./square224/Gardnerella/colony/square_gardner001263.jpg 1
-./square224/Gardnerella/colony/square_gardner001273.jpg 1
-./square224/Gardnerella/colony/square_gardner001283.jpg 1
-./square224/Gardnerella/colony/square_gardner001293.jpg 1
-./square224/Gardnerella/colony/square_gardner001303.jpg 1
-./square224/Gardnerella/colony/square_gardner001313.jpg 1
-./square224/Gardnerella/colony/square_gardner001323.jpg 1
-./square224/Gardnerella/colony/square_gardner001333.jpg 1
-./square224/Gardnerella/colony/square_gardner001343.jpg 1
-./square224/Gardnerella/colony/square_gardner001353.jpg 1
-./square224/Gardnerella/colony/square_gardner001363.jpg 1
-./square224/Gardnerella/colony/square_gardner001373.jpg 1
-./square224/Gardnerella/colony/square_gardner001383.jpg 1
-./square224/Gardnerella/colony/square_gardner001393.jpg 1
-./square224/Gardnerella/colony/square_gardner001403.jpg 1
-./square224/Gardnerella/colony/square_gardner001413.jpg 1
-./square224/Gardnerella/colony/square_gardner001423.jpg 1
-./square224/Gardnerella/colony/square_gardner001433.jpg 1
-./square224/Gardnerella/colony/square_gardner001444.jpg 1
-./square224/Gardnerella/colony/square_gardner001454.jpg 1
-./square224/Gardnerella/colony/square_gardner001464.jpg 1
-./square224/Gardnerella/colony/square_gardner001474.jpg 1
-./square224/Gardnerella/colony/square_gardner001484.jpg 1
-./square224/Gardnerella/colony/square_gardner001496.jpg 1
-./square224/Gardnerella/colony/square_gardner001506.jpg 1
-./square224/Gardnerella/colony/square_gardner001516.jpg 1
-./square224/Gardnerella/colony/square_gardner001526.jpg 1
-./square224/Gardnerella/colony/square_gardner001536.jpg 1
-./square224/Gardnerella/colony/square_gardner001546.jpg 1
-./square224/Gardnerella/colony/square_gardner001556.jpg 1
-./square224/Gardnerella/colony/square_gardner001566.jpg 1
-./square224/Gardnerella/colony/square_gardner001576.jpg 1
-./square224/Gardnerella/colony/square_gardner001587.jpg 1
-./square224/Gardnerella/colony/square_gardner001597.jpg 1
-./square224/Gardnerella/colony/square_gardner001608.jpg 1
-./square224/Gardnerella/colony/square_gardner001618.jpg 1
-./square224/Gardnerella/colony/square_gardner001628.jpg 1
-./square224/Gardnerella/colony/square_gardner001639.jpg 1
-./square224/Gardnerella/colony/square_gardner001649.jpg 1
-./square224/Gardnerella/direct/square_gardner000011.jpg 1
-./square224/Gardnerella/direct/square_gardner000021.jpg 1
-./square224/Gardnerella/direct/square_gardner000031.jpg 1
-./square224/Gardnerella/direct/square_gardner000041.jpg 1
-./square224/Gardnerella/direct/square_gardner000051.jpg 1
-./square224/Gardnerella/direct/square_gardner000062.jpg 1
-./square224/Gardnerella/direct/square_gardner000072.jpg 1
-./square224/Gardnerella/direct/square_gardner000082.jpg 1
-./square224/Gardnerella/direct/square_gardner000092.jpg 1
-./square224/Gardnerella/direct/square_gardner000102.jpg 1
-./square224/Gardnerella/direct/square_gardner000119.jpg 1
-./square224/Gardnerella/direct/square_gardner000131.jpg 1
-./square224/Gardnerella/direct/square_gardner000141.jpg 1
-./square224/Gardnerella/direct/square_gardner000151.jpg 1
-./square224/Gardnerella/direct/square_gardner000162.jpg 1
-./square224/Gardnerella/direct/square_gardner000172.jpg 1
-./square224/Gardnerella/direct/square_gardner000182.jpg 1
-./square224/Gardnerella/direct/square_gardner000193.jpg 1
-./square224/Gardnerella/direct/square_gardner000203.jpg 1
-./square224/Gardnerella/direct/square_gardner000213.jpg 1
-./square224/Gardnerella/direct/square_gardner000223.jpg 1
-./square224/Gardnerella/direct/square_gardner000238.jpg 1
-./square224/Gardnerella/direct/square_gardner000248.jpg 1
-./square224/Gardnerella/direct/square_gardner000258.jpg 1
-./square224/Gardnerella/direct/square_gardner000268.jpg 1
-./square224/Gardnerella/direct/square_gardner000278.jpg 1
-./square224/Gardnerella/direct/square_gardner000288.jpg 1
-./square224/Gardnerella/direct/square_gardner000298.jpg 1
-./square224/Gardnerella/direct/square_gardner000308.jpg 1
-./square224/Gardnerella/direct/square_gardner000318.jpg 1
-./square224/Lactobacilli/colony/square_lacto000009.jpg 1
-./square224/Lactobacilli/colony/square_lacto000019.jpg 1
-./square224/Lactobacilli/colony/square_lacto000029.jpg 1
-./square224/Lactobacilli/colony/square_lacto000039.jpg 1
-./square224/Lactobacilli/colony/square_lacto000049.jpg 1
-./square224/Lactobacilli/colony/square_lacto000059.jpg 1
-./square224/Lactobacilli/colony/square_lacto000071.jpg 1
-./square224/Lactobacilli/colony/square_lacto000081.jpg 1
-./square224/Lactobacilli/colony/square_lacto000091.jpg 1
-./square224/Lactobacilli/colony/square_lacto000101.jpg 1
-./square224/Lactobacilli/colony/square_lacto000111.jpg 1
-./square224/Lactobacilli/colony/square_lacto000125.jpg 1
-./square224/Lactobacilli/colony/square_lacto000135.jpg 1
-./square224/Lactobacilli/colony/square_lacto000145.jpg 1
-./square224/Lactobacilli/colony/square_lacto000156.jpg 1
-./square224/Lactobacilli/colony/square_lacto000167.jpg 1
-./square224/Lactobacilli/colony/square_lacto000177.jpg 1
-./square224/Lactobacilli/colony/square_lacto000187.jpg 1
-./square224/Lactobacilli/colony/square_lacto000197.jpg 1
-./square224/Lactobacilli/colony/square_lacto000207.jpg 1
-./square224/Lactobacilli/colony/square_lacto000217.jpg 1
-./square224/Lactobacilli/colony/square_lacto000229.jpg 1
-./square224/Lactobacilli/colony/square_lacto000242.jpg 1
-./square224/Lactobacilli/colony/square_lacto000252.jpg 1
-./square224/Lactobacilli/colony/square_lacto000262.jpg 1
-./square224/Lactobacilli/colony/square_lacto000273.jpg 1
-./square224/Lactobacilli/colony/square_lacto000284.jpg 1
-./square224/Lactobacilli/colony/square_lacto000297.jpg 1
-./square224/Lactobacilli/colony/square_lacto000307.jpg 1
-./square224/Lactobacilli/colony/square_lacto000317.jpg 1
-./square224/Lactobacilli/colony/square_lacto000327.jpg 1
-./square224/Lactobacilli/colony/square_lacto000337.jpg 1
-./square224/Lactobacilli/colony/square_lacto000347.jpg 1
-./square224/Lactobacilli/colony/square_lacto000360.jpg 1
-./square224/Lactobacilli/colony/square_lacto000371.jpg 1
-./square224/Lactobacilli/colony/square_lacto000381.jpg 1
-./square224/Lactobacilli/colony/square_lacto000391.jpg 1
-./square224/Lactobacilli/colony/square_lacto000405.jpg 1
-./square224/Lactobacilli/colony/square_lacto000415.jpg 1
-./square224/Lactobacilli/colony/square_lacto000425.jpg 1
-./square224/Lactobacilli/colony/square_lacto000435.jpg 1
-./square224/Lactobacilli/colony/square_lacto000446.jpg 1
-./square224/Lactobacilli/colony/square_lacto000456.jpg 1
-./square224/Lactobacilli/colony/square_lacto000466.jpg 1
-./square224/Lactobacilli/colony/square_lacto000476.jpg 1
-./square224/Lactobacilli/colony/square_lacto000486.jpg 1
-./square224/Lactobacilli/colony/square_lacto000496.jpg 1
-./square224/Lactobacilli/colony/square_lacto000507.jpg 1
-./square224/Lactobacilli/colony/square_lacto000520.jpg 1
-./square224/Lactobacilli/colony/square_lacto000530.jpg 1
-./square224/Lactobacilli/colony/square_lacto000540.jpg 1
-./square224/Lactobacilli/colony/square_lacto000550.jpg 1
-./square224/Lactobacilli/colony/square_lacto000561.jpg 1
-./square224/Lactobacilli/colony/square_lacto000571.jpg 1
-./square224/Lactobacilli/colony/square_lacto000581.jpg 1
-./square224/Lactobacilli/colony/square_lacto000591.jpg 1
-./square224/Lactobacilli/colony/square_lacto000601.jpg 1
-./square224/Lactobacilli/colony/square_lacto000611.jpg 1
-./square224/Lactobacilli/colony/square_lacto000623.jpg 1
-./square224/Lactobacilli/colony/square_lacto000639.jpg 1
-./square224/Lactobacilli/colony/square_lacto000649.jpg 1
-./square224/Lactobacilli/colony/square_lacto000659.jpg 1
-./square224/Lactobacilli/colony/square_lacto000669.jpg 1
-./square224/Lactobacilli/colony/square_lacto000679.jpg 1
-./square224/Lactobacilli/colony/square_lacto000689.jpg 1
-./square224/Lactobacilli/colony/square_lacto000699.jpg 1
-./square224/Lactobacilli/colony/square_lacto000709.jpg 1
-./square224/Lactobacilli/colony/square_lacto000721.jpg 1
-./square224/Lactobacilli/colony/square_lacto000736.jpg 1
-./square224/Lactobacilli/colony/square_lacto000746.jpg 1
-./square224/Lactobacilli/colony/square_lacto000756.jpg 1
-./square224/Lactobacilli/colony/square_lacto000766.jpg 1
-./square224/Lactobacilli/direct/square_lacto000009.jpg 1
-./square224/Lactobacilli/direct/square_lacto000023.jpg 1
-./square224/Lactobacilli/direct/square_lacto000035.jpg 1
-./square224/Lactobacilli/direct/square_lacto000051.jpg 1
-./square224/Lactobacilli/direct/square_lacto000061.jpg 1
-./square224/Lactobacilli/direct/square_lacto000079.jpg 1
-./square224/Lactobacilli/direct/square_lacto000112.jpg 1
-./square224/Lactobacilli/direct/square_lacto000122.jpg 1
-./square224/Lactobacilli/direct/square_lacto000132.jpg 1
-./square224/Lactobacilli/direct/square_lacto000142.jpg 1
-./square224/Lactobacilli/direct/square_lacto000152.jpg 1
-./square224/Lactobacilli/direct/square_lacto000162.jpg 1
-./square224/Lactobacilli/direct/square_lacto000172.jpg 1
-./square224/Lactobacilli/direct/square_lacto000182.jpg 1
-./square224/Lactobacilli/direct/square_lacto000192.jpg 1
-./square224/Lactobacilli/direct/square_lacto000202.jpg 1
-./square224/Lactobacilli/direct/square_lacto000212.jpg 1
-./square224/Lactobacilli/direct/square_lacto000222.jpg 1
-./square224/Lactobacilli/direct/square_lacto000236.jpg 1
-./square224/Lactobacilli/direct/square_lacto000246.jpg 1
-./square224/Lactobacilli/direct/square_lacto000256.jpg 1
-./square224/Lactobacilli/direct/square_lacto000267.jpg 1
-./square224/Lactobacilli/direct/square_lacto000277.jpg 1
-./square224/Lactobacilli/direct/square_lacto000287.jpg 1
-./square224/noise/square_gardner000110.jpg 1
-./square224/noise/square_gardner000227.jpg 1
-./square224/noise/square_gardner000679.jpg 1
-./square224/noise/square_gardner000831.jpg 1
-./square224/noise/square_gardner001598.jpg 1
-./square224/noise/square_lacto000117.jpg 1
-./square224/noise/square_lacto000267.jpg 1
-./square224/noise/square_lacto000394.jpg 1
-./square224/noise/square_lacto000621.jpg 1
-./square224/noise/square_lacto000725.jpg 1
+./square224/Bacteroides/colony/square_bacte000009.jpg:1
+./square224/Bacteroides/colony/square_bacte000019.jpg:1
+./square224/Bacteroides/colony/square_bacte000029.jpg:1
+./square224/Bacteroides/colony/square_bacte000039.jpg:1
+./square224/Bacteroides/colony/square_bacte000049.jpg:1
+./square224/Bacteroides/colony/square_bacte000059.jpg:1
+./square224/Bacteroides/colony/square_bacte000069.jpg:1
+./square224/Bacteroides/colony/square_bacte000079.jpg:1
+./square224/Bacteroides/colony/square_bacte000089.jpg:1
+./square224/Bacteroides/colony/square_bacte000099.jpg:1
+./square224/Bacteroides/colony/square_bacte000109.jpg:1
+./square224/Bacteroides/colony/square_bacte000119.jpg:1
+./square224/Bacteroides/colony/square_bacte000129.jpg:1
+./square224/Bacteroides/colony/square_bacte000139.jpg:1
+./square224/Bacteroides/colony/square_bacte000149.jpg:1
+./square224/Bacteroides/colony/square_bacte000159.jpg:1
+./square224/Bacteroides/colony/square_bacte000169.jpg:1
+./square224/Bacteroides/colony/square_bacte000179.jpg:1
+./square224/Bacteroides/colony/square_bacte000189.jpg:1
+./square224/Bacteroides/colony/square_bacte000199.jpg:1
+./square224/Bacteroides/colony/square_bacte000209.jpg:1
+./square224/Bacteroides/colony/square_bacte000219.jpg:1
+./square224/Bacteroides/colony/square_bacte000229.jpg:1
+./square224/Bacteroides/colony/square_bacte000239.jpg:1
+./square224/Bacteroides/colony/square_bacte000249.jpg:1
+./square224/Bacteroides/colony/square_bacte000259.jpg:1
+./square224/Bacteroides/colony/square_bacte000269.jpg:1
+./square224/Bacteroides/colony/square_bacte000279.jpg:1
+./square224/Bacteroides/colony/square_bacte000289.jpg:1
+./square224/Bacteroides/colony/square_bacte000299.jpg:1
+./square224/Bacteroides/colony/square_bacte000309.jpg:1
+./square224/Bacteroides/colony/square_bacte000319.jpg:1
+./square224/Bacteroides/colony/square_bacte000329.jpg:1
+./square224/Bacteroides/colony/square_bacte000339.jpg:1
+./square224/Bacteroides/colony/square_bacte000349.jpg:1
+./square224/Bacteroides/colony/square_bacte000359.jpg:1
+./square224/Bacteroides/colony/square_bacte000369.jpg:1
+./square224/Bacteroides/colony/square_bacte000379.jpg:1
+./square224/Bacteroides/colony/square_bacte000389.jpg:1
+./square224/Bacteroides/colony/square_bacte000399.jpg:1
+./square224/Bacteroides/colony/square_bacte000409.jpg:1
+./square224/Bacteroides/colony/square_bacte000419.jpg:1
+./square224/Bacteroides/colony/square_bacte000429.jpg:1
+./square224/Bacteroides/colony/square_bacte000439.jpg:1
+./square224/Bacteroides/colony/square_bacte000449.jpg:1
+./square224/Bacteroides/colony/square_bacte000459.jpg:1
+./square224/Bacteroides/colony/square_bacte000469.jpg:1
+./square224/Bacteroides/colony/square_bacte000479.jpg:1
+./square224/Bacteroides/colony/square_bacte000489.jpg:1
+./square224/Bacteroides/colony/square_bacte000499.jpg:1
+./square224/Bacteroides/colony/square_bacte000509.jpg:1
+./square224/Bacteroides/colony/square_bacte000519.jpg:1
+./square224/Bacteroides/colony/square_bacte000529.jpg:1
+./square224/Bacteroides/colony/square_bacte000539.jpg:1
+./square224/Bacteroides/colony/square_bacte000549.jpg:1
+./square224/Bacteroides/colony/square_bacte000559.jpg:1
+./square224/Bacteroides/colony/square_bacte000569.jpg:1
+./square224/Bacteroides/colony/square_bacte000579.jpg:1
+./square224/Bacteroides/colony/square_bacte000589.jpg:1
+./square224/Bacteroides/colony/square_bacte000599.jpg:1
+./square224/Bacteroides/colony/square_bacte000609.jpg:1
+./square224/Bacteroides/colony/square_bacte000619.jpg:1
+./square224/Bacteroides/colony/square_bacte000629.jpg:1
+./square224/Bacteroides/colony/square_bacte000639.jpg:1
+./square224/Bacteroides/colony/square_bacte000649.jpg:1
+./square224/Bacteroides/colony/square_bacte000659.jpg:1
+./square224/Bacteroides/colony/square_bacte000669.jpg:1
+./square224/Bacteroides/colony/square_bacte000679.jpg:1
+./square224/Bacteroides/colony/square_bacte000689.jpg:1
+./square224/Bacteroides/colony/square_bacte000699.jpg:1
+./square224/Bacteroides/colony/square_bacte000709.jpg:1
+./square224/Bacteroides/colony/square_bacte000719.jpg:1
+./square224/Bacteroides/colony/square_bacte000729.jpg:1
+./square224/Bacteroides/colony/square_bacte000739.jpg:1
+./square224/Bacteroides/colony/square_bacte000749.jpg:1
+./square224/Bacteroides/colony/square_bacte000759.jpg:1
+./square224/Bacteroides/colony/square_bacte000769.jpg:1
+./square224/Bacteroides/colony/square_bacte000779.jpg:1
+./square224/Bacteroides/colony/square_bacte000789.jpg:1
+./square224/Bacteroides/colony/square_bacte000799.jpg:1
+./square224/Bacteroides/colony/square_bacte000809.jpg:1
+./square224/Bacteroides/colony/square_bacte000819.jpg:1
+./square224/Bacteroides/colony/square_bacte000829.jpg:1
+./square224/Bacteroides/colony/square_bacte000839.jpg:1
+./square224/Bacteroides/colony/square_bacte000849.jpg:1
+./square224/Bacteroides/colony/square_bacte000859.jpg:1
+./square224/Bacteroides/colony/square_bacte000869.jpg:1
+./square224/Bacteroides/colony/square_bacte000879.jpg:1
+./square224/Bacteroides/colony/square_bacte000889.jpg:1
+./square224/Bacteroides/colony/square_bacte000899.jpg:1
+./square224/Bacteroides/colony/square_bacte000909.jpg:1
+./square224/Bacteroides/colony/square_bacte000919.jpg:1
+./square224/Bacteroides/colony/square_bacte000929.jpg:1
+./square224/Bacteroides/colony/square_bacte000939.jpg:1
+./square224/Bacteroides/colony/square_bacte000949.jpg:1
+./square224/Bacteroides/colony/square_bacte000959.jpg:1
+./square224/Bacteroides/colony/square_bacte000969.jpg:1
+./square224/Bacteroides/colony/square_bacte000979.jpg:1
+./square224/Bacteroides/colony/square_bacte000989.jpg:1
+./square224/Bacteroides/colony/square_bacte000999.jpg:1
+./square224/Bacteroides/colony/square_bacte001009.jpg:1
+./square224/Bacteroides/colony/square_bacte001019.jpg:1
+./square224/Bacteroides/colony/square_bacte001029.jpg:1
+./square224/Bacteroides/colony/square_bacte001039.jpg:1
+./square224/Bacteroides/colony/square_bacte001049.jpg:1
+./square224/Bacteroides/colony/square_bacte001059.jpg:1
+./square224/Bacteroides/colony/square_bacte001069.jpg:1
+./square224/Bacteroides/colony/square_bacte001079.jpg:1
+./square224/Bacteroides/colony/square_bacte001089.jpg:1
+./square224/Bacteroides/colony/square_bacte001099.jpg:1
+./square224/Bacteroides/colony/square_bacte001109.jpg:1
+./square224/Bacteroides/colony/square_bacte001119.jpg:1
+./square224/Bacteroides/colony/square_bacte001129.jpg:1
+./square224/Bacteroides/colony/square_bacte001139.jpg:1
+./square224/Bacteroides/colony/square_bacte001149.jpg:1
+./square224/Bacteroides/colony/square_bacte001159.jpg:1
+./square224/Bacteroides/colony/square_bacte001169.jpg:1
+./square224/Bacteroides/colony/square_bacte001179.jpg:1
+./square224/Bacteroides/colony/square_bacte001189.jpg:1
+./square224/Bacteroides/colony/square_bacte001199.jpg:1
+./square224/Bacteroides/colony/square_bacte001209.jpg:1
+./square224/Bacteroides/colony/square_bacte001219.jpg:1
+./square224/Bacteroides/colony/square_bacte001229.jpg:1
+./square224/Bacteroides/colony/square_bacte001239.jpg:1
+./square224/Bacteroides/colony/square_bacte001249.jpg:1
+./square224/Bacteroides/colony/square_bacte001259.jpg:1
+./square224/Bacteroides/colony/square_bacte001269.jpg:1
+./square224/Bacteroides/colony/square_bacte001279.jpg:1
+./square224/Bacteroides/colony/square_bacte001289.jpg:1
+./square224/Bacteroides/colony/square_bacte001299.jpg:1
+./square224/Bacteroides/colony/square_bacte001309.jpg:1
+./square224/Bacteroides/colony/square_bacte001319.jpg:1
+./square224/Bacteroides/colony/square_bacte001329.jpg:1
+./square224/Bacteroides/colony/square_bacte001339.jpg:1
+./square224/Bacteroides/colony/square_bacte001349.jpg:1
+./square224/Bacteroides/colony/square_bacte001359.jpg:1
+./square224/Bacteroides/colony/square_bacte001369.jpg:1
+./square224/Bacteroides/colony/square_bacte001379.jpg:1
+./square224/Bacteroides/colony/square_bacte001389.jpg:1
+./square224/Bacteroides/colony/square_bacte001399.jpg:1
+./square224/Bacteroides/colony/square_bacte001409.jpg:1
+./square224/Bacteroides/colony/square_bacte001419.jpg:1
+./square224/Bacteroides/colony/square_bacte001429.jpg:1
+./square224/Bacteroides/colony/square_bacte001439.jpg:1
+./square224/Bacteroides/colony/square_bacte001449.jpg:1
+./square224/Bacteroides/colony/square_bacte001459.jpg:1
+./square224/Bacteroides/colony/square_bacte001469.jpg:1
+./square224/Bacteroides/colony/square_bacte001479.jpg:1
+./square224/Bacteroides/colony/square_bacte001489.jpg:1
+./square224/Bacteroides/colony/square_bacte001499.jpg:1
+./square224/Bacteroides/colony/square_bacte001509.jpg:1
+./square224/Bacteroides/colony/square_bacte001519.jpg:1
+./square224/Bacteroides/colony/square_bacte001529.jpg:1
+./square224/Bacteroides/colony/square_bacte001539.jpg:1
+./square224/Bacteroides/colony/square_bacte001549.jpg:1
+./square224/Bacteroides/colony/square_bacte001559.jpg:1
+./square224/Bacteroides/colony/square_bacte001569.jpg:1
+./square224/Bacteroides/colony/square_bacte001579.jpg:1
+./square224/Bacteroides/colony/square_bacte001589.jpg:1
+./square224/Bacteroides/colony/square_bacte001599.jpg:1
+./square224/Bacteroides/colony/square_bacte001609.jpg:1
+./square224/Bacteroides/colony/square_bacte001619.jpg:1
+./square224/Bacteroides/colony/square_bacte001629.jpg:1
+./square224/Bacteroides/colony/square_bacte001639.jpg:1
+./square224/Bacteroides/colony/square_bacte001649.jpg:1
+./square224/Bacteroides/colony/square_bacte001659.jpg:1
+./square224/Bacteroides/colony/square_bacte001669.jpg:1
+./square224/Bacteroides/colony/square_bacte001679.jpg:1
+./square224/Bacteroides/colony/square_bacte001689.jpg:1
+./square224/Bacteroides/colony/square_bacte001699.jpg:1
+./square224/Bacteroides/colony/square_bacte001709.jpg:1
+./square224/Bacteroides/colony/square_bacte001719.jpg:1
+./square224/Bacteroides/colony/square_bacte001729.jpg:1
+./square224/Bacteroides/colony/square_bacte001739.jpg:1
+./square224/Bacteroides/colony/square_bacte001749.jpg:1
+./square224/Bacteroides/colony/square_bacte001759.jpg:1
+./square224/Bacteroides/colony/square_bacte001769.jpg:1
+./square224/Bacteroides/colony/square_bacte001779.jpg:1
+./square224/Bacteroides/colony/square_bacte001789.jpg:1
+./square224/Bacteroides/colony/square_bacte001799.jpg:1
+./square224/Bacteroides/colony/square_bacte001809.jpg:1
+./square224/Bacteroides/colony/square_bacte001819.jpg:1
+./square224/Bacteroides/colony/square_bacte001829.jpg:1
+./square224/Bacteroides/colony/square_bacte001839.jpg:1
+./square224/Bacteroides/colony/square_bacte001849.jpg:1
+./square224/Bacteroides/colony/square_bacte001859.jpg:1
+./square224/Bacteroides/colony/square_bacte001869.jpg:1
+./square224/Bacteroides/colony/square_bacte001879.jpg:1
+./square224/Bacteroides/colony/square_bacte001889.jpg:1
+./square224/Bacteroides/colony/square_bacte001899.jpg:1
+./square224/Bacteroides/colony/square_bacte001909.jpg:1
+./square224/Bacteroides/colony/square_bacte001919.jpg:1
+./square224/Bacteroides/colony/square_bacte001929.jpg:1
+./square224/Bacteroides/colony/square_bacte001939.jpg:1
+./square224/Bacteroides/colony/square_bacte001949.jpg:1
+./square224/Bacteroides/colony/square_bacte001959.jpg:1
+./square224/Bacteroides/colony/square_bacte001969.jpg:1
+./square224/Gardnerella/colony/square_gardner000009.jpg:1
+./square224/Gardnerella/colony/square_gardner000019.jpg:1
+./square224/Gardnerella/colony/square_gardner000029.jpg:1
+./square224/Gardnerella/colony/square_gardner000039.jpg:1
+./square224/Gardnerella/colony/square_gardner000049.jpg:1
+./square224/Gardnerella/colony/square_gardner000059.jpg:1
+./square224/Gardnerella/colony/square_gardner000069.jpg:1
+./square224/Gardnerella/colony/square_gardner000079.jpg:1
+./square224/Gardnerella/colony/square_gardner000089.jpg:1
+./square224/Gardnerella/colony/square_gardner000099.jpg:1
+./square224/Gardnerella/colony/square_gardner000109.jpg:1
+./square224/Gardnerella/colony/square_gardner000119.jpg:1
+./square224/Gardnerella/colony/square_gardner000129.jpg:1
+./square224/Gardnerella/colony/square_gardner000139.jpg:1
+./square224/Gardnerella/colony/square_gardner000149.jpg:1
+./square224/Gardnerella/colony/square_gardner000159.jpg:1
+./square224/Gardnerella/colony/square_gardner000169.jpg:1
+./square224/Gardnerella/colony/square_gardner000179.jpg:1
+./square224/Gardnerella/colony/square_gardner000189.jpg:1
+./square224/Gardnerella/colony/square_gardner000199.jpg:1
+./square224/Gardnerella/colony/square_gardner000210.jpg:1
+./square224/Gardnerella/colony/square_gardner000220.jpg:1
+./square224/Gardnerella/colony/square_gardner000230.jpg:1
+./square224/Gardnerella/colony/square_gardner000240.jpg:1
+./square224/Gardnerella/colony/square_gardner000250.jpg:1
+./square224/Gardnerella/colony/square_gardner000260.jpg:1
+./square224/Gardnerella/colony/square_gardner000270.jpg:1
+./square224/Gardnerella/colony/square_gardner000280.jpg:1
+./square224/Gardnerella/colony/square_gardner000290.jpg:1
+./square224/Gardnerella/colony/square_gardner000300.jpg:1
+./square224/Gardnerella/colony/square_gardner000310.jpg:1
+./square224/Gardnerella/colony/square_gardner000320.jpg:1
+./square224/Gardnerella/colony/square_gardner000330.jpg:1
+./square224/Gardnerella/colony/square_gardner000342.jpg:1
+./square224/Gardnerella/colony/square_gardner000353.jpg:1
+./square224/Gardnerella/colony/square_gardner000363.jpg:1
+./square224/Gardnerella/colony/square_gardner000373.jpg:1
+./square224/Gardnerella/colony/square_gardner000383.jpg:1
+./square224/Gardnerella/colony/square_gardner000393.jpg:1
+./square224/Gardnerella/colony/square_gardner000403.jpg:1
+./square224/Gardnerella/colony/square_gardner000413.jpg:1
+./square224/Gardnerella/colony/square_gardner000423.jpg:1
+./square224/Gardnerella/colony/square_gardner000433.jpg:1
+./square224/Gardnerella/colony/square_gardner000443.jpg:1
+./square224/Gardnerella/colony/square_gardner000453.jpg:1
+./square224/Gardnerella/colony/square_gardner000463.jpg:1
+./square224/Gardnerella/colony/square_gardner000473.jpg:1
+./square224/Gardnerella/colony/square_gardner000483.jpg:1
+./square224/Gardnerella/colony/square_gardner000493.jpg:1
+./square224/Gardnerella/colony/square_gardner000503.jpg:1
+./square224/Gardnerella/colony/square_gardner000513.jpg:1
+./square224/Gardnerella/colony/square_gardner000523.jpg:1
+./square224/Gardnerella/colony/square_gardner000533.jpg:1
+./square224/Gardnerella/colony/square_gardner000544.jpg:1
+./square224/Gardnerella/colony/square_gardner000554.jpg:1
+./square224/Gardnerella/colony/square_gardner000564.jpg:1
+./square224/Gardnerella/colony/square_gardner000574.jpg:1
+./square224/Gardnerella/colony/square_gardner000584.jpg:1
+./square224/Gardnerella/colony/square_gardner000594.jpg:1
+./square224/Gardnerella/colony/square_gardner000604.jpg:1
+./square224/Gardnerella/colony/square_gardner000615.jpg:1
+./square224/Gardnerella/colony/square_gardner000625.jpg:1
+./square224/Gardnerella/colony/square_gardner000636.jpg:1
+./square224/Gardnerella/colony/square_gardner000647.jpg:1
+./square224/Gardnerella/colony/square_gardner000657.jpg:1
+./square224/Gardnerella/colony/square_gardner000667.jpg:1
+./square224/Gardnerella/colony/square_gardner000677.jpg:1
+./square224/Gardnerella/colony/square_gardner000689.jpg:1
+./square224/Gardnerella/colony/square_gardner000700.jpg:1
+./square224/Gardnerella/colony/square_gardner000710.jpg:1
+./square224/Gardnerella/colony/square_gardner000720.jpg:1
+./square224/Gardnerella/colony/square_gardner000731.jpg:1
+./square224/Gardnerella/colony/square_gardner000741.jpg:1
+./square224/Gardnerella/colony/square_gardner000753.jpg:1
+./square224/Gardnerella/colony/square_gardner000763.jpg:1
+./square224/Gardnerella/colony/square_gardner000773.jpg:1
+./square224/Gardnerella/colony/square_gardner000784.jpg:1
+./square224/Gardnerella/colony/square_gardner000794.jpg:1
+./square224/Gardnerella/colony/square_gardner000806.jpg:1
+./square224/Gardnerella/colony/square_gardner000817.jpg:1
+./square224/Gardnerella/colony/square_gardner000827.jpg:1
+./square224/Gardnerella/colony/square_gardner000838.jpg:1
+./square224/Gardnerella/colony/square_gardner000848.jpg:1
+./square224/Gardnerella/colony/square_gardner000859.jpg:1
+./square224/Gardnerella/colony/square_gardner000869.jpg:1
+./square224/Gardnerella/colony/square_gardner000879.jpg:1
+./square224/Gardnerella/colony/square_gardner000889.jpg:1
+./square224/Gardnerella/colony/square_gardner000899.jpg:1
+./square224/Gardnerella/colony/square_gardner000909.jpg:1
+./square224/Gardnerella/colony/square_gardner000919.jpg:1
+./square224/Gardnerella/colony/square_gardner000929.jpg:1
+./square224/Gardnerella/colony/square_gardner000939.jpg:1
+./square224/Gardnerella/colony/square_gardner000949.jpg:1
+./square224/Gardnerella/colony/square_gardner000959.jpg:1
+./square224/Gardnerella/colony/square_gardner000969.jpg:1
+./square224/Gardnerella/colony/square_gardner000979.jpg:1
+./square224/Gardnerella/colony/square_gardner000989.jpg:1
+./square224/Gardnerella/colony/square_gardner000999.jpg:1
+./square224/Gardnerella/colony/square_gardner001009.jpg:1
+./square224/Gardnerella/colony/square_gardner001019.jpg:1
+./square224/Gardnerella/colony/square_gardner001029.jpg:1
+./square224/Gardnerella/colony/square_gardner001039.jpg:1
+./square224/Gardnerella/colony/square_gardner001049.jpg:1
+./square224/Gardnerella/colony/square_gardner001059.jpg:1
+./square224/Gardnerella/colony/square_gardner001069.jpg:1
+./square224/Gardnerella/colony/square_gardner001079.jpg:1
+./square224/Gardnerella/colony/square_gardner001089.jpg:1
+./square224/Gardnerella/colony/square_gardner001099.jpg:1
+./square224/Gardnerella/colony/square_gardner001109.jpg:1
+./square224/Gardnerella/colony/square_gardner001119.jpg:1
+./square224/Gardnerella/colony/square_gardner001129.jpg:1
+./square224/Gardnerella/colony/square_gardner001139.jpg:1
+./square224/Gardnerella/colony/square_gardner001150.jpg:1
+./square224/Gardnerella/colony/square_gardner001160.jpg:1
+./square224/Gardnerella/colony/square_gardner001171.jpg:1
+./square224/Gardnerella/colony/square_gardner001182.jpg:1
+./square224/Gardnerella/colony/square_gardner001192.jpg:1
+./square224/Gardnerella/colony/square_gardner001202.jpg:1
+./square224/Gardnerella/colony/square_gardner001212.jpg:1
+./square224/Gardnerella/colony/square_gardner001223.jpg:1
+./square224/Gardnerella/colony/square_gardner001233.jpg:1
+./square224/Gardnerella/colony/square_gardner001243.jpg:1
+./square224/Gardnerella/colony/square_gardner001253.jpg:1
+./square224/Gardnerella/colony/square_gardner001263.jpg:1
+./square224/Gardnerella/colony/square_gardner001273.jpg:1
+./square224/Gardnerella/colony/square_gardner001283.jpg:1
+./square224/Gardnerella/colony/square_gardner001293.jpg:1
+./square224/Gardnerella/colony/square_gardner001303.jpg:1
+./square224/Gardnerella/colony/square_gardner001313.jpg:1
+./square224/Gardnerella/colony/square_gardner001323.jpg:1
+./square224/Gardnerella/colony/square_gardner001333.jpg:1
+./square224/Gardnerella/colony/square_gardner001343.jpg:1
+./square224/Gardnerella/colony/square_gardner001353.jpg:1
+./square224/Gardnerella/colony/square_gardner001363.jpg:1
+./square224/Gardnerella/colony/square_gardner001373.jpg:1
+./square224/Gardnerella/colony/square_gardner001383.jpg:1
+./square224/Gardnerella/colony/square_gardner001393.jpg:1
+./square224/Gardnerella/colony/square_gardner001403.jpg:1
+./square224/Gardnerella/colony/square_gardner001413.jpg:1
+./square224/Gardnerella/colony/square_gardner001423.jpg:1
+./square224/Gardnerella/colony/square_gardner001433.jpg:1
+./square224/Gardnerella/colony/square_gardner001444.jpg:1
+./square224/Gardnerella/colony/square_gardner001454.jpg:1
+./square224/Gardnerella/colony/square_gardner001464.jpg:1
+./square224/Gardnerella/colony/square_gardner001474.jpg:1
+./square224/Gardnerella/colony/square_gardner001484.jpg:1
+./square224/Gardnerella/colony/square_gardner001496.jpg:1
+./square224/Gardnerella/colony/square_gardner001506.jpg:1
+./square224/Gardnerella/colony/square_gardner001516.jpg:1
+./square224/Gardnerella/colony/square_gardner001526.jpg:1
+./square224/Gardnerella/colony/square_gardner001536.jpg:1
+./square224/Gardnerella/colony/square_gardner001546.jpg:1
+./square224/Gardnerella/colony/square_gardner001556.jpg:1
+./square224/Gardnerella/colony/square_gardner001566.jpg:1
+./square224/Gardnerella/colony/square_gardner001576.jpg:1
+./square224/Gardnerella/colony/square_gardner001587.jpg:1
+./square224/Gardnerella/colony/square_gardner001597.jpg:1
+./square224/Gardnerella/colony/square_gardner001608.jpg:1
+./square224/Gardnerella/colony/square_gardner001618.jpg:1
+./square224/Gardnerella/colony/square_gardner001628.jpg:1
+./square224/Gardnerella/colony/square_gardner001639.jpg:1
+./square224/Gardnerella/colony/square_gardner001649.jpg:1
+./square224/Gardnerella/direct/square_gardner000011.jpg:1
+./square224/Gardnerella/direct/square_gardner000021.jpg:1
+./square224/Gardnerella/direct/square_gardner000031.jpg:1
+./square224/Gardnerella/direct/square_gardner000041.jpg:1
+./square224/Gardnerella/direct/square_gardner000051.jpg:1
+./square224/Gardnerella/direct/square_gardner000062.jpg:1
+./square224/Gardnerella/direct/square_gardner000072.jpg:1
+./square224/Gardnerella/direct/square_gardner000082.jpg:1
+./square224/Gardnerella/direct/square_gardner000092.jpg:1
+./square224/Gardnerella/direct/square_gardner000102.jpg:1
+./square224/Gardnerella/direct/square_gardner000119.jpg:1
+./square224/Gardnerella/direct/square_gardner000131.jpg:1
+./square224/Gardnerella/direct/square_gardner000141.jpg:1
+./square224/Gardnerella/direct/square_gardner000151.jpg:1
+./square224/Gardnerella/direct/square_gardner000162.jpg:1
+./square224/Gardnerella/direct/square_gardner000172.jpg:1
+./square224/Gardnerella/direct/square_gardner000182.jpg:1
+./square224/Gardnerella/direct/square_gardner000193.jpg:1
+./square224/Gardnerella/direct/square_gardner000203.jpg:1
+./square224/Gardnerella/direct/square_gardner000213.jpg:1
+./square224/Gardnerella/direct/square_gardner000223.jpg:1
+./square224/Gardnerella/direct/square_gardner000238.jpg:1
+./square224/Gardnerella/direct/square_gardner000248.jpg:1
+./square224/Gardnerella/direct/square_gardner000258.jpg:1
+./square224/Gardnerella/direct/square_gardner000268.jpg:1
+./square224/Gardnerella/direct/square_gardner000278.jpg:1
+./square224/Gardnerella/direct/square_gardner000288.jpg:1
+./square224/Gardnerella/direct/square_gardner000298.jpg:1
+./square224/Gardnerella/direct/square_gardner000308.jpg:1
+./square224/Gardnerella/direct/square_gardner000318.jpg:1
+./square224/Lactobacilli/colony/square_lacto000009.jpg:1
+./square224/Lactobacilli/colony/square_lacto000019.jpg:1
+./square224/Lactobacilli/colony/square_lacto000029.jpg:1
+./square224/Lactobacilli/colony/square_lacto000039.jpg:1
+./square224/Lactobacilli/colony/square_lacto000049.jpg:1
+./square224/Lactobacilli/colony/square_lacto000059.jpg:1
+./square224/Lactobacilli/colony/square_lacto000071.jpg:1
+./square224/Lactobacilli/colony/square_lacto000081.jpg:1
+./square224/Lactobacilli/colony/square_lacto000091.jpg:1
+./square224/Lactobacilli/colony/square_lacto000101.jpg:1
+./square224/Lactobacilli/colony/square_lacto000111.jpg:1
+./square224/Lactobacilli/colony/square_lacto000125.jpg:1
+./square224/Lactobacilli/colony/square_lacto000135.jpg:1
+./square224/Lactobacilli/colony/square_lacto000145.jpg:1
+./square224/Lactobacilli/colony/square_lacto000156.jpg:1
+./square224/Lactobacilli/colony/square_lacto000167.jpg:1
+./square224/Lactobacilli/colony/square_lacto000177.jpg:1
+./square224/Lactobacilli/colony/square_lacto000187.jpg:1
+./square224/Lactobacilli/colony/square_lacto000197.jpg:1
+./square224/Lactobacilli/colony/square_lacto000207.jpg:1
+./square224/Lactobacilli/colony/square_lacto000217.jpg:1
+./square224/Lactobacilli/colony/square_lacto000229.jpg:1
+./square224/Lactobacilli/colony/square_lacto000242.jpg:1
+./square224/Lactobacilli/colony/square_lacto000252.jpg:1
+./square224/Lactobacilli/colony/square_lacto000262.jpg:1
+./square224/Lactobacilli/colony/square_lacto000273.jpg:1
+./square224/Lactobacilli/colony/square_lacto000284.jpg:1
+./square224/Lactobacilli/colony/square_lacto000297.jpg:1
+./square224/Lactobacilli/colony/square_lacto000307.jpg:1
+./square224/Lactobacilli/colony/square_lacto000317.jpg:1
+./square224/Lactobacilli/colony/square_lacto000327.jpg:1
+./square224/Lactobacilli/colony/square_lacto000337.jpg:1
+./square224/Lactobacilli/colony/square_lacto000347.jpg:1
+./square224/Lactobacilli/colony/square_lacto000360.jpg:1
+./square224/Lactobacilli/colony/square_lacto000371.jpg:1
+./square224/Lactobacilli/colony/square_lacto000381.jpg:1
+./square224/Lactobacilli/colony/square_lacto000391.jpg:1
+./square224/Lactobacilli/colony/square_lacto000405.jpg:1
+./square224/Lactobacilli/colony/square_lacto000415.jpg:1
+./square224/Lactobacilli/colony/square_lacto000425.jpg:1
+./square224/Lactobacilli/colony/square_lacto000435.jpg:1
+./square224/Lactobacilli/colony/square_lacto000446.jpg:1
+./square224/Lactobacilli/colony/square_lacto000456.jpg:1
+./square224/Lactobacilli/colony/square_lacto000466.jpg:1
+./square224/Lactobacilli/colony/square_lacto000476.jpg:1
+./square224/Lactobacilli/colony/square_lacto000486.jpg:1
+./square224/Lactobacilli/colony/square_lacto000496.jpg:1
+./square224/Lactobacilli/colony/square_lacto000507.jpg:1
+./square224/Lactobacilli/colony/square_lacto000520.jpg:1
+./square224/Lactobacilli/colony/square_lacto000530.jpg:1
+./square224/Lactobacilli/colony/square_lacto000540.jpg:1
+./square224/Lactobacilli/colony/square_lacto000550.jpg:1
+./square224/Lactobacilli/colony/square_lacto000561.jpg:1
+./square224/Lactobacilli/colony/square_lacto000571.jpg:1
+./square224/Lactobacilli/colony/square_lacto000581.jpg:1
+./square224/Lactobacilli/colony/square_lacto000591.jpg:1
+./square224/Lactobacilli/colony/square_lacto000601.jpg:1
+./square224/Lactobacilli/colony/square_lacto000611.jpg:1
+./square224/Lactobacilli/colony/square_lacto000623.jpg:1
+./square224/Lactobacilli/colony/square_lacto000639.jpg:1
+./square224/Lactobacilli/colony/square_lacto000649.jpg:1
+./square224/Lactobacilli/colony/square_lacto000659.jpg:1
+./square224/Lactobacilli/colony/square_lacto000669.jpg:1
+./square224/Lactobacilli/colony/square_lacto000679.jpg:1
+./square224/Lactobacilli/colony/square_lacto000689.jpg:1
+./square224/Lactobacilli/colony/square_lacto000699.jpg:1
+./square224/Lactobacilli/colony/square_lacto000709.jpg:1
+./square224/Lactobacilli/colony/square_lacto000721.jpg:1
+./square224/Lactobacilli/colony/square_lacto000736.jpg:1
+./square224/Lactobacilli/colony/square_lacto000746.jpg:1
+./square224/Lactobacilli/colony/square_lacto000756.jpg:1
+./square224/Lactobacilli/colony/square_lacto000766.jpg:1
+./square224/Lactobacilli/direct/square_lacto000009.jpg:1
+./square224/Lactobacilli/direct/square_lacto000023.jpg:1
+./square224/Lactobacilli/direct/square_lacto000035.jpg:1
+./square224/Lactobacilli/direct/square_lacto000051.jpg:1
+./square224/Lactobacilli/direct/square_lacto000061.jpg:1
+./square224/Lactobacilli/direct/square_lacto000079.jpg:1
+./square224/Lactobacilli/direct/square_lacto000112.jpg:1
+./square224/Lactobacilli/direct/square_lacto000122.jpg:1
+./square224/Lactobacilli/direct/square_lacto000132.jpg:1
+./square224/Lactobacilli/direct/square_lacto000142.jpg:1
+./square224/Lactobacilli/direct/square_lacto000152.jpg:1
+./square224/Lactobacilli/direct/square_lacto000162.jpg:1
+./square224/Lactobacilli/direct/square_lacto000172.jpg:1
+./square224/Lactobacilli/direct/square_lacto000182.jpg:1
+./square224/Lactobacilli/direct/square_lacto000192.jpg:1
+./square224/Lactobacilli/direct/square_lacto000202.jpg:1
+./square224/Lactobacilli/direct/square_lacto000212.jpg:1
+./square224/Lactobacilli/direct/square_lacto000222.jpg:1
+./square224/Lactobacilli/direct/square_lacto000236.jpg:1
+./square224/Lactobacilli/direct/square_lacto000246.jpg:1
+./square224/Lactobacilli/direct/square_lacto000256.jpg:1
+./square224/Lactobacilli/direct/square_lacto000267.jpg:1
+./square224/Lactobacilli/direct/square_lacto000277.jpg:1
+./square224/Lactobacilli/direct/square_lacto000287.jpg:1
+./square224/noise/square_gardner000110.jpg:1
+./square224/noise/square_gardner000227.jpg:1
+./square224/noise/square_gardner000679.jpg:1
+./square224/noise/square_gardner000831.jpg:1
+./square224/noise/square_gardner001598.jpg:1
+./square224/noise/square_lacto000117.jpg:1
+./square224/noise/square_lacto000267.jpg:1
+./square224/noise/square_lacto000394.jpg:1
+./square224/noise/square_lacto000621.jpg:1
+./square224/noise/square_lacto000725.jpg:1
