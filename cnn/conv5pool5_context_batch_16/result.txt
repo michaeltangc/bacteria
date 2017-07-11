@@ -1,2 +1,0 @@
-1447 0 1552 4 1971 2 6 Intermediate
-Accuracy: 0.857631

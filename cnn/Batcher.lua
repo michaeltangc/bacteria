@@ -48,6 +48,7 @@ function Batcher:_processBatch(idxs)
         data[{{i*4-1},{},{},{}}] = image.vflip(curr_img)
         data[{ {i*4}, {},{},{}}] = image.hflip(image.vflip(curr_img))
         labels[{{i*4-3, i*4}}] = self._labels[idxs[i]]
+        -- print('label #' .. i .. ': ' .. self._labels[idxs[i]])
     end
  
     return data, labels

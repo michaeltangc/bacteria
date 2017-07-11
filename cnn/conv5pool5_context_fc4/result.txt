@@ -1,3 +1,0 @@
-2236 0 388 4 2306 2 6 Intermediate
-Accuracy: 0.6434752007 0 522 4 2388 2 6 Intermediate
-Accuracy: 0.676654

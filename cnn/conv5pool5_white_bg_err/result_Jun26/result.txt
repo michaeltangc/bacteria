@@ -1,2 +1,0 @@
-71 0 5712 4 3 1 5 Intermediate
-Accuracy: 0.338576

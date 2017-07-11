@@ -4,7 +4,7 @@ local cfg = {
     normalization = {method = 'contrastive', width=7, centering=true, scaling=false},
     augmentation = {vflip=0.25, hflip=0.25, random_scaling=0, aspect_jitter=0},
     color_space = 'rgb',
-    batch_size = 16,
+    batch_size = 4,
     pos_thresh = 0.7,
     neg_thresh = 0.25,
     -- training
@@ -15,17 +15,17 @@ local cfg = {
 
 local opt = {
     -- Train
-    model = 'model_conv5pool5.lua',
-    ftrain = '../data/db_square224.t7',
+    model = 'model_vgg.lua',
+    ftrain = '../data/db_square224_combined_virtual_GPU.t7',
     restore = '', -- 'conv5pool5_white_bg/conv5pool5_030000.t7', -- also for testing
     lr = 1e-3,
     eps = 1e-7, -- parameter for batch normalization
     snapshot = 5000,
-    snapshot_prefix = 'conv5pool5_context_fc4/conv5pool5',
+    snapshot_prefix = 'vgg_combined/vgg',
     plot = 200,
-    gpuid = 3,
+    gpuid = 0, -- Note: only 1 GPU available on this virtual machine
     -- Test
-    result_dir = 'conv5pool5_context_fc4/', -- Note: always add a trailing '/'
+    result_dir = 'vgg_combined/', -- Note: always add a trailing '/'
 }
 
 return cfg, opt
