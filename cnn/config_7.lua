@@ -17,13 +17,16 @@ local opt = {
     lr = 1e-3,
     eps = 1e-7, -- parameter for batch normalization
     snapshot = 5000,
-    snapshot_prefix = 'conv7pool7_class_val01/conv7pool7',
+    snapshot_prefix = '', --'conv7pool7_class_val01/conv7pool7',
     plot = 400,
     gpuid = 0, -- Note: only 1 GPU available on this virtual machine
     -- Test
-    restore_test = '', -- 'conv7pool7_context_bn/conv7pool7_004000.t7',
+    train_accu = false, -- if for trainining accuracy
+    val_accu = true,
+    is_class = true,
+    restore_test = '', -- won't be used if enumerate_model == true,
     enumerate_models = true,
-    result_dir = 'conv7pool7_class_val01/', -- Note: always add a trailing '/'
+    result_dir = 'from_GPU/', -- Note: always add a trailing '/'
 }
 
 return cfg, opt
