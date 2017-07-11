@@ -1,5 +1,5 @@
 local function create_model(cfg, opt)
-    local name = 'conv5pool4'
+    local name = 'conv7pool7'
 
     local net = nn.Sequential()
     -- spatial conv: (nInputPlane, nOutputPlane, kW, kH, stride, stride, padW, padH)
@@ -54,16 +54,6 @@ local function create_model(cfg, opt)
 
 
     -- Classifier
-    -- -- 2 Conv layers for dimension reduction
-    -- local dim_red1 = nn.SpatialConvolution(256,128, 1,1, 1,1, 0,0)
-    -- dim_red1.name = 'dim_red1'
-    -- net:add(dim_red1)
-    -- net:add(nn.ReLU())
-    -- local dim_red2 = nn.SpatialConvolution(128,32, 1,1, 1,1, 0,0)
-    -- dim_red2.name = 'dim_red2'
-    -- net:add(dim_red2)
-    -- net:add(nn.ReLU())
-
     net:add(nn.Reshape(2304, true))
     -- 1 FC layer for final classification
     local fc1 = nn.Linear(2304, 1024)
@@ -76,7 +66,7 @@ local function create_model(cfg, opt)
     net:add(fc2)
     net:add(nn.ReLU())
     net:add(nn.Dropout(0.5))
-    local fc3 = nn.Linear(512, 4) -- 4*cfg.batch_size) -- 2048 = 32 * 8 * 8
+    local fc3 = nn.Linear(512, cfg.class_count) -- 2048 = 32 * 8 * 8
     fc3.name = 'fc3'
     net:add(fc3)
     net:add(nn.LogSoftMax())
