@@ -21,7 +21,7 @@ function createDB_val(fList,train_list_fname,  val_list_fname, outname, use_val,
             cnt = cnt+1
             if use_val and cnt == val_step then
                 table.insert(valDB.imgPaths, prefix .. line:split(' ')[1])
-                table.insert(valDB.labels, line:split(' ')[2])
+                table.insert(valDB.labels, tostring(tonumber(line:split(' ')[2])+1)) -- why +1: shift class labels (i.e. counts) from [0, n] to [1, n+1]
                 if line:find('noise') then
                     fval_list:write(prefix .. line:split(' ')[1] .. ':0\n')
                 else
@@ -56,5 +56,5 @@ flist = {'square224/Bacteroides/colony/bacte_colony.txt',
     'square224/Lactobacilli/colony/lacto_colony.txt',
     'square224/Lactobacilli/direct/lacto_direct.txt',
     'square224/noise/noise.txt'}
-flist = {'imgLst_square224_val01_white_bg_train_bacte.txt'}
-createDB_val(flist, 'imgLst_square224_val01_bacte_train.txt', 'imgLst_square224_val01_bacte_val.txt', 'db_square_224_val01_bacte.t7', false, 10)
+flist = {'imgLst_square224_val01_white_bg_val_bacte.txt'}
+createDB_val(flist, 'out_imgLst_square224_val01_bacte_val.txt', 'out_imgLst_square224_val01_bacte_val_dummy.txt', 'db_square224_val01_bacte_val.t7', false, 10)
