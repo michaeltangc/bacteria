@@ -15,6 +15,15 @@ function load_model(cfg, opt, model_path, network_filename)
         weights, gradient = model:parameters()
         weights = nn.Module.flatten(weights)
         weights:copy(restored.weights)
+        -- batch normalization variables
+        local bnVars = restored.bnVars
+        local bnLayers = model:findModules('nn.SpatialBatchNormalization')
+        for i=1, #bnLayers do
+            rm = bnVars[i].running_mean
+            rv = bnVars[i].running_var
+            bnLayers[i].running_mean = rm
+            bnLayers[i].running_var = rv
+        end
     else
         weights, gradient = model:parameters()
         weights = nn.Module.flatten(weights)
