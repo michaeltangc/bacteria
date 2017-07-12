@@ -15,9 +15,10 @@ local cfg = {
 
 local opt = {
     -- Train
-    model = 'model_vgg.lua',
-    ftrain = '../data/db_square224_combined_virtual_GPU.t7',
-    restore = '', -- 'conv5pool5_white_bg/conv5pool5_030000.t7', -- also for testing
+    model = 'model_conv5pool5.lua',
+    ftrain = '../data/db_square224.t7',
+    restore_train = '',
+    restore_test = 'conv5pool5_context_fc4/conv5pool5_0%d0000.t7',
     lr = 1e-3,
     eps = 1e-7, -- parameter for batch normalization
     snapshot = 5000,
