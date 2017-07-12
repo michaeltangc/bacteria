@@ -3,10 +3,12 @@ require 'cunn'
 require 'image'
 -- scripts
 require 'util'
+require 'lfs'
+require 'paths'
 
 function test(cfg, opt, model, ftest, detail_out, result_out)
-    print('detail_out: ' .. detail_out)
-    print('result_out: ' .. result_out)
+    print('detail_out: ' .. (detail_out or 'nil'))
+    print('result_out: ' .. (result_out or 'nil'))
 
     local dataTest = load_obj(ftest)
     if opt.train_accu then
@@ -15,7 +17,7 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
     if opt.val_accu then
         dataTest = dataTest.val
     end
-    if dataTest == nil then
+    if not dataTest then
         print('Error loading dataTest')
         return
     end
@@ -32,7 +34,7 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
     if detail_out and detail_out ~= '' then
         fout = io.open(detail_out, 'w')
     end
-    print('predicts == nil: ' .. tostring(predicts == nil))
+    print('Compute accuracy: ' .. tostring(predicts ~= nil))
 
     model:evaluate()
     for i=1, n_img do
@@ -45,7 +47,11 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
         end        
 
         if fout then
-            fout:write(dataTest.imgPaths[i] .. string.format(': %d (label: %d) (output: %f / %f / %f / %f) (input:mean(): %f) \n', class, dataTest.labels[i], outputs[1][1], outputs[1][2], outputs[1][3], outputs[1][4], input:mean()))
+            if labels then
+                fout:write(dataTest.imgPaths[i] .. string.format(': %d (label: %d) (output: %f / %f / %f / %f) (input:mean(): %f) \n', class, labels[i], outputs[1][1], outputs[1][2], outputs[1][3], outputs[1][4], input:mean()))
+            else
+                fout:write(dataTest.imgPaths[i] .. string.format(': %d (output: %f / %f / %f / %f) (input:mean(): %f) \n', class, outputs[1][1], outputs[1][2], outputs[1][3], outputs[1][4], input:mean()))
+            end
         end
         cnt[class] = cnt[class] + 1
     end
@@ -56,7 +62,7 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
     
     local score, result = nugent(cnt)
     if result_out and result_out ~= '' then
-        fout = io.open(result_out, 'a')
+        fout = io.open(result_out, 'w')
         print('Written to result_out\n')
     else
         fout = nil
@@ -64,7 +70,7 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
     -- Format: lacto cnt + lacto score + gardner cnt + gardner score + others cnt + other score + total score + result
     if fout then
         if opt.is_class then
-            fout:write(string.format('\n%d %d %d %d %d %d %d %s\n', cnt[1], score[1], cnt[2], score[2], cnt[3], score[3], score[4], result))
+            fout:write(string.format('\nLacto cnt: %d (%d) / Gardner cnt: %d (%d) / Bacte cnt: %d (%d)\n Total score: %d / Result: %s\n', cnt[1], score[1], cnt[2], score[2], cnt[3], score[3], score[4], result))
         end
         if predicts then
             local accuracy = torch.sum(torch.eq(torch.Tensor(labels), predicts)) / n_img
@@ -128,14 +134,18 @@ if opt.train_accu and opt.val_accu then
     os.exit()
 end
 
+if not paths.dirp(opt.result_dir) then
+    lfs.mkdir(opt.result_dir)
+end
+
 if opt.train_accu or opt.val_accu then
     -- Accuracy on training or validation data
     local ftest = opt.ftrain
     if opt.enumerate_models then
-        -- Enumerate all models in opt.result_dir
-        for f in paths.iterfiles(opt.result_dir) do
-            if f:find('t7') then
-                local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.result_dir .. f)
+        -- Enumerate all models in opt.model_dir
+        for f in paths.iterfiles(opt.model_dir) do
+            if f:find('t7') and f:find('_') then
+                local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.model_dir .. f)
                 local suffix = f:sub(f:find('_')+1, f:find('%.')-1)
                 if opt.train_accu then
                     suffix = 'train_' .. suffix
@@ -149,7 +159,7 @@ if opt.train_accu or opt.val_accu then
         end
     else
         -- Use only the model specified by opt.restore_rest
-        local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.restore_test)
+        local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.model_dir .. opt.restore_test)
         local suffix
         if opt.train_accu then
             suffix = 'train'
@@ -162,12 +172,12 @@ if opt.train_accu or opt.val_accu then
     end
 else
     -- Accuracy on testing data
-    local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.restore_test)
+    local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.model_dir .. opt.restore_test)
 
     for i=1,31 do
-        local ftest = string.format('/home/bingbin/bacteria/data/test/testDB/5_900%02d.t7', i)
+        local ftest = string.format('/home/bingbin/bacteria/data/test/pass2_only/testDB/5_900%02d.t7', i)
         local detail_out = string.format(opt.result_dir .. 'test_detail_5_900%02d_detail.txt', i)
         local result_out = string.format(opt.result_dir .. 'test_5_900%02d.txt', i)
-        test(cfg, opt, model, ftest, nil, result_out)
+        test(cfg, opt, model, ftest, detail_out, result_out)
     end
 end

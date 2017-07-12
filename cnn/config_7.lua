@@ -24,7 +24,8 @@ local opt = {
     train_accu = false, -- if for trainining accuracy
     val_accu = true,
     is_class = true,
-    restore_test = '', -- won't be used if enumerate_model == true,
+    model_dir = 'from_GPU/', -- Note: always add a trailing '/'
+    restore_test = 'conv7pool7_060000.t7', -- won't be used if enumerate_model == true,
     enumerate_models = true,
     result_dir = 'from_GPU/', -- Note: always add a trailing '/'
 }
