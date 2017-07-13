@@ -3,13 +3,21 @@ require 'cunn'
 require 'image'
 -- scripts
 require 'util'
+require 'lfs'
+require 'paths'
 
 function test(cfg, opt, model, ftest, detail_out, result_out)
-    print('detail_out: ' .. detail_out)
-    print('result_out: ' .. result_out)
+    print('detail_out: ' .. (detail_out or 'nil'))
+    print('result_out: ' .. (result_out or 'nil'))
 
     local dataTest = load_obj(ftest)
-    if dataTest == nil then
+    if opt.train_accu then
+        dataTest = dataTest.train
+    end
+    if opt.val_accu then
+        dataTest = dataTest.val
+    end
+    if not dataTest then
         print('Error loading dataTest')
         return
     end
@@ -20,65 +28,53 @@ function test(cfg, opt, model, ftest, detail_out, result_out)
         predicts = torch.Tensor(n_img,1):zero()
     end
 
-    local cnt = {0,0,0,0}
+    local cnt = {}
+    for i = 1,cfg.class_count do cnt[i] = 0; end
     local fout = nil
     if detail_out and detail_out ~= '' then
         fout = io.open(detail_out, 'w')
     end
-    print('Openning detail_out')
-    print('fout == nil:')
-    print(fout == nil)
-    print('predicts == nil:')
-    print(predicts == nil)
+    print('Compute accuracy: ' .. tostring(predicts ~= nil))
 
-    -- model:evaluate()
-    local batch_size = 4*cfg.batch_size
-    for i=1, n_img, batch_size do
-        local inputs = torch.FloatTensor(batch_size, 3, 224, 224):fill(1) -- Note: pixel range = [0,1]
-        local size = math.min(i+batch_size, n_img+1) - i
-        for id = 1, size do
-            local curr_img = procInput(dataTest.imgPaths[i+id-1])
-            if curr_img == nil then
-                print('Error loading img ' .. dataTest.imgPaths[i+id-1])
-            end
-            inputs[{{id}}] = curr_img
-        end
-        inputs = inputs:cuda()
-        local outputs = model:forward(inputs)
-        -- print(outputs:size())
-        local _, types = torch.max(outputs, 2)
+    model:evaluate()
+    for i=1, n_img do
+        local input = procInput(dataTest.imgPaths[i]):cuda()
+        local outputs = model:forward(input:reshape(1,3,input:size(2), input:size(3)))
+        local _, class = torch.max(outputs, 2)
+        class = class[1][1]
         if predicts then
-            -- print('predicts type:')
-            -- print(predicts[{{i,i+size-1}}])
-            -- print('types type:')
-            -- print(types)
-            predicts[{{i,i+size-1}}] = types[{{1,size}}]:double()
+            predicts[i] = class
         end        
-        types = types:reshape(types:size(1))
 
-
-        for id = 1, size do
-            if fout then fout:write(dataTest.imgPaths[i+id-1] .. string.format(': %d (label: %d) (output: %f / %f / %f / %f) \n', types[id], dataTest.labels[i+id-1], outputs[id][1], outputs[id][2], outputs[id][3], outputs[id][4])) end
-            cnt[types[id]] = cnt[types[id]] + 1
+        if fout then
+            if labels then
+                fout:write(dataTest.imgPaths[i] .. string.format(': %d (label: %d) (output: %f / %f / %f / %f) (input:mean(): %f) \n', class, labels[i], outputs[1][1], outputs[1][2], outputs[1][3], outputs[1][4], input:mean()))
+            else
+                fout:write(dataTest.imgPaths[i] .. string.format(': %d (output: %f / %f / %f / %f) (input:mean(): %f) \n', class, outputs[1][1], outputs[1][2], outputs[1][3], outputs[1][4], input:mean()))
+            end
         end
+        cnt[class] = cnt[class] + 1
     end
-    if fout then fout:close() end
+    if fout then
+        fout:close();
+        print('Written to detail_out')
+    end
     
     local score, result = nugent(cnt)
     if result_out and result_out ~= '' then
-        print('Openning result_out')
-        fout = io.open(result_out, 'a')
-        print('fout == nil:')
-        print(fout == nil)
+        fout = io.open(result_out, 'w')
+        print('Written to result_out\n')
     else
         fout = nil
     end
     -- Format: lacto cnt + lacto score + gardner cnt + gardner score + others cnt + other score + total score + result
     if fout then
-        fout:write(string.format('%d %d %d %d %d %d %d %s\n', cnt[1], score[1], cnt[2], score[2], cnt[3], score[3], score[4], result))
+        if opt.is_class then
+            fout:write(string.format('\nLacto cnt: %d (%d) / Gardner cnt: %d (%d) / Bacte cnt: %d (%d)\n Total score: %d / Result: %s\n', cnt[1], score[1], cnt[2], score[2], cnt[3], score[3], score[4], result))
+        end
         if predicts then
             local accuracy = torch.sum(torch.eq(torch.Tensor(labels), predicts)) / n_img
-            fout:write(string.format('Accuracy: %f', accuracy))
+            fout:write(string.format('Accuracy: %f\n', accuracy))
         end
         fout:close()
     end
@@ -89,6 +85,9 @@ function procInput(fname)
     local img = image.load(fname)
     if img:size(2) ~= 224 then
         img = image.scale(img, 224)
+    end
+    for c = 1,3 do
+        img[c] = img[c] - img[c]:mean()
     end
     return img
 end
@@ -122,27 +121,63 @@ function nugent(cnt)
     return score, result
 end
 
-local cfg, opt = dofile('config_5.lua')
--- cfg.batch_size = 16
--- opt.model = 'model_conv5pool5.lua'
--- opt.restored = 'conv5pool5_white_bg/conv5pool5_040000.t7'
--- opt.result_dir = 'conv5pool5_white_bg/result/'
+local cfg, opt = dofile('config_7.lua')
 print('Config:')
 print(cfg)
 print('Options:')
 print(opt)
 
-local ftest = opt.ftrain
 cutorch.setDevice(opt.gpuid+1)
 
-for i=1,6 do
-    local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, string.format(opt.restore_test, i))
-    test(cfg, opt, model, ftest, opt.result_dir .. string.format('result_detail_%d.txt', i), opt.result_dir .. string.format('result_%d.txt', i))
+if opt.train_accu and opt.val_accu then
+    print('ERROR: Please specify only ONE dataset for accuracy.')
+    os.exit()
 end
 
--- for i=1,31 do
---     local ftest = string.format('/home/bingbin/bacteria/data/test/testDB/5_900%02d.t7', i)
---     local detail_out = string.format(opt.result_dir .. 'detail/5_900%02d_detail.txt', i)
---     local result_out = string.format(opt.result_dir .. '5_900%02d.txt', i)
---     test(cfg, opt, model, ftest, detail_out, result_out)
--- end
+if not paths.dirp(opt.result_dir) then
+    lfs.mkdir(opt.result_dir)
+end
+
+if opt.train_accu or opt.val_accu then
+    -- Accuracy on training or validation data
+    local ftest = opt.ftrain
+    if opt.enumerate_models then
+        -- Enumerate all models in opt.model_dir
+        for f in paths.iterfiles(opt.model_dir) do
+            if f:find('t7') and f:find('_') then
+                local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.model_dir .. f)
+                local suffix = f:sub(f:find('_')+1, f:find('%.')-1)
+                if opt.train_accu then
+                    suffix = 'train_' .. suffix
+                else
+                    suffix = 'val_' .. suffix
+                end
+                local result_out = opt.result_dir .. string.format('result_%s.txt', suffix) 
+                local detail_out = opt.result_dir .. string.format('result_detail_%s.txt', suffix) 
+                test(cfg, opt, model, ftest, detail_out, result_out)
+            end
+        end
+    else
+        -- Use only the model specified by opt.restore_rest
+        local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.model_dir .. opt.restore_test)
+        local suffix
+        if opt.train_accu then
+            suffix = 'train'
+        else
+            suffix = 'val'
+        end
+        local result_out = opt.result_dir .. string.format('result_%s.txt', suffix)
+        local detail_out = opt.result_dir .. string.format('result_detail_%s.txt', suffix)
+        test(cfg, opt, model, ftest, detail_out, result_out)
+    end
+else
+    -- Accuracy on testing data
+    local model, weights, gradient, training_stats = load_model(cfg, opt, opt.model, opt.model_dir .. opt.restore_test)
+
+    for i=1,31 do
+        local ftest = string.format('/home/bingbin/bacteria/data/test/pass2_only/testDB/5_900%02d.t7', i)
+        local detail_out = string.format(opt.result_dir .. 'test_detail_5_900%02d_detail.txt', i)
+        local result_out = string.format(opt.result_dir .. 'test_5_900%02d.txt', i)
+        test(cfg, opt, model, ftest, detail_out, result_out)
+    end
+end
