@@ -6,7 +6,7 @@ mser = cv2.MSER_create()
 mser.setPass2Only(True) # Pass2Only: only use the inverted image for detecting MSER
 for i in range(1,32):
     img = cv2.imread('/home/bingbin/bacteria/data/Mar2/5_900{:02d}.JPG'.format(i))
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) # Notice the order of the color channels
     white = gray.copy()
     white.fill(255)
     gray_inverted = white - gray # Invert the image s.t. Pass2Only will give the dark regions as desired
