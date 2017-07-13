@@ -1,0 +1,8 @@
+/home/bingbin/bacteria/data/test/pass2_only/5_90020/5_90020000000.jpg
+/home/bingbin/bacteria/data/test/pass2_only/5_90020/5_90020000001.jpg
+/home/bingbin/bacteria/data/test/pass2_only/5_90020/5_90020000002.jpg
+/home/bingbin/bacteria/data/test/pass2_only/5_90020/5_90020000003.jpg
+/home/bingbin/bacteria/data/test/pass2_only/5_90020/5_90020000004.jpg
+/home/bingbin/bacteria/data/test/pass2_only/5_90020/5_90020000005.jpg
+/home/bingbin/bacteria/data/test/pass2_only/5_90020/5_90020000006.jpg
+/home/bingbin/bacteria/data/test/pass2_only/5_90020/5_90020000007.jpg
