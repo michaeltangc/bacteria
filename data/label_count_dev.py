@@ -142,6 +142,16 @@ class ImageDisp:
         btn = Button(self.helpWin, text='Okay', width=16, height=1, command=self.helpWin.destroy)
         label.grid(row=0, column=0, padx=20, pady=20)
         btn.grid(row=1, column=0, padx=(0,20), pady=(0,20), sticky=E)
+        return
+
+    def _pop_error(self):
+        self.errWin = Toplevel(width=100, height=70)
+        self.errWin.title('Error')
+        label = Label(self.errWin, text=msg, justify=LEFT, wraplength=600, font='Helvetica 11')
+        btn = Button(self.errWin, text='Got it', width=16, height=1, command=self.errWin.destroy)
+        label.grid(row=0, column=0, padx=20, pady=20)
+        btn.grid(row=1, column=0, padx=(0,20), pady=(0,20), sticky=E)
+        return
 
     def _browse(self):
         self.browse_entry = filedialog.askopenfilename()
@@ -152,15 +162,15 @@ class ImageDisp:
         try:
             if not self.fname_entry.get() and self.browse_entry == None:
                 # self.imgListFile = '5_90017_detail.txt' # Uncomment for convenience when debugging
-                self._error_popup("ERROR: Please choose a image list.")
+                self._pop_error("ERROR: Please choose a image list.")
                 return
             else:
                 self.imgListFile = self.fname_entry.get()
                 if self.imgListFile[-3:] != 'txt':
-                    self._error_popup("ERROR: Invalid format: Please select a '.txt' file")
+                    self._pop_error("ERROR: Invalid format: Please select a '.txt' file")
                     return
         except ValueError:
-            self._error_popup("ERROR: unexpected error.\nPlease check your file type ('.txt' expected).")
+            self._pop_error("ERROR: unexpected error.\nPlease check your file type ('.txt' expected).")
             return
         # Init attributes
         self.imgList = [line.strip().replace(' ', '').split(':') for line in open(self.imgListFile, 'r')]
@@ -172,10 +182,14 @@ class ImageDisp:
     def _jump_to(self):
         # Select each digit of anthe image index from four dropdown lists
         target_index = 1000*int(self.jump_to_digit_0.get()) + 100*int(self.jump_to_digit_1.get()) + 10*int(self.jump_to_digit_2.get()) + int(self.jump_to_digit_3.get()) - 1
-        target_index = int(self.jump_to_full.get()) - 1
-        if target_index<0 or target_index>=len(self.imgList):
-            self._error_popup("ERROR: the image index must be an integer between 1 and " + str(len(self.imgList)))
+        try:
+            target_index = int(self.jump_to_full.get())-1
+            assert(target_index>=0 and target_index<len(self.imgList))
+        except (ValueError, AssertionError):
+            self._pop_error('ERROR: Please input a number between 1 and {:d}'.format(len(self.imgList)))
+            self.jump_to_full.delete(0, END)
             return
+        self.jump_to_full.delete(0, END)
         self.curr_img = target_index
         self.master.focus()
         self._display()
