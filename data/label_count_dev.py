@@ -172,7 +172,7 @@ class ImageDisp:
     def _jump_to(self):
         # Select each digit of anthe image index from four dropdown lists
         target_index = 1000*int(self.jump_to_digit_0.get()) + 100*int(self.jump_to_digit_1.get()) + 10*int(self.jump_to_digit_2.get()) + int(self.jump_to_digit_3.get()) - 1
-        target_index = int(self.jump_to_full.get())
+        target_index = int(self.jump_to_full.get()) - 1
         if target_index<0 or target_index>=len(self.imgList):
             self._error_popup("ERROR: the image index must be an integer between 1 and " + str(len(self.imgList)))
             return
