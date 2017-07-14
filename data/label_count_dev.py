@@ -50,22 +50,8 @@ class ImageDisp:
         self.img_related = Frame(self.body, width=300, height=600)
         self.canvas = Canvas(self.img_related, width=300, height=400, relief=SUNKEN)
         # Jump-to image
-        self.jump_to_digit_0 = StringVar()
-        self.jump_to_digit_1 = StringVar()
-        self.jump_to_digit_2 = StringVar()
-        self.jump_to_digit_3 = StringVar()
-        self.jump_to_full = StringVar()
-        self.num_range = ["0"]
-        self.jump_to_digit_0.set(self.num_range[0])
-        self.jump_to_digit_1.set(self.num_range[0])
-        self.jump_to_digit_2.set(self.num_range[0])
-        self.jump_to_digit_3.set(self.num_range[0])
-        self.jump_to_0 = OptionMenu(self.img_related, self.jump_to_digit_0, "0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-        self.jump_to_1 = OptionMenu(self.img_related, self.jump_to_digit_1, "0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-        self.jump_to_2 = OptionMenu(self.img_related, self.jump_to_digit_2, "0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-        self.jump_to_3 = OptionMenu(self.img_related, self.jump_to_digit_3, "0", "1", "2", "3", "4", "5", "6", "7", "8", "9")
-        self.jump_to_full = Entry(self.img_related, textvariable = self.jump_to_full)
-        self.jump_to_button = Button(self.img_related, text='Jump to image', height=1, width=18, fg='black', command=self._jump_to)
+        self.jump_to_entry = Entry(self.img_related, font='Helvetica 11')
+        self.jump_to_button = Button(self.img_related, text='Jump to image', height=1, width=15, fg='black', command=self._jump_to)
         # Image index (e.g. 18/599 means the 18th out of 599 images)
         self.img_label_txt = StringVar()
         self.img_label = Label(self.img_related, height=0, textvariable=self.img_label_txt, justify=CENTER, compound=BOTTOM)
@@ -92,7 +78,7 @@ class ImageDisp:
     def _right_key(self, event): return self._nextImg()
     def _number_key(self, event):
         # print (self.master.focus_get())
-        if self.master.focus_get() == self.jump_to_full:
+        if self.master.focus_get() == self.jump_to_entry:
             self._display()
             return 
         self.save_flag = True
@@ -144,7 +130,7 @@ class ImageDisp:
         btn.grid(row=1, column=0, padx=(0,20), pady=(0,20), sticky=E)
         return
 
-    def _pop_error(self):
+    def _pop_error(self, msg):
         self.errWin = Toplevel(width=100, height=70)
         self.errWin.title('Error')
         label = Label(self.errWin, text=msg, justify=LEFT, wraplength=600, font='Helvetica 11')
@@ -180,16 +166,14 @@ class ImageDisp:
         self._display()
 
     def _jump_to(self):
-        # Select each digit of anthe image index from four dropdown lists
-        target_index = 1000*int(self.jump_to_digit_0.get()) + 100*int(self.jump_to_digit_1.get()) + 10*int(self.jump_to_digit_2.get()) + int(self.jump_to_digit_3.get()) - 1
         try:
-            target_index = int(self.jump_to_full.get())-1
+            target_index = int(self.jump_to_entry.get())-1
             assert(target_index>=0 and target_index<len(self.imgList))
         except (ValueError, AssertionError):
             self._pop_error('ERROR: Please input a number between 1 and {:d}'.format(len(self.imgList)))
-            self.jump_to_full.delete(0, END)
+            self.jump_to_entry.delete(0, END)
             return
-        self.jump_to_full.delete(0, END)
+        self.jump_to_entry.delete(0, END)
         self.curr_img = target_index
         self.master.focus()
         self._display()
@@ -233,15 +217,11 @@ class ImageDisp:
         self.body.grid(row=1, column=0, sticky=W+E+S)
         # image related
         self.img_related.grid(row=0, column=0, rowspan=2)
-        self.canvas.grid(row=0, column=0, columnspan=5)
-        self.jump_to_0.grid(row=1, column=0, padx=(5,2))
-        self.jump_to_1.grid(row=1, column=1, padx=(0,2))
-        self.jump_to_2.grid(row=1, column=2, padx=(0,2))
-        self.jump_to_3.grid(row=1, column=3, padx=(0,2))
-        self.jump_to_button.grid(row=1, column=4, padx=(0,5), pady=(0,10))
-        self.jump_to_full.grid(row=2, column =0, padx = (0,0), columnspan=3)
-        self.img_label.grid(row=2, column=4, columnspan=2, pady=(0,10))
-        self.img_list_label.grid(row=3, column=0, columnspan=5, pady=(0,0))
+        self.canvas.grid(row=0, column=0, columnspan=2)
+        self.jump_to_entry.grid(row=1, column=0, padx=(0,5), sticky=N+S+E)
+        self.jump_to_button.grid(row=1, column=1, padx=(5,5), pady=(0,10), sticky=W)
+        self.img_label.grid(row=2, column=0, columnspan=2, pady=(0,10))
+        self.img_list_label.grid(row=3, column=0, columnspan=2, pady=(0,0))
         # radio buttons
         self.radioBtns.grid(row=0, column=1, pady=(40,0))
         self.label_val.set(self.imgList[self.curr_img][1]) # default choice for the radio buttons is the predicted value
@@ -254,9 +234,10 @@ class ImageDisp:
         self.automaticFowardCheckBtn.grid(row=1, column=0, padx=(5,7))
         self.saveBtn.grid(row=1, column=1, padx=(7,5))
 
+
 if __name__ == "__main__":
     master = Tk()
-    master.title('BV Image')
+    master.title('Bacteria Count')
     master.resizable(0,0)
 
     # create proposal box displayer
