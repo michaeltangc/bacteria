@@ -50,11 +50,13 @@ function createDB_val(fList,train_list_fname,  val_list_fname, outname, use_val,
     fval_list:close()
 end
 
-flist = {'square224/Bacteroides/colony/bacte_colony.txt',
-    'square224/Gardnerella/colony/gardner_colony.txt',
-    'square224/Gardnerella/direct/gardner_direct.txt',
-    'square224/Lactobacilli/colony/lacto_colony.txt',
-    'square224/Lactobacilli/direct/lacto_direct.txt',
-    'square224/noise/noise.txt'}
-flist = {'imgLst_square224_val01_white_bg_val_bacte.txt'}
-createDB_val(flist, 'out_imgLst_square224_val01_bacte_val.txt', 'out_imgLst_square224_val01_bacte_val_dummy.txt', 'db_square224_val01_bacte_val.t7', false, 10)
+print(arg[1])
+
+-- flist = {'square224/Bacteroides/colony/bacte_colony.txt',
+--     'square224/Gardnerella/colony/gardner_colony.txt',
+--     'square224/Gardnerella/direct/gardner_direct.txt',
+--     'square224/Lactobacilli/colony/lacto_colony.txt',
+--     'square224/Lactobacilli/direct/lacto_direct.txt',
+--     'square224/noise/noise.txt'}
+-- flist = {'imgLst_square224_val01_white_bg_val_bacte.txt'}
+-- createDB_val(flist, 'out_imgLst_square224_val01_bacte_val.txt', 'out_imgLst_square224_val01_bacte_val_dummy.txt', 'db_square224_val01_bacte_val.t7', false, 10)
