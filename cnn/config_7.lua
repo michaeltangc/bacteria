@@ -32,6 +32,9 @@ local cfg = {
 
     -----Training
 
+    -- Batcher mode: 0 - on-demand loading, 1 - preload
+    batcher_mode = 1, 
+
     -- SGD parameters
     learning_rate = 1e-3,
     weight_decay = 0.0005,

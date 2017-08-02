@@ -13,7 +13,7 @@ function train(cfg, files)
     if not training_stats then
         training_stats = {loss={}}
     end
-    local batcher = Batcher.new(training_set, cfg.batch_size, cfg.number_of_channel, cfg.image_height, cfg.image_width)
+    local batcher = Batcher.new(cfg.batcher_mode, training_set, cfg.batch_size, cfg.number_of_channel, cfg.image_height, cfg.image_width)
 
     local feval = function(params)
         gradient:zero()
