@@ -1,16 +1,16 @@
 require 'cunn'
 require 'gnuplot'
 
-function load_model(cfg, files, model_blueprint_path, trained_model_path)
-    local model_factory = dofile(model_blueprint_path)
-    local model, criterion = model_factory(cfg, files)
+function load_model(cfg, opt, model_path, network_filename)
+    local model_factory = dofile(model_path)
+    local model = model_factory(cfg, opt)
     model:cuda()
 
     local training_stats
     local weights, gradient
-    if trained_model_path and #trained_model_path ~= 0 then
-        print('Model restored from ' .. trained_model_path)
-        local restored = load_obj(trained_model_path)
+    if network_filename and #network_filename ~= 0 then
+        print('Model restored from ' .. network_filename)
+        local restored = load_obj(network_filename)
         trianing_stats = restored.stats
         weights, gradient = model:parameters()
         weights = nn.Module.flatten(weights)
@@ -30,7 +30,7 @@ function load_model(cfg, files, model_blueprint_path, trained_model_path)
         gradient = nn.Module.flatten(gradient)
     end
 
-    return model, criterion, weights, gradient, training_stats
+    return model, weights, gradient, training_stats
 end
 
 function load_obj(fname)

@@ -1,44 +1,41 @@
-local function create_model(cfg, files)
+local function create_model(cfg, opt)
     local name = 'conv7pool7'
 
-    local criterion = nn.ClassNLLCriterion():cuda()
-
     local net = nn.Sequential()
-
     -- spatial conv: (nInputPlane, nOutputPlane, kW, kH, stride, stride, padW, padH)
     local conv1 = nn.SpatialConvolution(3,64, 3,3, 1,1, 1,1)
     conv1.name = 'conv1'
     net:add(conv1)
     net:add(nn.ReLU())
-    net:add(nn.SpatialBatchNormalization(64, cfg.eps))
+    net:add(nn.SpatialBatchNormalization(64, opt.eps))
     net:add(nn.SpatialMaxPooling(2,2, 2,2, 1,1):ceil())
 
     local conv2 = nn.SpatialConvolution(64,64, 3,3, 1,1, 1,1)
     conv2.name = 'conv2'
     net:add(conv2)
     net:add(nn.ReLU())
-    net:add(nn.SpatialBatchNormalization(64, cfg.eps))
+    net:add(nn.SpatialBatchNormalization(64, opt.eps))
     net:add(nn.SpatialMaxPooling(2,2, 2,2, 1,1):ceil())
     
     local conv3 = nn.SpatialConvolution(64,128, 3,3, 1,1, 1,1)
     conv3.name = 'conv3'
     net:add(conv3)
     net:add(nn.ReLU())
-    net:add(nn.SpatialBatchNormalization(128, cfg.eps))
+    net:add(nn.SpatialBatchNormalization(128, opt.eps))
     net:add(nn.SpatialMaxPooling(2,2, 2,2, 1,1):ceil())
 
     local conv4 = nn.SpatialConvolution(128,128, 3,3, 1,1, 1,1)
     conv4.name = 'conv4'
     net:add(conv4)
     net:add(nn.ReLU())
-    net:add(nn.SpatialBatchNormalization(128, cfg.eps))
+    net:add(nn.SpatialBatchNormalization(128, opt.eps))
     net:add(nn.SpatialMaxPooling(2,2, 2,2, 1,1):ceil())
 
     local conv5 = nn.SpatialConvolution(128,256, 3,3, 1,1, 1,1)
     conv5.name = 'conv5'
     net:add(conv5)
     net:add(nn.ReLU())
-    net:add(nn.SpatialBatchNormalization(256, cfg.eps))
+    net:add(nn.SpatialBatchNormalization(256, opt.eps))
     net:add(nn.SpatialMaxPooling(2,2, 2,2, 1,1):ceil())
 
     local conv6 = nn.SpatialConvolution(256,256, 3,3, 1,1, 1,1)
@@ -52,7 +49,7 @@ local function create_model(cfg, files)
     conv7.name = 'conv7'
     net:add(conv7)
     net:add(nn.ReLU())
-    net:add(nn.SpatialBatchNormalization(256, cfg.eps))
+    net:add(nn.SpatialBatchNormalization(256, opt.eps))
     net:add(nn.SpatialMaxPooling(2,2, 2,2, 1,1):ceil())
 
 
@@ -73,7 +70,7 @@ local function create_model(cfg, files)
     fc3.name = 'fc3'
     net:add(fc3)
     net:add(nn.LogSoftMax())
-    return net, criterion
+    return net
 end
 
 return create_model

@@ -5,6 +5,7 @@ local function create_model(cfg, files)
 
     local net = nn.Sequential()
 
+
     -- spatial conv: (nInputPlane, nOutputPlane, kW, kH, stride, stride, padW, padH)
     local conv1 = nn.SpatialConvolution(3,64, 3,3, 1,1, 1,1)
     conv1.name = 'conv1'

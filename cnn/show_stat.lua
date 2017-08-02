@@ -3,11 +3,16 @@
 
 require 'util'
 
-local cfg, opt = dofile('config.lua')
-dir = '' -- the directory where your model is placed; ALWAYS add a trailing '/'
-restored = dir .. '' -- filename of your model (*.t7)
-model_factory = '' -- filename of your model factory file, e.g. model_*.lua
-_, _, _, training_stats = load_model(cfg, opt, model_factory, restored)
+if #arg < 3 then
+    print("Please specify the configuration file, the model blueprint, the trained model as command line arguments")
+    os.exit()
+end
+
+local cfg, files = dofile(arg[1])
+-- dir = '' -- the directory where your model is placed; ALWAYS add a trailing '/'
+-- restored = dir .. '' -- filename of your model (*.t7)
+-- model_factory = '' -- filename of your model factory file, e.g. model_*.lua
+_, _, _, training_stats = load_model(cfg, opt, arg[2], arg[3])
 
 local avg_stats = {}
 step = 10

@@ -47,7 +47,7 @@ function Batcher:_processBatchByIndexes(image_indexes)
         end
         
         -- Subtract mean
-        for c = 1,number_of_channel do
+        for c = 1,3 do
             loaded_image[c] = loaded_image[c]:add(-loaded_image[c]:mean())
         end
         data[{{i*4-3},{},{},{}}] = loaded_image
