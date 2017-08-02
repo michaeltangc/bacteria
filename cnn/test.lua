@@ -28,7 +28,7 @@ function evaluate_model(cfg, files, model, evaluation_dataset, eval_result_detai
 
     model:evaluate()
     for i=1, image_count do
-        local input = procInput(evaluation_dataset.image_paths[i]):cuda()
+        local input = procInput(evaluation_dataset.image_paths[i], cfg):cuda()
         local outputs = model:forward(input:reshape(1,cfg.number_of_channel,input:size(2), input:size(3)))
         local _, class = torch.max(outputs, 2)
         class = class[1][1]
@@ -40,7 +40,7 @@ function evaluate_model(cfg, files, model, evaluation_dataset, eval_result_detai
         if fout then
 
             local classes_predictions_text = tostring(outputs[1][1])
-            for i, cfg.number_of_channel - 1 do
+            for i = 1, cfg.number_of_channel - 1 do
                 classes_predictions_text = classes_predictions_text .. ' / ' .. tostring(outputs[1][i + 1])
             end
             if labels then
@@ -82,15 +82,15 @@ function evaluate_model(cfg, files, model, evaluation_dataset, eval_result_detai
     return
 end
 
-function procInput(fname)
+function procInput(fname, cfg)
     local loaded_image = image.load(fname)
 
-    if loaded_image:size(2) ~= self._image_height or loaded_image:size(3) ~= self._image_width then
-        loaded_image = image.scale(loaded_image, self._image_width, self._image_height)
+    if loaded_image:size(2) ~= cfg.image_height or loaded_image:size(3) ~= cfg.image_width then
+        loaded_image = image.scale(loaded_image, cfg.image_width, cfg.image_height)
     end
     
     -- Subtract mean
-    for c = 1,number_of_channel do
+    for c = 1,cfg.number_of_channel do
         loaded_image[c] = loaded_image[c]:add(-loaded_image[c]:mean())
     end
     return loaded_image
@@ -118,9 +118,9 @@ cutorch.setDevice(cfg.gpuid+1)
 
 evaluation_mode = 0
 if arg[2] == 'val' then
-    mode = 1
+    evaluation_mode = 1
 elseif arg[2] == 'train' then
-    mode = 0
+    evaluation_mode = 0
 end
 
 if not paths.dirp(files.evaluation_result_output_dir) then
@@ -129,7 +129,7 @@ end
 
 if evaluation_mode == 0 or evaluation_mode == 1 then
     -- Accuracy on training or validation data
-    local evaluation_dataset_path = cfg.dataset
+    local evaluation_dataset_path = files.dataset
     local evaluation_dataset
 
     if files.enumerate_models then
@@ -151,7 +151,7 @@ if evaluation_mode == 0 or evaluation_mode == 1 then
                 end
                 local eval_result_out_path = files.evaluation_result_output_dir .. string.format('result_overview_%s.txt', suffix) 
                 local eval_result_detail_out_path = files.evaluation_result_output_dir .. string.format('result_detail_%s.txt', suffix) 
-                test(cfg, files, model, evaluation_dataset, eval_result_detail_out_path, eval_result_out_path)
+                evaluate_model(cfg, files, model, evaluation_dataset, eval_result_detail_out_path, eval_result_out_path)
             end
         end
 
@@ -170,7 +170,7 @@ if evaluation_mode == 0 or evaluation_mode == 1 then
 
         local eval_result_out_path = files.evaluation_result_output_dir .. string.format('result_overview_%s.txt', suffix)
         local eval_result_detail_out_path = files.evaluation_result_output_dir .. string.format('result_detail_%s.txt', suffix)
-        test(cfg, files, model, evaluation_dataset, eval_result_detail_out_path, eval_result_out_path)
+        evaluate_model(cfg, files, model, evaluation_dataset, eval_result_detail_out_path, eval_result_out_path)
     end
 
 else
@@ -183,7 +183,7 @@ else
     local suffix = 'test'
     local eval_result_out_path = files.evaluation_result_output_dir .. string.format('result_overview_%s.txt', suffix)
     local eval_result_detail_out_path = files.evaluation_result_output_dir .. string.format('result_detail_%s.txt', suffix)
-    test(cfg, files, model, evaluation_dataset, eval_result_detail_out_path, eval_result_out_path)
+    evaluate_model(cfg, files, model, evaluation_dataset, eval_result_detail_out_path, eval_result_out_path)
 
     -- for i=1,31 do
     --     local evaluation_dataset = string.format('/home/bingbin/bacteria/data/test/pass2_only/testDB/5_900%02d.t7', i)

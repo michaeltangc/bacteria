@@ -13,7 +13,7 @@ function train(cfg, files)
     if not training_stats then
         training_stats = {loss={}}
     end
-    local batcher = Batcher.new(dataTrain, cfg.batch_size, cfg.number_of_channel, cfg.image_height, cfg.image_width)
+    local batcher = Batcher.new(training_set, cfg.batch_size, cfg.number_of_channel, cfg.image_height, cfg.image_width)
 
     local feval = function(params)
         gradient:zero()
@@ -44,9 +44,9 @@ function train(cfg, files)
         print(string.format('%d: loss: %f', i, loss[1]))
 
         if i % cfg.plot == 0 then
-            print('Avg time: ' .. (os.clock()-iter_time)/opt.plot)
+            print('Avg time: ' .. (os.clock()-iter_time) / cfg.plot)
             iter_time = os.clock()
-            plot_stat(snapshot_prefix, training_stats)
+            plot_stat(files.snapshot_path_prefix, training_stats)
         end
         if i % cfg.snapshot == 0 then
             local bnVars = {}
@@ -54,11 +54,11 @@ function train(cfg, files)
             for i=1, #bnLayers do
                 bnVars[i] = {running_mean=bnLayers[i].running_mean, running_var=bnLayers[i].running_var}
             end
-            save_obj(string.format('%s_%06d.t7', files.snapshot_prefix, i), {weights=weights, bnVars=bnVars, options=options, stats=training_stats})
+            save_obj(string.format('%s_%06d.t7', files.snapshot_path_prefix, i), {weights=weights, bnVars=bnVars, options=options, stats=training_stats})
         end
     end
     -- Save final model
-    save_obj(files.snapshot_prefix .. '.t7', {weights=weights, options=opt, stats=training_stats})
+    save_obj(files.snapshot_path_prefix .. '.t7', {weights=weights, options=opt, stats=training_stats})
  
 end
 

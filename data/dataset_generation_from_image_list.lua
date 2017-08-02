@@ -32,10 +32,10 @@ function generate_dataset_from_image_list_with_holdout_validation(image_lists, o
             if training_count / full_count > training_proportion then
                 -- add to validation set
                 table.insert(table_validation.image_paths, PATH_PREFIX .. line:split(SEPARATOR)[1])
-                table.insert(table_validation.labels, line:split(' ')[2])
+                table.insert(table_validation.labels, line:split(SEPARATOR)[2])
             else
                 table.insert(table_training.image_paths, PATH_PREFIX .. line:split(SEPARATOR)[1])
-                table.insert(table_training.labels, line:split(' ')[2])
+                table.insert(table_training.labels, line:split(SEPARATOR)[2])
                 training_count = training_count + 1
             end
         end
