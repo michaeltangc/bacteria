@@ -13,9 +13,20 @@ function evaluate_model(cfg, files, model, evaluation_dataset, eval_result_detai
 
     local image_count = table.getn(evaluation_dataset.image_paths)
     local labels, predicts = nil, nil
+    local label_comparison_enabled = false
+
     if evaluation_dataset.labels then
+        label_comparison_enabled = true
         labels = evaluation_dataset.labels
         predicts = torch.Tensor(image_count,1):zero()
+        -- cross tabulation: first index (i) = real label, second index = prediction from model
+        class_cross_table = torch.Tensor(cfg.class_count, cfg.class_count):zero()
+        -- for i = 1,cfg.class_count do
+        --     class_cross_table[i] = {}
+        --     for j = 1,cfg.class_count do
+        --         class_cross_table[i][j] = 0
+        --     end
+        -- end
     end
 
     local cnt = {}
@@ -32,10 +43,12 @@ function evaluate_model(cfg, files, model, evaluation_dataset, eval_result_detai
         local outputs = model:forward(input:reshape(1,cfg.number_of_channel,input:size(2), input:size(3)))
         local _, class = torch.max(outputs, 2)
         class = class[1][1]
-        if predicts then
-            predicts[i] = class
-        end        
 
+        if label_comparison_enabled then
+            predicts[i] = class
+            class_cross_table[labels[i]][predicts[i]] = class_cross_table[labels[i]][predicts[i]] + 1
+        end        
+        cnt[class] = cnt[class] + 1
 
         if fout then
 
@@ -43,14 +56,13 @@ function evaluate_model(cfg, files, model, evaluation_dataset, eval_result_detai
             for i = 1, cfg.number_of_channel - 1 do
                 classes_predictions_text = classes_predictions_text .. ' / ' .. tostring(outputs[1][i + 1])
             end
-            if labels then
-
+            if not labels == nil then
                 fout:write(evaluation_dataset.image_paths[i] .. string.format(': %d (label: %d) (output (classes): ' .. classes_predictions_text .. ') (input:mean(): %f) \n', class, labels[i], input:mean()))
             else
                 fout:write(evaluation_dataset.image_paths[i] .. string.format(': %d (output: ' .. classes_predictions_text .. ') (input:mean(): %f) \n', class, input:mean()))
             end
         end
-        cnt[class] = cnt[class] + 1
+        
     end
     if fout then
         fout:close();
@@ -73,9 +85,25 @@ function evaluate_model(cfg, files, model, evaluation_dataset, eval_result_detai
         if cfg.is_class then
             fout:write(string.format('\nLacto cnt: %d (%d) / Gardner cnt: %d (%d) / Bacte cnt: %d (%d)\n Total score: %d / Result: %s\n', cnt[1], score[1], cnt[2], score[2], cnt[3], score[3], score[4], result))
         end
-        if predicts then
+        ----------------------------------------------------
+        if label_comparison_enabled then
             local accuracy = torch.sum(torch.eq(torch.Tensor(labels), predicts)) / image_count
             fout:write(string.format('Accuracy: %f\n', accuracy))
+
+
+            fout:write('Cross-tabulation (rows [y-axis]: real labels, columns [x-axis]: predictions, probability: P(Predict = X | Label = Y)) \n')
+            local row_sums = tensor.sum(class_cross_table, 2)
+            for j = 1,cfg.class_count do
+                fout:write(string.format('%15s', string.format('Class %d', j))
+            end
+            for i = 1,cfg.class_count do
+                fout:write(string.format('%15s', string.format('Class %d', i))
+                
+                for j = 1,cfg.class_count do
+                    fout:write(string.format('%15s' , string.format('%.3f%% %d', class_cross_table[i][j] / row_sum[i][1] * 100, class_cross_table[i][j]))
+                end
+                fout:write('\n')
+            end
         end
         fout:close()
     end

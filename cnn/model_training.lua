@@ -59,7 +59,7 @@ function train(cfg, files)
     end
     -- Save final model
     save_obj(files.snapshot_path_prefix .. '.t7', {weights=weights, options=opt, stats=training_stats})
- 
+    print("Training Complete")
 end
 
 if #arg < 1 then

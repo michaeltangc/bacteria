@@ -46,7 +46,7 @@ local function create_model(cfg, files)
     conv6.name = 'conv6'
     net:add(conv6)
     net:add(nn.ReLU())
-    net:add(nn.SpatialBatchNormalization(256, opt.eps))
+    net:add(nn.SpatialBatchNormalization(256, cfg.eps))
     net:add(nn.SpatialMaxPooling(2,2, 2,2, 1,1):ceil())
 
     local conv7 = nn.SpatialConvolution(256,256, 3,3, 1,1, 1,1)

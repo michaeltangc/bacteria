@@ -92,11 +92,7 @@ function Batcher:_processBatchByIndexes(image_indexes)
     elseif self._mode == 1 then
         for i = 1, image_batch_count do
             self._data_cache[{{i*4-3, i*4},{},{},{}}] = self._image_preload[{{image_indexes[i]*4-3, image_indexes[i]*4},{},{},{}}]
-            -- self._data_cache[{{i*4-2},{},{},{}}] = self._image_preload[image_indexes[i]*4-2]
-            -- self._data_cache[{{i*4-1},{},{},{}}] = self._image_preload[image_indexes[i]*4-1]
-            -- self._data_cache[{{i*4},  {},{},{}}] = self._image_preload[image_indexes[i]*4]
             self._labels_cache[{{i*4-3, i*4}}] = self._labels[image_indexes[i]]
-            -- print('label #' .. i .. ': ' .. self._labels[image_indexes[i]])
         end
      
         return self._data_cache, self._labels_cache
