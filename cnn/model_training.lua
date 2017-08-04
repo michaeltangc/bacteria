@@ -63,7 +63,7 @@ function train(cfg, files)
 end
 
 if #arg < 1 then
-    print("Please specify the configuration file as a command line argument")
+    print("Usage: th xxx.lua <configuration_file_path> \n e.g. th xxx.lua config.lua")
     os.exit()
 end
 

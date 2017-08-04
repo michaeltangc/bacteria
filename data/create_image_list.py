@@ -34,7 +34,7 @@ def create_image_list_with_parent_directory_and_depth(parent_directory, depth = 
 
 
 if len(sys.argv) < 2:
-    print('Please specify the parent directory')
+    print("Usage: th xxx.lua <path_of_parent_directory_of_data> <recursive_depth> \n e.g. th xxx.lua raw/all_images/ 1")
     sys.exit()
 elif len(sys.argv) < 3:
     create_image_list_with_parent_directory_and_depth(sys.argv[1])

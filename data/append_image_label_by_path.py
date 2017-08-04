@@ -72,6 +72,7 @@ def get_mapping(target, mapping_list, mode = 1):
 
 
 if len(sys.argv) < 3:
+    print("Usage: th xxx.lua <target_file_path> <reverse_mapping_depth> \n e.g. th xxx.lua image_lists/list.txt 1")
     print('Please specify the target file and the mapping depth')
     sys.exit()
 else:

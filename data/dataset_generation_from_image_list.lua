@@ -53,7 +53,8 @@ function generate_dataset_from_image_list_with_holdout_validation(image_lists, o
 end
 
 if #arg < 3 then
-    print("Usage: th xxx.lua <output_dataset_name> <training_proportion> <image_list> ...")
+    print("Usage: th xxx.lua <output_dataset_name> <training_proportion> <image_list_path> ... \n e.g. th xxx.lua ds.t7 0.5 image_lists/list.txt")
+
     os.exit()
 end
 
