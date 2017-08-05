@@ -21,7 +21,7 @@ function evaluate_models_with_path(cfg, files, model_path_list, evaluation_datas
         image_preload[i] = procInput(evaluation_dataset.image_paths[i], cfg)
     end
 
-    if evaluation_dataset.labels then
+    if evaluation_dataset.labels and (not #evaluation_dataset.labels == 0) then
         label_comparison_enabled = true
         labels = evaluation_dataset.labels
         predicts = {}
@@ -48,7 +48,12 @@ function evaluate_models_with_path(cfg, files, model_path_list, evaluation_datas
         local model_id = model_path_list[m]:sub(model_path_list[m]:find("/[^/]*$")+1, model_path_list[m]:find("%.[^%.]*$")-1) -- Last occurence of / and .
         local eval_result_overview_out_path = files.evaluation_result_output_dir .. string.format('result_overview_%s.txt', suffix .. model_id) 
         local eval_result_detail_out_path = files.evaluation_result_output_dir .. string.format('result_detail_%s.txt', suffix .. model_id) 
-        local fout = io.open(eval_result_detail_out_path, 'w')
+        
+        local fout
+        if cfg.detail_output_enabled then
+            fout = io.open(eval_result_detail_out_path, 'w')
+        end
+        
         local out_string = ''
 
         model:evaluate()
@@ -67,10 +72,12 @@ function evaluate_models_with_path(cfg, files, model_path_list, evaluation_datas
             if fout then
 
                 local classes_predictions_text = tostring(outputs[1][1])
+
                 for i = 1, cfg.number_of_channel - 1 do
                     classes_predictions_text = classes_predictions_text .. ' / ' .. tostring(outputs[1][i + 1])
                 end
-                if not labels == nil then
+
+                if label_comparison_enabled then
                     fout:write(evaluation_dataset.image_paths[i] .. string.format(': %d (label: %d) (output (classes): ' .. classes_predictions_text .. ') (input:mean(): %f) \n', class, labels[i], input:mean()))
                 else
                     fout:write(evaluation_dataset.image_paths[i] .. string.format(': %d (output: ' .. classes_predictions_text .. ') (input:mean(): %f) \n', class, input:mean()))
@@ -85,42 +92,51 @@ function evaluate_models_with_path(cfg, files, model_path_list, evaluation_datas
         
         local score, result = high_level_interpretation(cnt)
 
+
         -- Format: lacto cnt + lacto score + gardner cnt + gardner score + others cnt + other score + total score + result
-        if fout then
 
-            ---------- Obsolete: Potential problem -------------
-            if cfg.is_class then
-                out_string = out_string .. string.format('\nLacto cnt: %d (%d) / Gardner cnt: %d (%d) / Bacte cnt: %d (%d)\n Total score: %d / Result: %s\n', cnt[1], score[1], cnt[2], score[2], cnt[3], score[3], score[4], result)
+        ---------- Obsolete: Potential problem -------------
+        if cfg.is_class then
+            out_string = out_string .. string.format('\nLacto cnt: %d (%d) / Gardner cnt: %d (%d) / Bacte cnt: %d (%d)\n Total score: %d / Result: %s\n', cnt[1], score[1], cnt[2], score[2], cnt[3], score[3], score[4], result)
+        end
+        ----------------------------------------------------
+        if label_comparison_enabled then
+            local accuracy = torch.sum(torch.eq(torch.Tensor(labels), predicts[m])) / image_count
+
+            out_string = out_string .. string.format('Accuracy: %f\n', accuracy)
+            
+            out_string = out_string .. 'Cross-tabulation (rows [y-axis]: real labels, columns [x-axis]: predictions, probability: P(Predict = X | Label = Y)) \n'
+            local row_sums = torch.sum(class_cross_table[m], 2)
+            out_string = out_string .. string.format('%16s', '')
+            for j = 1,cfg.class_count do
+                out_string = out_string .. string.format('%16s', string.format('Class %d', j))
             end
-            ----------------------------------------------------
-            if label_comparison_enabled then
-                local accuracy = torch.sum(torch.eq(torch.Tensor(labels), predicts[m])) / image_count
-
-                out_string = out_string .. string.format('Accuracy: %f\n', accuracy)
+            out_string = out_string .. ('\n')
+            for i = 1,cfg.class_count do
+                out_string = out_string .. (string.format('%16s', string.format('Class %d', i)))
                 
-                out_string = out_string .. 'Cross-tabulation (rows [y-axis]: real labels, columns [x-axis]: predictions, probability: P(Predict = X | Label = Y)) \n'
-                local row_sums = torch.sum(class_cross_table[m], 2)
-                out_string = out_string .. string.format('%16s', '')
                 for j = 1,cfg.class_count do
-                    out_string = out_string .. string.format('%16s', string.format('Class %d', j))
+                    out_string = out_string .. (string.format('%8s', string.format('%d ', class_cross_table[m][i][j])))
+                    out_string = out_string .. (string.format('%8s', string.format('%.3f%%', class_cross_table[m][i][j] / row_sums[i][1] * 100)))
                 end
                 out_string = out_string .. ('\n')
-                for i = 1,cfg.class_count do
-                    out_string = out_string .. (string.format('%16s', string.format('Class %d', i)))
-                    
-                    for j = 1,cfg.class_count do
-                        out_string = out_string .. (string.format('%8s', string.format('%d ', class_cross_table[m][i][j])))
-                        out_string = out_string .. (string.format('%8s', string.format('%.3f%%', class_cross_table[m][i][j] / row_sums[i][1] * 100)))
-                    end
-                    out_string = out_string .. ('\n')
-                end
             end
+        end
+
+        if cfg.separate_overview_result_enabled then
             fout = io.open(eval_result_overview_out_path, 'w')
             fout:write(out_string)
-            file_summary_out:write(out_string .. '\n ------------ \n')
             fout:close()
             print('Written to ' .. eval_result_overview_out_path)
         end
+        
+        if file_summary_out then
+            file_summary_out:write(out_string .. '\n ------------ \n')
+        end
+    end
+
+    if file_summary_out then
+        file_summary_out:close()
     end
     return
 end
@@ -161,50 +177,68 @@ cutorch.setDevice(cfg.gpuid+1)
 -- end
 
 evaluation_mode = 0
-if arg[2] == 'val' then
-    evaluation_mode = 1
-elseif arg[2] == 'train' then
+if arg[2] == 'traine' then
     evaluation_mode = 0
+elseif arg[2] == 'val' then
+    evaluation_mode = 1
+elseif arg[2] == 'test' then
+    evaluation_mode = 2
 end
 
 if not paths.dirp(files.evaluation_result_output_dir) then
     lfs.mkdir(files.evaluation_result_output_dir)
 end
 
-if evaluation_mode == 0 or evaluation_mode == 1 then
+if evaluation_mode == 0 or evaluation_mode == 1 or evaluation_mode == 2 then
+    local evaluation_dataset_paths
+    local result_file_suffix = ''
+
+    if evaluation_mode == 0 then
+        result_file_suffix = 'train_'
+        evaluation_dataset_paths = {files.dataset}
+    elseif evaluation_mode == 1 then
+        result_file_suffix = 'val_'
+        evaluation_dataset_paths = {files.dataset}
+    elseif evaluation_mode == 2 then
+        result_file_suffix = 'test_'
+        evaluation_dataset_paths = files.testing_dataset_paths
+    end
+
+    for ds_idx = 1, #evaluation_dataset_paths do
+
+        if evaluation_mode == 0 then
+            evaluation_dataset = load_obj(evaluation_dataset_paths[ds_idx]).training_set
+
+        elseif evaluation_mode == 1 or evaluation_mode == 2 then
+            evaluation_dataset = load_obj(evaluation_dataset_paths[ds_idx]).validation_set
+        end
+        
+
+        if files.enumerate_models then
+            -- Enumerate all models in opt.model_dir
+            local list_of_files = paths.dir(files.model_dir)
+            local i = 1
+            for k, f in sorted_pairs(list_of_files, function(t,a,b) return t[b] > t[a] end) do
+                if f:find('t7') and f:find('_') then
+                    sorted_list_of_model_paths[i] = files.model_dir .. f
+                    i = i + 1
+                end
+            end
+
+            evaluate_models_with_path(cfg, files, sorted_list_of_model_paths, evaluation_dataset, result_file_suffix)
+
+        else
+            -- Use only the model specified by opt.restore_rest
+            sorted_list_of_model_paths[1] = files.model_dir .. files.model_to_be_evaluated
+
+            evaluate_models_with_path(cfg, files, sorted_list_of_model_paths, evaluation_dataset, result_file_suffix)
+        end
+    end
     -- Accuracy on training or validation data
     local sorted_list_of_model_paths = {}
-    local evaluation_dataset_path = files.dataset
-    local evaluation_dataset
+    
 
-    local result_file_suffix = ''
-    if evaluation_mode == 0 then
-        suffix = 'train_'
-        evaluation_dataset = load_obj(evaluation_dataset_path).training_set
-    else
-        suffix = 'val_'
-        evaluation_dataset = load_obj(evaluation_dataset_path).validation_set
-    end
 
-    if files.enumerate_models then
-        -- Enumerate all models in opt.model_dir
-        local list_of_files = paths.dir(files.model_dir)
-        local i = 1
-        for k, f in sorted_pairs(list_of_files, function(t,a,b) return t[b] > t[a] end) do
-            if f:find('t7') and f:find('_') then
-                sorted_list_of_model_paths[i] = files.model_dir .. f
-                i = i + 1
-            end
-        end
-
-        evaluate_models_with_path(cfg, files, sorted_list_of_model_paths, evaluation_dataset, result_file_suffix)
-
-    else
-        -- Use only the model specified by opt.restore_rest
-        sorted_list_of_model_paths[1] = files.model_dir .. files.model_to_be_evaluated
-
-        evaluate_models_with_path(cfg, files, sorted_list_of_model_paths, evaluation_dataset, result_file_suffix)
-    end
 
 else
     -- Accuracy on testing data

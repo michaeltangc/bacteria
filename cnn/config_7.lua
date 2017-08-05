@@ -11,9 +11,11 @@ local files = {
     model_dir = 'trained_models/c7p7_class/', -- Note: always add a trailing '/'
     model_to_be_evaluated = 'conv7pool7_060000.t7', -- won't be used if enumerate_model == true,
     enumerate_models = true,
+    detail_result_enabled = false,
+    separate_overview_result_enabled = false,
     evaluation_result_output_dir = 'evaluation_results/', -- Note: always add a trailing '/'
     -- Testing specific
-    testing_dataset = '/home/bingbin/bacteria/data/test/pass2_only/testDB/5_90001.t7'
+    testing_dataset_paths = {'/home/bingbin/bacteria/data/test/pass2_only/testDB/5_90001.t7'}
 }
 
 

@@ -1,0 +1,4 @@
+# Testing Dataset generataion:
+python3 create_image_list.py processed/test/pass2_only/ 1 
+
+th dataset_generation_from_image_list.lua temporary_ds_20170806_ 1 image_lists/5_90001img_list.txt ....
